@@ -1,4 +1,3 @@
-<script>
 let inputElement = document.querySelector("input")
 let listElement = document.querySelector("ul")
 let itemElement = listElement.querySelectorAll("li")
@@ -14,9 +13,7 @@ inputElement.addEventListener("input", (e) => {
     }
   })
 })
-</script>
 
-<script>
 let slideIndex = 0;
 showSlides();
 
@@ -36,4 +33,3 @@ function showSlides() {
   dots[slideIndex-1].className += " active";
   setTimeout(showSlides, 5000); 
 }
-</script>
