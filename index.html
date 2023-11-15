@@ -16,6 +16,9 @@
   padding: 6px;
   box-sizing: border-box;
 }
+.carrinho {
+  margin-top:50px;
+}
 .produtos {
    max-width: 120px;
 }
@@ -28,9 +31,10 @@ select {
   border: none;
   color: #ffffff;
 }
-@media (max-width: 500px){
-  a {
-    //display: none;
+@media (max-width: 800px){
+  .carrinho {
+    width: 100px;
+    margin-top: 0;
   }
   select {
     display: none;
@@ -94,7 +98,7 @@ select {
       </div>
       <div class="col-1"></div>
       <div class="col-1">
-      <img class="carrinho mt-5" src="carrinho.png" srcset="carrinho.png 2x" alt="carrinho">
+      <img class="carrinho" src="https://jgloot.github.io/jgloot/carrinho.png" srcset="https://jgloot.github.io/jgloot/carrinho.png 2x" alt="carrinho">
       </div>
       <div class="propaganda mt-4 col-2">
          <h1>Lancia</h1>
@@ -208,8 +212,6 @@ function showSlides() {
   setTimeout(showSlides, 5000); 
 }
 </script>
-
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
 </html>
