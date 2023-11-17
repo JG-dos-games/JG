@@ -45,20 +45,46 @@ select {
   border: none;
   color: #ffffff;
 }
+.menuicon {
+  display: none;
+}
 @media (max-width: 800px){
+  body {
+     padding-top: 60px;
+  }
+  .fundo { 
+   height: 60px;
+  }
+  .logo {
+    max-width: 60px;
+  }
+  .inputmenu {
+    height: 30px;
+    margin-bottom: 1px;
+  }
+  .op {
+   display: none;
+  }
   .carrinho {
-    width: 100px;
-    margin-top: 40px;
+    width: 50px;
+    margin-top: 17px;
   }
   .quanticar{
-    margin-top: 50px;
-    margin-left: 65px;
+    margin-top: 17px;
+    margin-left: 35px;
+  }
+  .menuicon {
+    display: block;
+    width: 40px;
+    margin-left: 45px;
+    margin-top: 11px;
+    
   }
   select {
     display: none;
   }
   .propaganda {
-    display: none
+    display: none;
   }
 }
 .dot {
@@ -103,9 +129,9 @@ select {
       <div class="col-5">
         <input class="form-control inputmenu" placeholder="Buscar produtos..." type="text">
         <nav class="navbar opcoes">
-          <a href="https://wa.me/5593992244987" style="text-decoration:none; color: #ffffff">Contato</a> 
-          <a href="https://www.instagram.com/_jgloot_/" style="text-decoration:none; color: #ffffff">Intagram</a>
-          <a href="https://www.tiktok.com/@_jgloot_" style="text-decoration:none; color: #ffffff">TikTok</a>
+          <a class="op" href="https://wa.me/5593992244987" style="text-decoration:none; color: #ffffff">Contato</a> 
+          <a class="op" href="https://www.instagram.com/_jgloot_/" style="text-decoration:none; color: #ffffff">Intagram</a>
+          <a class="op" href="https://www.tiktok.com/@_jgloot_" style="text-decoration:none; color: #ffffff">TikTok</a>
           <select class="w-25" style="padding-left: 15px" name="select">
           <option hidden class="text-white" value= 0 >Categorias</option>
           <option class="text-danger p-5" style="font-size: 15px" value="valor0">Tudo</option>
@@ -117,9 +143,12 @@ select {
           </select>
         </nav>
       </div>
-      <div class="col-2">
+      <div class="col-1">
       <p class="quanticar">0</p>
       <img class="carrinho" src="carrinho.png" srcset="carrinho.png 2x" alt="carrinho">
+      </div>
+      <div class="col-1">
+      <img class="menuicon" src="https://i.pinimg.com/originals/26/9d/d1/269dd16fa1f5ff51accd09e7e1602267.png" srcset="https://i.pinimg.com/originals/26/9d/d1/269dd16fa1f5ff51accd09e7e1602267.png 2x" alt="carrinho">
       </div>
       <div class="propaganda mt-4 col-2">
          <h1>Lancia</h1>
