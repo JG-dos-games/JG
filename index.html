@@ -9,8 +9,8 @@ padding-top: 100px;
 .fundo { 
    background-color: #b81414;
    position: fixed;
-   top: 0;
    width: 100%;
+   top:0;
    height: 100px;
 }
 .logo {
@@ -48,37 +48,73 @@ select {
 .menuicon {
   display: none;
 }
-@media (max-width: 800px){
+@media (min-width: 420px) and (max-width: 800px){
   body {
-     padding-top: 60px;
+  padding-top: 0;
   }
   .fundo { 
-   height: 60px;
+   height: 70px;
+   margin-left: 5%
   }
   .logo {
-    max-width: 60px;
+    max-width: 70px;
   }
   .inputmenu {
-    height: 30px;
-    margin-bottom: 1px;
+    height: 40px;
+  }
+  .op {
+   display: none;
+  }
+  .carrinho {
+    width: 60px;
+    margin-top: 20px;
+  }
+  .quanticar{
+    margin-top: 22px;
+    margin-left: 42px;
+  }
+  .menuicon {
+    display: block;
+    width: 40px;
+    position: sticky;
+    top: 17px;
+    float: right;
+    margin-bottom: 30px;
+    background-color: #b81414;
+  }
+  select {
+    display: none;
+  }
+  .propaganda {
+    display: none;
+  }
+}
+@media (max-width: 419px){
+  body {
+  padding-top: 70px;
+  }
+  .fundo { 
+   height: 70px;
+  }
+  .logo {
+    max-width: 70px;
+    margin-left: 30px;
+  }
+  .inputmenu {
+    height: 40px;
+    margin-left: 30px;
   }
   .op {
    display: none;
   }
   .carrinho {
     width: 50px;
-    margin-top: 17px;
+    margin-top: 20px;
+    margin-left: 30px;
   }
   .quanticar{
-    margin-top: 17px;
-    margin-left: 35px;
-  }
-  .menuicon {
-    display: block;
-    width: 40px;
-    margin-left: 45px;
-    margin-top: 11px;
-    
+    margin-top: 19px;
+    margin-left: 60px;
   }
   select {
     display: none;
@@ -143,12 +179,9 @@ select {
           </select>
         </nav>
       </div>
-      <div class="col-1">
+      <div class="col-2">
       <p class="quanticar">0</p>
       <img class="carrinho" src="carrinho.png" srcset="carrinho.png 2x" alt="carrinho">
-      </div>
-      <div class="col-1">
-      <img class="menuicon" src="https://i.pinimg.com/originals/26/9d/d1/269dd16fa1f5ff51accd09e7e1602267.png" srcset="https://i.pinimg.com/originals/26/9d/d1/269dd16fa1f5ff51accd09e7e1602267.png 2x" alt="carrinho">
       </div>
       <div class="propaganda mt-4 col-2">
          <h1>Lancia</h1>
@@ -156,9 +189,9 @@ select {
     </div>
   </div>
 </div>
+<img class="menuicon" src="https://i.pinimg.com/originals/26/9d/d1/269dd16fa1f5ff51accd09e7e1602267.png" srcset="https://i.pinimg.com/originals/26/9d/d1/269dd16fa1f5ff51accd09e7e1602267.png 2x" alt="carrinho">
 
 <div class="slideshow-container">
-
 <div class="mySlides slide">
   <img src="https://i.postimg.cc/wjQzpLnk/1.png" style="width:100%">
 </div>
