@@ -13,15 +13,25 @@ body {padding-top: 102px; background-color: #ebebeb}
 
 .inputmenu {margin-top: 15px; width: 100%; margin-bottom: 10px; padding: 6px;}
 
-.opcoes {font-size: 12px; font-family: Blippo, fantasy;}
+.op {font-size: 12px; font-family: Blippo, fantasy; text-decoration:none; color: #ffffff;}
 
 .carrinho {width: 50px; margin-top:65px; margin-left: 0px; text-align: left}
 
 .quanticar {position: absolute; margin-top: 22px; margin-left: -5%; font-family: Blippo, fantasy; font-size: 15px;}
 
-select {background-color: transparent; border: none; color: #ffffff;}
+select {background-color: transparent; border: none; color: #ffffff; font-family: Blippo, fantasy; font-size: 12px;}
+
+option {font-size: 15px;}
 
 .menuicon {display: none;}
+
+.sidenav { height: 100%; width: 0; position: fixed; z-index: 1; top: 0; right: 0; background-color: #b81414; overflow-x: hidden; padding-top: 40px; transition: 0.5s; border-left: 1px solid white; display: none;}
+
+.sidenav a {padding: 0px 0px 0px 20px; text-decoration: none; font-size: 15px; color: white; display: block; transition: 0.2s; text-align: left;}
+
+.sidenav a:hover {color: grey;}
+
+.sidenav .closebtn {position: absolute; top: 0; right: 0; font-size: 36px;}
 
 
 /*___________________________________________________________________________________________*/
@@ -44,6 +54,8 @@ body {padding-top: 72px;}
 .quanticar{margin-top: -8px; margin-left: -6.3%}
 
 .menuicon {display: block; width: 40px;}
+
+.sidenav {display: block}
 
 .propaganda {display: none;}
 
@@ -78,28 +90,42 @@ to {opacity: 1;}
 <table class="fundo">
   <thead>
   
-     <td><img class="logo" src="logojgloot.png" alt="logo"></td>
+     <td><img class="logo" src="https://jgloot.github.io/jgloot/logojgloot.png" alt="logo"></td>
     
      <td><input class="form-control inputmenu" placeholder="Buscar produtos..." type="text">
          <nav class="navbar opcoes">
-           <a class="op" href="https://wa.me/5593992244987" style="text-decoration:none; color: #ffffff">Contato</a> 
-           <a class="op" href="https://www.instagram.com/_jgloot_/" style="text-decoration:none; color: #ffffff">Intagram</a>
-           <a class="op" href="https://www.tiktok.com/@_jgloot_" style="text-decoration:none; color: #ffffff">TikTok</a>
-           <select class="w-25" style="padding-left: 15px" name="select">
+           <a class="op" href="https://wa.me/5593992244987">Contato</a> 
+           <a class="op" href="https://www.instagram.com/_jgloot_/">Intagram</a>
+           <a class="op" href="https://www.tiktok.com/@_jgloot_">TikTok</a>
+           <select class="w-25" name="select">
              <option hidden class="text-white" value= 0 >Categorias</option>
-             <option class="text-danger p-5" style="font-size: 15px" value="valor0">Tudo</option>
-             <option class="text-danger" style="font-size: 15px" value="valor1">Acessórios</option>
-             <option class="text-danger" style="font-size: 15px" value="valor2">Eletrônicos</option>
-             <option class="text-danger" style="font-size: 15px" value="valor3">Esportes</option>
-             <option class="text-danger" style="font-size: 15px" value="valor4">Ferramentas</option>
-             <option class="text-danger" style="font-size: 15px" value="valor5">Papelaria</option>
+             <option class="text-danger" value="valor0">Tudo</option>
+             <option class="text-danger" value="valor1">Acessórios</option>
+             <option class="text-danger" value="valor2">Eletrônicos</option>
+             <option class="text-danger" value="valor3">Esportes</option>
+             <option class="text-danger" value="valor4">Ferramentas</option>
+             <option class="text-danger" value="valor5">Papelaria</option>
            </select></nav></td>
            
-     <td><img class="carrinho" src="carrinho.png" alt="carrinho"></td>
+     <td><img class="carrinho" src="https://jgloot.github.io/jgloot/carrinho.png" alt="carrinho"></td>
      
      <td><h1 class="quanticar">0</h1></td>
 
-     <td><img class="menuicon" src="menu.png" alt="menu"></td>
+     <td><div id="mySidenav" class="sidenav">
+           <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+           <a href="#">Página Inicial</a>
+           <hr><a href="https://wa.me/5593992244987">Contato</a>
+           <hr><a href="https://www.instagram.com/_jgloot_/">Intagram</a>
+           <hr><a href="https://www.tiktok.com/@_jgloot_">TikTok</a>
+           <hr><a href="#">Categorias:</a>
+           <hr><a href="#">Acessórios</a>
+           <a href="#">Eletônicos</a>
+           <a href="#">Esportes</a>
+           <a href="#">Ferramentas</a>
+           <a href="#">Papelaria</a>
+           <hr>
+         </div>
+         <span onclick="openNav()"><img class="menuicon" src="http://jgloot.github.io/jgloot/menu.png" alt="menu"></span></td>
      
      <td><h1 class="propaganda">Lancia</h1></td>
     
@@ -174,6 +200,15 @@ to {opacity: 1;}
   </div> 
 </ul>
 <script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "30%";
+}
+
+/* Set the width of the side navigation to 0 */
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+
 let inputElement = document.querySelector("input")
 let listElement = document.querySelector("ul")
 let itemElement = listElement.querySelectorAll("li")
