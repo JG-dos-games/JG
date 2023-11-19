@@ -7,7 +7,7 @@
 
 body {padding-top: 102px; background-color: #ebebeb}
 
-.fundo {background-color: #b81414; position: fixed; width: 100%; top:0; height: 100px;}
+.fundo {background-color: #b81414; position: fixed; width: 100%; top:0; height: 100px; text-align: center}
 
 .logo {max-width: 100px;}
 
@@ -15,9 +15,9 @@ body {padding-top: 102px; background-color: #ebebeb}
 
 .opcoes {font-size: 12px; font-family: Blippo, fantasy;}
 
-.carrinho {width: 50px; margin-top:65px; margin-left: 10px;}
+.carrinho {width: 50px; margin-top:65px; margin-left: 0px; text-align: left}
 
-.quanticar {position: absolute; margin-top: 65px; margin-left: 40px;}
+.quanticar {position: absolute; margin-top: 22px; margin-left: -5%; font-family: Blippo, fantasy; font-size: 15px;}
 
 select {background-color: transparent; border: none; color: #ffffff;}
 
@@ -41,7 +41,7 @@ body {padding-top: 72px;}
 
 .carrinho {width: 50px; margin-top: 5px;}
 
-.quanticar{margin-top: 5px; margin-left: 40px;}
+.quanticar{margin-top: -8px; margin-left: -6.3%}
 
 .menuicon {display: block; width: 40px;}
 
@@ -77,8 +77,8 @@ to {opacity: 1;}
    
 <table class="fundo">
   <thead>
-    <th scope="col"><img class="logo" src="https://jgloot.github.io/jgloot/logojgloot.png" alt="logo">
-      </th>
+    <td><img class="logo" src="https://jgloot.github.io/jgloot/logojgloot.png" alt="logo">
+      </td>
       <td>
         <input class="form-control inputmenu" placeholder="Buscar produtos..." type="text">
         <nav class="navbar opcoes">
@@ -96,16 +96,18 @@ to {opacity: 1;}
           </select>
         </nav>
       </td>
-      <th scope="col">
-      <p class="quanticar">0</p>
+      <td>
       <img class="carrinho" src="https://jgloot.github.io/jgloot/carrinho.png" alt="carrinho">
-      </th>
-      <th scope="col">
+      </td>
+      <td>
+      <h1 class="quanticar">0</h1>
+      </td>
+      <td>
       <img class="menuicon" src="https://i.pinimg.com/originals/26/9d/d1/269dd16fa1f5ff51accd09e7e1602267.png" srcset="https://i.pinimg.com/originals/26/9d/d1/269dd16fa1f5ff51accd09e7e1602267.png 2x" alt="carrinho">
-      </th>
-      <th scope="col">
+      </td>
+      <td>
          <h1 class="propaganda">Lancia</h1>
-      </th>
+      </td>
   </thead>
 </table>
 
