@@ -4,10 +4,9 @@
 <head>
 <title>JGLoot</title> <link rel="shortcut icon" type="image/png" href="faviconJG.png"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1"> <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 <style type="text/css">
+body {padding-top: 102px; background-color: #ebebeb;}
 
-body {padding-top: 102px; background-color: #ebebeb}
-
-.fundo {background-color: #b81414; position: fixed; width: 100%; top:0; height: 100px; text-align: center}
+.fundo {background-color: #b81414; position: fixed; width: 100%; top:0; height: 100px; text-align: center;}
 
 .logo {max-width: 100px;}
 
@@ -39,15 +38,21 @@ option {font-size: 15px;}
 
 .slideshow-container {margin-bottom:30px;}
 
-.produtos {width: 200px;}
+#productsContainer {display: flex; flex-wrap: wrap;}
 
-.tabelaprodutos{margin-left: 5%; margin-right: 5%;}
+.product {flex: 0 0 calc(20% - 20px); margin: 10px; background-color: #ffffff; padding: 5px; box-sizing: border-box; border: 2px solid #b81414; border-radius: 5px; width: 100%;}
+
+.imgproduto {width: 100%;}
+
+.nomeproduto {margin-bottom: 10px;}
+
+.precoproduto {margin: 0; color: #b81414;}
 
   
 /*___________________________________________________________________________________________*/
 
 
-@media (max-width: 600px){
+@media (max-width: 700px){
 
 body {padding-top: 72px;}
   
@@ -71,7 +76,15 @@ body {padding-top: 72px;}
 
 select {display: none;}
 
+.product {flex: 0 0 calc(33% - 20px);}
+
 }
+
+
+/*___________________________________________________________________________________________*/
+
+
+@media (max-width: 550px){.product {flex: 0 0 calc(50% - 20px);}}
 
 
 /*___________________________________________________________________________________________*/
@@ -100,7 +113,7 @@ to {opacity: 1;}
 <table class="fundo">
   <thead>
     <td><img class="logo" src="https://jgloot.github.io/jgloot/logojgloot.png" alt="logo"></td>
-    <td><input class="form-control inputmenu" type="text" id="campoPesquisa" oninput="filtrarProdutos()" placeholder="Buscar produtos..." type="text">
+    <td><input class="form-control inputmenu" type="text" id="campopesquisa" placeholder="Buscar produtos..." type="text">
     <nav class="navbar opcoes">
       <a class="op" href="https://wa.me/5593992244987">Contato</a> 
       <a class="op" href="https://www.instagram.com/_jgloot_/">Intagram</a>
@@ -148,17 +161,18 @@ to {opacity: 1;}
 <!___________________________________________________________________________________________>
 
 
-<table id="tabelaProdutos" class="tabelaprodutos">
-  <tbody>
-  <tr data-nome="Led para roda de bicicleta... 10,00">
-        <td class="produto rounded border border-danger bg-white" data-nome="Led para roda de bicicleta... 10,00"><img class="img-thumbnail produtos" src="https://down-br.img.susercontent.com/file/sg-11134201-7qvfd-lher2obzntguf1" alt="Pino luz de led"><br>Led para roda de bicicleta...
-        <h4 class="m-1 text-danger">R$10,00</h4></td>
-        <td class="produto rounded border border-danger bg-white" data-nome="pao com acucar de 50 reais 50"><img class="img-thumbnail produtos" src="https://down-br.img.susercontent.com/file/sg-11134201-7qvfd-lher2obzntguf1" alt="Pino luz de led"> 
-        <p class="m-1">Led para roda de bicicleta...</p>
-        <h4 class="m-1 text-danger">R$10,00</h4>
-        </td></tr>
-  </tbody>
-</table>
+<div id="productsContainer">
+  <div class="product" data-name="led pino pneu roda bike brilho"><img class="imgproduto" src="https://down-br.img.susercontent.com/file/sg-11134201-7qvfd-lher2obzntguf1"><p class="nomeproduto">Led para roda de bicicleta...</p><h4 class="precoproduto">R$10,00</h4></div>
+  <div class="product" data-name="Produto 2">Produto 2</div>
+  <div class="product" data-name="Produto 3">Produto 3</div>
+  <div class="product" data-name="Produto 4">Produto 4</div>
+  <div class="product" data-name="Produto 5">Produto 5</div>
+  <div class="product" data-name="Produto 6">Produto 6</div>
+  <div class="product" data-name="Produto 7">Produto 7</div>
+  <div class="product" data-name="Produto 8">Produto 8</div>
+  <div class="product" data-name="Produto 9">Produto 9</div>
+  <div class="product" data-name="Produto 10">Produto 10</div>
+</div>
 
 
 <!___________________________________________________________________________________________>
@@ -170,16 +184,20 @@ function openNav() {
   var imagens = document.getElementById('slides');
     imagens.style.display = 'none';
 }
-
 function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
   var imagens = document.getElementById('slides');
     imagens.style.display = 'block';
 }
+</script>
 
+
+<!___________________________________________________________________________________________>
+
+
+<script>
 let slideIndex = 0;
 showSlides();
-
 function showSlides() {
   let i;
   let slides = document.getElementsByClassName("mySlides");
@@ -196,18 +214,26 @@ function showSlides() {
   dots[slideIndex-1].className += " active";
   setTimeout(showSlides, 5000); 
 }
+</script>
 
- function filtrarProdutos() {
-  var termoPesquisa = document.getElementById('campoPesquisa').value.toLowerCase();
-  var linhasTabela = document.querySelectorAll('#tabelaProdutos tbody tr');
 
-  linhasTabela.forEach(function(linha) {
-    var nomeProduto = linha.firstElementChild.getAttribute('data-nome').toLowerCase();
-    var deveMostrar = nomeProduto.includes(termoPesquisa);
+<!___________________________________________________________________________________________>
 
-    linha.style.display = deveMostrar ? 'table-row' : 'none';
+
+<script>
+document.getElementById('campopesquisa').addEventListener('input', function() {
+  var searchTerm = this.value.toLowerCase();
+  var products = document.querySelectorAll('.product');
+  products.forEach(function(product) {
+    var productName = product.dataset.name.toLowerCase();
+
+    if (productName.includes(searchTerm)) {
+      product.style.display = 'block';
+    } else {
+      product.style.display = 'none';
+    }
   });
-}
+});
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
