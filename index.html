@@ -39,9 +39,11 @@ option {font-size: 15px;}
 
 .slideshow-container {margin-bottom:30px;}
 
-#productsContainer {display: flex; flex-wrap: wrap; margin-left: 10%; margin-right: 10%;}
+#produtos {display: flex; flex-wrap: wrap; margin-left: 10%; margin-right: 10%;}
 
-.product {flex: 0 0 calc(20% - 20px); margin: 10px; background-color: #ffffff; padding: 5px; box-sizing: border-box; border: 2px solid #b81414; border-radius: 5px; width: 100%;}
+#produtos a {text-decoration:none; color: black;}
+
+.produto {flex: 0 0 calc(20% - 20px); margin: 10px; background-color: #ffffff; padding: 5px; box-sizing: border-box; border: 2px solid #b81414; border-radius: 5px; width: 100%;}
 
 .imgproduto {width: 100%;}
 
@@ -77,7 +79,7 @@ body {padding-top: 72px;}
 
 select {display: none;}
 
-.product {flex: 0 0 calc(33% - 20px);}
+.produto {flex: 0 0 calc(33% - 20px);}
 }
 
 
@@ -85,8 +87,8 @@ select {display: none;}
 
 
 @media (max-width: 550px){
-.product {flex: 0 0 calc(50% - 20px);}
-#productsContainer {margin-left: 10px; margin-right: 10px;}
+.produto {flex: 0 0 calc(50% - 20px);}
+#produtos {margin-left: 10px; margin-right: 10px;}
 }
 
 
@@ -160,17 +162,17 @@ to {opacity: 1;}
 <!___________________________________________________________________________________________>
 
 
-<div id="productsContainer">
-  <div class="product" data-name="led pino pneu roda bike brilho"><a href="pinoled.html"><img class="imgproduto" src="https://down-br.img.susercontent.com/file/sg-11134201-7qvfd-lher2obzntguf1"><p class="nomeproduto">Led para roda de bicicleta...</p><h4 class="precoproduto">R$10,00</h4></a></div>
-  <div class="product" data-name="Produto 2">Produto 2</div>
-  <div class="product" data-name="Produto 3">Produto 3</div>
-  <div class="product" data-name="Produto 4">Produto 4</div>
-  <div class="product" data-name="Produto 5">Produto 5</div>
-  <div class="product" data-name="Produto 6">Produto 6</div>
-  <div class="product" data-name="Produto 7">Produto 7</div>
-  <div class="product" data-name="Produto 8">Produto 8</div>
-  <div class="product" data-name="Produto 9">Produto 9</div>
-  <div class="product" data-name="Produto 10">Produto 10</div>
+<div id="produtos">
+  <div class="produto" data-name="led pino pneu roda bike brilho"><a href="pinoled.html"><img class="imgproduto" src="https://down-br.img.susercontent.com/file/sg-11134201-7qvfd-lher2obzntguf1"><p class="nomeproduto">Led para roda de bicicleta...</p><h4 class="precoproduto">R$10,00</h4></a></div>
+  <div class="produto" data-name="Produto 2">Produto 2</div>
+  <div class="produto" data-name="Produto 3">Produto 3</div>
+  <div class="produto" data-name="Produto 4">Produto 4</div>
+  <div class="produto" data-name="Produto 5">Produto 5</div>
+  <div class="produto" data-name="Produto 6">Produto 6</div>
+  <div class="produto" data-name="Produto 7">Produto 7</div>
+  <div class="produto" data-name="Produto 8">Produto 8</div>
+  <div class="produto" data-name="Produto 9">Produto 9</div>
+  <div class="produto" data-name="Produto 10">Produto 10</div>
 </div>
 
 
