@@ -258,7 +258,7 @@ function closeNav() {
 <script>
 document.getElementById('campopesquisa').addEventListener('input', function() {
   var searchTerm = this.value.toLowerCase();
-  var produto = document.querySelectorAll('.produto');
+  var produtos = document.querySelectorAll('.produto');
   produto.forEach(function(produto) {
 	var produtoName = produto.dataset.name.toLowerCase();
 
