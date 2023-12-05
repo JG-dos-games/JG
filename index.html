@@ -226,11 +226,11 @@ function showSlides() {
 <script>
 document.getElementById('campopesquisa').addEventListener('input', function() {
   var searchTerm = this.value.toLowerCase();
-  var products = document.querySelectorAll('.produto');
-  products.forEach(function(produto) {
+  var produtos = document.querySelectorAll('.produto');
+  produto.forEach(function(produto) {
     var produtoName = produto.dataset.name.toLowerCase();
 
-    if (productName.includes(searchTerm)) {
+    if (produtoName.includes(searchTerm)) {
       produto.style.display = 'block';
     } else {
       produto.style.display = 'none';
