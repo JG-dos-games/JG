@@ -81,9 +81,9 @@ option {font-size: 15px;}
 
 .inputquant {width:50px;}
 
-.comprar {font-size: 15px; margin-bottom: 20px;}
+.comprar {font-size: 20px; margin-bottom: 20px; height: 50px;}
 
-.addcar {font-size: 15px;}
+.addcar {font-size: 20px; height: 50px;}
 
 .hidden {display: none;}
 
@@ -208,8 +208,8 @@ select {display: none;}
         <input class="inputquant" type="number" id="quantidade" name="quantidade" min="1" value="1">
         <input type="hidden" name="Created" value="x-sheetmonkey-current-date-time" />
         <hr>
-<button class="addcar" onclick="calcular()">Add Carrinho</button>
-<button class="comprar" onclick="calcular()" onclick="redirecionar()">Comprar</button>
+<button class="addcar">Add Carrinho</button>
+<button class="comprar" type="submit" onclick="redirecionar()">Comprar</button>
     </form>
 </div>
 </div>
