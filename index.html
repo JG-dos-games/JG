@@ -226,14 +226,14 @@ function showSlides() {
 <script>
 document.getElementById('campopesquisa').addEventListener('input', function() {
   var searchTerm = this.value.toLowerCase();
-  var products = document.querySelectorAll('.product');
-  products.forEach(function(product) {
-    var productName = product.dataset.name.toLowerCase();
+  var products = document.querySelectorAll('.produto');
+  products.forEach(function(produto) {
+    var produtoName = produto.dataset.name.toLowerCase();
 
     if (productName.includes(searchTerm)) {
-      product.style.display = 'block';
+      produto.style.display = 'block';
     } else {
-      product.style.display = 'none';
+      produto.style.display = 'none';
     }
   });
 });
