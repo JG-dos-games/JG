@@ -42,8 +42,16 @@ pino.classList.remove('hidden');
 function calcular() {
   var cep = document.getElementById("campofrete").value;
   var precofrete = document.getElementById("frete");
-  
 
+	
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+function mudarImagem(novaImagem) {
+  document.getElementById('mainImage').src = novaImagem;
+}
+
+	
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
   
@@ -200,11 +208,3 @@ $(document).ready(function () {
   var $campo = $("#campofrete");
   $campo.mask('00000-000', {reverse: true});
 });
-
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-function mudarImagem(novaImagem) {
-  document.getElementById('mainImage').src = novaImagem;
-}
