@@ -1,30 +1,32 @@
+/////////////////////////////////////////////////// MENU CELULAR/////////////////////////////////////////////////////////////////////////
+
 function openNav() {
   document.getElementById("mySidenav").style.width = "50%";
   var imagens = document.getElementById('slides');
-	imagens.style.display = 'none';
+  imagens.style.display = 'none';
 }
 function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
   var imagens = document.getElementById('slides');
-	imagens.style.display = 'block';
+  imagens.style.display = 'block';
 }
 
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-
+//////////////////////////////////////////////////// BUSCAR PRODUTOS ////////////////////////////////////////////////////////////////////
 
 document.getElementById('campopesquisa').addEventListener('input', function() {
   var searchTerm = this.value.toLowerCase();
   var produto = document.querySelectorAll('.produto');
   produto.forEach(function(produto) {
-	var produtoName = produto.dataset.name.toLowerCase();
-	if (produtoName.includes(searchTerm)) {
-  	produto.style.display = 'block';
-	} else {
-  	produto.style.display = 'none';
-	}
+    var produtoName = produto.dataset.name.toLowerCase();
+    if (produtoName.includes(searchTerm)) {
+      produto.style.display = 'block';
+    } else {
+      produto.style.display = 'none';
+    }
   });
 });
+
+//////////////////////////////////////////////////// OCULTAR PRODUTO /////////////////////////////////////////////////////////////////////
 
 const campopesquisa = document.getElementById('campopesquisa');
 const pino = document.getElementById('pino');
@@ -35,25 +37,54 @@ campopesquisa.addEventListener('blur', function() {
 pino.classList.remove('hidden');
 });
 
+///////////////////////////////////////////////////// CATEGORIA PC ///////////////////////////////////////////////////////////////////////
 
-///////////////////////////////////////////////////////////////////////////////////////////////////
+function filterProducts() {
+  var selectedCategory = document.getElementById("category").value;
+  var products = document.getElementsByClassName("produto");
+  for (var i = 0; i < products.length; i++) {
+    var productCategory = products[i].getAttribute("data-category");
+    if (selectedCategory === "tudo" || selectedCategory === productCategory) {
+      products[i].style.display = "block";
+    } else {
+      products[i].style.display = "none";
+    }
+  }
+}
 
+///////////////////////////////////////////////////// CATEGORIA CELL /////////////////////////////////////////////////////////////////////
 
-function calcular() {
-  var cep = document.getElementById("campofrete").value;
-  var precofrete = document.getElementById("frete");
+function filterproducts(category) {
+  var products = document.querySelectorAll('.produto');
+  products.forEach(function(product) {
+    var productCategory = product.getAttribute('data-category');
+    if (category === 'all' || productCategory === category) {
+      product.style.display = 'block';
+    } else {
+      product.style.display = 'none';
+    }
+  });
+  var categories = document.querySelectorAll('.category');
+  categories.forEach(function(cat) {
+    cat.classList.remove('selected');
+  });
+  var selectedCategory = document.getElementById(category);
+  selectedCategory.classList.add('selected');
+}
 
-	
-///////////////////////////////////////////////////////////////////////////////////////////////////
-
+////////////////////////////////////////////////////// MUDAR MINIATURA //////////////////////////////////////////////////////////////////
 
 function mudarImagem(novaImagem) {
   document.getElementById('mainImage').src = novaImagem;
 }
-
 	
-///////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////// CALCULAR FRETE /////////////////////////////////////////////////////////////////////
 
+function calcular() {
+  var cep = document.getElementById("campofrete").value;
+  var precofrete = document.getElementById("frete");
+	
+///////////////////////////////////////////////////////// CEPS GRATIS ///////////////////////////////////////////////////////////////////////
   
   var cepsFreteGratis = [ 
 //CARANAZAL
@@ -80,9 +111,7 @@ function mudarImagem(novaImagem) {
 "68041-142", "68041-140", "68041-148", "68041-135", "68041-130", "68041-104", "68041-102", "68041-144", "68041-146", "68041-125", "68041-100", "68041-120", "68041-115"
 ];													
 
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-
+//////////////////////////////////////////////////// CEPS DEZ ///////////////////////////////////////////////////////////////////////////
 
 var cepsDezReais = [
 //AEROPORTO VELHO
@@ -131,10 +160,8 @@ var cepsDezReais = [
 "68015-085", "68015-140", "68015-237", "68015-170", "68015-242", "68015-239", "68015-740", "68015-160", "68015-280", "68015-270", "68015-340", "68015-750", "68015-320", "68015-240", "68015-260", "68015-110", "68015-130", "68015-120", "68015-090", "68015-080", "68015-300", "68015-290", "68015-350", "68015-360", "68015-310", "68015-230", "68015-330", "68015-250", "68015-370", "68015-390", "68015-380", "68015-235", 
 ];
 
+/////////////////////////////////////////////////////////// CEPS QUINZE ////////////////////////////////////////////////////////////////
 
-///////////////////////////////////////////////////////////////////////////////////////////////////
-
-  
 var cepsQuinze = [
 //ALVORADA
 "68042-140", "68042-022", "68042-012", "68042-130", "68042-125", "68042-120", "68042-105", "68042-110", "68042-032", "68042-150", "68042-100", "68042-045", "68042-042", "68042-115", "68042-135", "68042-048", "68042-046", "68042-145", "68042-040", "68042-030", "68042-025", "68042-015", "68042-005", "68042-036", "68042-020", "68042-035", "68042-010",
@@ -167,28 +194,22 @@ var cepsQuinze = [
 "68041-045", "68041-035", "68041-010", "68041-005", "68041-025", "68041-040", "68041-020", "68041-030"
 ];
 
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-
+//////////////////////////////////////////////////////// CEPS VINTE /////////////////////////////////////////////////////////////////////
   
 var cepsVinte = [
 //CIPOAL
 "68033-010", "68033-040", "68033-030", "68033-020",
 ];
 
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-
+/////////////////////////////////////////////////// CEPS INDISPONIVEL //////////////////////////////////////////////////////////////////
   
 var cepIndisponivel = [
 //VILA PLANALTO
 "68033-050", "68033-062", "68033-052", "68033-080", "68033-055", "68033-074", "68033-056", "68033-078", "68033-066", "68033-082", "68033-072", "68033-070", "68033-076", "68033-054", "68033-060", "68033-058", "68033-084", "68033-064", "68033-086", "68033-068", "68033-088"
 ];
 
+/////////////////////////////////////////////////// MENSAGEM FRETE /////////////////////////////////////////////////////////////////////
 
-///////////////////////////////////////////////////////////////////////////////////////////////////
-
-  
 if (cepsFreteGratis.includes(cep)) {
     precofrete.textContent = "Chegará em até 2 dias gratuitamente.";
 } else if (cepsDezReais.includes(cep)) {
