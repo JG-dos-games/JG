@@ -92,7 +92,7 @@ option {font-size: 15px;}
 
 @media (max-width: 700px){
  
-.voltar {display: block; max-width: 70px;}
+.voltar {display: block; max-width: 50px;}
 
 .logo {display: none;}
 
