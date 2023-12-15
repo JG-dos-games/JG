@@ -1,4 +1,4 @@
-/*______________________________________________________ PRINCIPAL ______________________________________________________________________*/
+/*______________________________________________________ TOPO ______________________________________________________________________*/
 
 body {background-color: #ebebeb;}
 
@@ -8,7 +8,7 @@ body {background-color: #ebebeb;}
 
 .voltar {display: none;}
 
-.inputmenu {margin-top: 15px; width: 100%; margin-bottom: 10px; padding: 6px;}
+.inputmenu {margin-top: 15px; width: 100%; margin-bottom: 10px; padding: 6px; box-sizing: border-box; border-radius: 8px;}
 
 .op {font-size: 12px; text-decoration:none; color: #ffffff;}
 
@@ -16,7 +16,7 @@ body {background-color: #ebebeb;}
 
 .carrinho {width: 50px; margin-top:65px; margin-left: 0px; text-align: left}
 
-.quanticar {position: absolute; margin-top: 22px; margin-left: -5%; font-size: 15px;}
+.quanticar {position: absolute; margin-top: 22px; margin-left: -5%; font-size: 15px; display: none;}
 
 select {background-color: transparent; border: none; color: #ffffff; font-size: 12px;}
 
@@ -34,6 +34,8 @@ option {font-size: 15px;}
 
 .sidenav .closebtn {position: absolute; top: 0; right: 10px; font-size: 36px;}
 
+/*____________________________________________________________ PRODUTOS ______________________________________________________________*/
+
 #produtos {display: flex; flex-wrap: wrap; margin-left: 10%; margin-right: 10%; margin-top: 30px;}
 
 .produto {flex: 0 0 calc(20% - 20px); margin: 10px; background-color: #ffffff; padding: 5px; box-sizing: border-box; border: 2px solid #b81414; border-radius: 5px; width: 100%;}
@@ -44,7 +46,9 @@ option {font-size: 15px;}
 
 .precoproduto {margin: 0; color: #b81414;}
 
-#pino {margin-left: 10%; width: 80%; margin-top: 50px; background-color: #ffffff; padding: 1%; border: 2px solid #b81414; border-radius: 5px; height: 100%}
+/*____________________________________________________________ PRODUTO ______________________________________________________________*/
+
+#pino {margin-left: 10%; width: 80%; margin-top: 50px; background-color: #ffffff; padding: 1%; padding-bottom: 20px; border: 2px solid #b81414; border-radius: 5px; height: 100%}
 
 .nomeprodutopino {margin-top: 10px;}
 
@@ -62,17 +66,17 @@ option {font-size: 15px;}
 
 .loja {margin-bottom: 20px; font-size: 12px;color: grey;}
 
-.fretenome {margin-bottom: 0px;}
+#campofrete {width: 50%; padding: 8px; box-sizing: border-box;}
 
-#campofrete {width: 50%}
+.botaocalcular {background-color: #4CAF50; color: white; padding: 10px 15px; border: none; border-radius: 4px;}
 
-.butaocalcular {margin-bottom: 0px;}
+.botaocalcular:hover {background-color: #45a049;}
 
-#frete {color: #b81414;}
+#frete {color: #4CAF50; font-weight: 500; font-size: 15px;}
 
 .escolha {margin-bottom:0px;}
 
-#colorForm {font-size: 13px;}
+#colorForm {font-size: 13px; font-size: 15px;}
 
 .cor {margin-bottom:0px;}
 
@@ -80,9 +84,25 @@ option {font-size: 15px;}
 
 .inputquant {width:50px;}
 
-.comprar {font-size: 20px; margin-bottom: 20px; height: 50px;}
+.comprar {font-size: 20px; height: 50px; background-color: #4CAF50; color: white; padding: 10px 15px; border: none; border-radius: 4px;}
 
-.addcar {font-size: 20px; height: 50px;}
+.comprar:hover {background-color: #45a049;}
+
+.addcar {font-size: 20px; height: 50px; background-color: #b81414; color: white; padding: 10px 15px; border: none; border-radius: 4px;}
+
+.addcar:hover {background-color: #b83030;}
+
+.entrega {display: none;}
+
+.enderecoparaentrega {font-weight: 700; font-size: 20px}
+
+label {margin-bottom: 5px; font-size: 20px;}
+
+.inputentrega {width: 100%; padding: 8px; margin-bottom: 16px; box-sizing: border-box;}
+
+.enviar {font-size: 20px; height: 50px; background-color: #4CAF50; color: white; padding: 10px 15px; border: none; border-radius: 4px;}
+
+.enviar:hover {background-color: #45a049;}
 
 .hidden {display: none;}
 
@@ -92,7 +112,7 @@ option {font-size: 15px;}
 
 @media (max-width: 700px){
  
-.voltar {display: block; width: 50px; margin-left: 20px;}
+.voltar {display: block; width: 50px; margin-left: 10%;}
 
 .logo {display: none;}
 
