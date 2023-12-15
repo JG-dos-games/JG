@@ -37,6 +37,18 @@ campopesquisa.addEventListener('blur', function() {
 pino.classList.remove('hidden');
 });
 
+//////////////////////////////////////////////////// APARECER ENDERECO /////////////////////////////////////////////////////////////////////
+
+document.getElementById('comprar').addEventListener('click', function() {
+      // Mostra a div oculta
+      document.getElementById('entrega').style.display = 'block';
+
+      // Rola até a div oculta
+      document.getElementById('entrega').scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+
 ///////////////////////////////////////////////////// CATEGORIA PC ///////////////////////////////////////////////////////////////////////
 
 function filterProducts() {
