@@ -64,29 +64,54 @@
 <h1 class="precoprodutopino">R$15,00</h1>
 <p class="loja">Produto oficial JGLoot</p>
 <hr>
-<p class="fretenome">Frete:</p>
+<label for="frete" class="fretenome">Frete:</label><br>
 <input class="inputfrete" type="text" id="campofrete" placeholder="Digite seu CEP" maxlength="9">
-<button class="butaocalcular" onclick="calcular()">Calcular</button>
-<p id="frete"></p>
+<button class="botaocalcular" onclick="calcular()">Calcular</button>
+<p id="frete">A taxa de entrega aparecerá aqui</p>
 <hr>
-<p class="escolha">Escolha uma cor:</p>
+<label for="quantidade">Escolha uma cor:</label><br>
 <form id="colorForm" action="https://api.sheetmonkey.io/form/7eqrTSyTcDuJHDqiJagaZS" method="post">
 	<input type="hidden" name="produto" value="pino de led">
-        <input class="cor" type="radio" name="cor" value="verde"> Verde
-        <input class="cor" type="radio" name="cor" value="amarelo"> Amarelo
-        <input class="cor" type="radio" name="cor" value="azul"> Azul
-        <input class="cor" type="radio" name="cor" value="vermelho"> Vermelho
+        <input class="cor" type="radio" name="cor" value="verde" required> Verde
+        <input class="cor" type="radio" name="cor" value="amarelo" required> Amarelo
+        <input class="cor" type="radio" name="cor" value="azul" required> Azul
+        <input class="cor" type="radio" name="cor" value="vermelho" required> Vermelho
         <hr>
-        <p class="quant">Quantidade:<p>
+        <label for="quantidade">Quantidade:</label><br>
         <input class="inputquant" type="number" id="quantidade" name="quantidade" min="1" value="1">
         <input type="hidden" name="Created" value="x-sheetmonkey-current-date-time" />
         <hr>
-<button class="addcar">Add Carrinho</button>
-<button class="comprar" type="submit" onclick="redirecionar()">Comprar</button>
-    </form>
-</div>
-</div>
+    <button class="addcar">Add Carrinho</button>
+    <button id="comprar" class="comprar">Comprar</button>
+    
+    <div id="entrega" class="entrega">
+    <hr>
+    <td><h1 class="enderecoparaentrega">ENDEREÇO PARA ENTREGA</h1></td>
 
+    
+    
+        <label for="nome">Nome completo:</label>
+        <input class="inputentrega" placeholder="Nome de quem receberá o produto." type="text" id="nome" name="nome" required>
+
+        <label for="endereco">Bairro:</label>
+        <input class="inputentrega" placeholder="Digite o nome do bairro." type="text" id="bairro" name="bairro" required>
+
+        <label for="cidade">Rua/Travessa/Avenida:</label>
+        <input class="inputentrega" placeholder="Digite o nome da rua/travessa/avenida." type="text"  id="rua" name="rua" required>
+        
+        <label for="cidade">Número:</label>
+        <input class="inputentrega" placeholder="Digite o número da sua localidade." type="number" id="numero" name="numero" required>
+
+		<label for="cidade">Ponto de referência (opcional):</label>
+        <input class="inputentrega" placeholder="Digite um ponto de referência, escola, igreja, algo próximo." type="text" id="complemento" name="complemento">
+        
+        <input class="inputentrega" type="hidden" name="Created" value="x-sheetmonkey-current-date-time" />
+
+        <button class="enviar" type="submit" onclick="enviar()">Enviar</button>
+    </form>
+    </div>
+</div>
+</div>
 
 <!___________________________________________________________________________________________>
 
