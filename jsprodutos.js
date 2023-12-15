@@ -212,19 +212,24 @@ var cepIndisponivel = [
 
 if (cepsFreteGratis.includes(cep)) {
     precofrete.textContent = "Chegará em até 2 dias gratuitamente.";
+    precofrete.style.color = "green";
 } else if (cepsDezReais.includes(cep)) {
     precofrete.textContent = "Chegará em até 2 dias por R$10,00.";
+    precofrete.style.color = "green";
 } else if (cepsQuinze.includes(cep)) {
     precofrete.textContent = "Chegará em até 2 dias por R$15,00.";
+    precofrete.style.color = "green";
 } else if (cepsVinte.includes(cep)) {
     precofrete.textContent = "Chegará em até 2 dias por R$20,00.";
+    precofrete.style.color = "green";
 } else if (cepIndisponivel.includes(cep)) {
     precofrete.textContent = "Entrega indisponível.";
+    precofrete.style.color = "red";
 } else if (cep === null || cep === "" || cep != cepsFreteGratis) {
     precofrete.textContent = "CEP inválido.";
+    precofrete.style.color = "red";
 }
 }
-
 $(document).ready(function () {
   var $campo = $("#campofrete");
   $campo.mask('00000-000', {reverse: true});
