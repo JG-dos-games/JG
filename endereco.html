@@ -6,54 +6,7 @@
 <script src="https://www.mercadopago.com.br/integrations/v1/web-payment-checkout.js"
 data-preference-id="1599956903-5d80853a-09b6-4563-83e7-7d645c4f51fd" data-source="button">
 </script>
-<link rel="stylesheet" type="text/css" href="cssindex.css">
-<style>        
-.topo {background-color: #b81414; align-items: center; justify-content: center; height: 100%; display: flex; text-align: center;}
-
-.enderecoparaentrega {color: white; margin: 0; font-weight: 700;}
-
-.logo {max-width: 10%; margin-right: 15%;}
-
-.teste {max-width: 10%; margin-left: 15%;}
-
-form {max-width: 80%; margin: 20px auto;}
-
-label {display: block; margin-bottom: 8px;}
-
-input, select {width: 100%; padding: 8px; margin-bottom: 16px; box-sizing: border-box;}
-
-button {background-color: #4CAF50; color: white; padding: 15px 20px; border: none; border-radius: 4px; cursor: pointer;}
-
-button:hover {background-color: #45a049;}
-</style>
-</head>
 <body>
-<div class="topo">
-    <a href="index.html"><img class="logo" src="voltar.png" alt="logo"></a>
-    <h1 class="enderecoparaentrega">ENDEREÇO PARA ENTREGA</h1>
-    <img class="teste" src="https://jgloot.github.io/jgloot/logojgloot.png" alt="logo">
-</div>
-    <form action="#" method="post">
-        <label for="nome">Nome completo:</label>
-        <input type="text" id="nome" name="nome">
-
-        <label for="endereco">Endereço:</label>
-        <input type="text" id="endereco" name="endereco">
-
-        <label for="cidade">Cidade:</label>
-        <input type="text" id="cidade" name="cidade">
-
-        <label for="estado">Estado:</label>
-        <select id="estado" name="estado">
-            <option value="" disabled selected>Selecione o estado</option>
-            <option value="AC">Acre</option>
-            <option value="AL">Alagoas</option>
-        </select>
-
-        <label for="cep">CEP:</label>
-        <input type="text" id="cep" name="cep" pattern="[0-9]{5}-[0-9]{3}" placeholder="12345-678">
-
         <button type="submit">Enviar</button>
-    </form>
 </body>
 </html>
