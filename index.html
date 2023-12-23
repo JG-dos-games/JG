@@ -231,10 +231,6 @@ footer
 </footer>
 
 <script>
-function carregarPagina() {
-            // Chame a função para exibir o carrinho ao carregar a página
-            exibirCarrinho();
-        }
 
 function abreviarNomeProduto(nome, comprimentoMaximo) {
     if (nome.length > comprimentoMaximo) {
@@ -270,59 +266,8 @@ function calcularPrecoTotalCarrinho() {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    // Recuperar o carrinho do localStorage
-    var carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-
-    // Obter o contêiner onde você deseja exibir os itens do carrinho
-    var carrinhoContainer = document.getElementById('carrinhoItens');
-
-    // Limpar itens antigos do carrinho
-    carrinhoContainer.innerHTML = '';
-
-    // Exibir os itens do carrinho
-    carrinho.forEach(function (produto, index) {
-        var nomeAbreviado = abreviarNomeProduto(produto.nome, 18); // Ajuste o comprimento conforme necessário
-        var precoTotal = calcularPrecoTotal(produto);
-        var itemLista = document.createElement('li');
-        itemLista.classList.add('carrinhoitem');
-        itemLista.innerHTML = `
-            <img class="imgcar" src="${produto.imagem}" alt="${produto.nome}">
-            <span class="inforcar">
-            ${nomeAbreviado}<span class="bordercar"></span>
-            Cor: ${produto.cor} <span class="bordercar"></span>
-            Unidade: R$${produto.preco.toFixed(2)} <span class="bordercar"></span>
-            Quantidade: <span>${produto.quantidade}</span>
-            <br><hr>
-            <span class="precototal">Preço Total: R$${precoTotal.toFixed(2)}</span>
-            </span> 
-        `;
-        // Adicionar botão para remover o item
-        var btnRemover = document.createElement('button');
-        btnRemover.textContent = 'Remover';
-        btnRemover.classList.add('buttonremover');
-        btnRemover.onclick = function () {
-            removerDoCarrinhoNaOutraPagina(index);
-        };
-
-        itemLista.appendChild(btnRemover);
-
-        // Adicionar campo de entrada para a quantidade
-        var inputQuantidade = document.createElement('input');
-        inputQuantidade.type = 'number';
-        inputQuantidade.value = produto.quantidade;
-        inputQuantidade.min = '1';
-        inputQuantidade.style.maxWidth = '50px';
-        inputQuantidade.onchange = function () {
-            atualizarQuantidadeNaOutraPagina(index, inputQuantidade.value);
-        };
-
-        itemLista.appendChild(inputQuantidade);
-
-        carrinhoContainer.appendChild(itemLista);
-    });
-
-    // Calcular e exibir o preço total do carrinho
-    calcularPrecoTotalCarrinho();
+    // Exibir o carrinho na página carregada
+    exibirCarrinhoNaOutraPagina();
 });
 
 function removerDoCarrinhoNaOutraPagina(index) {
@@ -363,15 +308,30 @@ function exibirCarrinhoNaOutraPagina() {
     var carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
 
     // Obter o contêiner do carrinho
-    var carrinhoContainer = document.getElementById('carrinhoItens');
+    var carrinhoContainer = document.getElementById('carrinhoItensNaOutraPagina');
 
     // Limpar itens antigos do carrinho
     carrinhoContainer.innerHTML = '';
 
     // Exibir os itens do carrinho
     carrinho.forEach(function (produto, index) {
-        // ... (código para exibir o item, semelhante ao exemplo anterior)
-        
+        var nomeAbreviado = abreviarNomeProduto(produto.nome, 18);
+        var precoTotal = calcularPrecoTotal(produto);
+
+        var itemLista = document.createElement('li');
+        itemLista.classList.add('carrinhoitem');
+        itemLista.innerHTML = `
+            <img class="imgcar" src="${produto.imagem}" alt="${produto.nome}">
+            <span class="inforcar">
+                ${nomeAbreviado}<span class="bordercar"></span>
+                Cor: ${produto.cor} <span class="bordercar"></span>
+                Unidade: R$${produto.preco.toFixed(2)} <span class="bordercar"></span>
+                Quantidade: <span>${produto.quantidade}</span>
+                <br><hr>
+                <span class="precototal">Preço Total: R$${precoTotal.toFixed(2)}</span>
+            </span>
+        `;
+
         // Adicionar botão para remover o item
         var btnRemover = document.createElement('button');
         btnRemover.textContent = 'Remover';
@@ -379,8 +339,6 @@ function exibirCarrinhoNaOutraPagina() {
         btnRemover.onclick = function () {
             removerDoCarrinhoNaOutraPagina(index);
         };
-
-        itemLista.appendChild(btnRemover);
 
         // Adicionar campo de entrada para a quantidade
         var inputQuantidade = document.createElement('input');
@@ -392,6 +350,7 @@ function exibirCarrinhoNaOutraPagina() {
             atualizarQuantidadeNaOutraPagina(index, inputQuantidade.value);
         };
 
+        itemLista.appendChild(btnRemover);
         itemLista.appendChild(inputQuantidade);
 
         carrinhoContainer.appendChild(itemLista);
