@@ -320,27 +320,25 @@ function exibirCarrinhoNaOutraPagina() {
 
         var itemLista = document.createElement('li');
         itemLista.classList.add('carrinhoitem');
-        itemLista.innerHTML = `
-            <img class="imgcar" src="${produto.imagem}" alt="${produto.nome}">
-            <span class="inforcar">
-                ${nomeAbreviado}<span class="bordercar"></span>
-                Cor: ${produto.cor} <span class="bordercar"></span>
-                Unidade: R$${produto.preco.toFixed(2)} <span class="bordercar"></span>
-                Quantidade: <span>${produto.quantidade}</span>
-                <br><hr>
-                <span class="precototal">Preço Total: R$${precoTotal.toFixed(2)}</span>
-            </span>
+
+        // Criar div para a informação do produto
+        var divProdutoInfo = document.createElement('div');
+        divProdutoInfo.classList.add('inforcar');
+
+        // Adicionar informações do produto à div
+        divProdutoInfo.innerHTML = `
+        <img class="imgcar" src="${produto.imagem}" alt="${produto.nome}">
+            ${nomeAbreviado}<span class="bordercar"></span>
+            Cor: ${produto.cor} <span class="bordercar"></span>
+            Unidade: R$${produto.preco.toFixed(2)} <span class="bordercar"></span>
+            Quantidade: <span>${produto.quantidade}</span>
+            <br><hr>
+            <span class="precototal">Preço Total: R$${precoTotal.toFixed(2)}</span>
         `;
 
-        // Adicionar botão para remover o item
-        var btnRemover = document.createElement('button');
-        btnRemover.textContent = 'Remover';
-        btnRemover.classList.add('buttonremover');
-        btnRemover.onclick = function () {
-            removerDoCarrinhoNaOutraPagina(index);
-        };
-
-        // Adicionar campo de entrada para a quantidade
+        // Adicionar label e campo de entrada para a quantidade
+        var labelQuantidade = document.createElement('label');
+        labelQuantidade.textContent = 'Quantidade:';
         var inputQuantidade = document.createElement('input');
         inputQuantidade.type = 'number';
         inputQuantidade.value = produto.quantidade;
@@ -350,8 +348,19 @@ function exibirCarrinhoNaOutraPagina() {
             atualizarQuantidadeNaOutraPagina(index, inputQuantidade.value);
         };
 
-        itemLista.appendChild(btnRemover);
+        // Adicionar botão para remover o item
+        var btnRemover = document.createElement('button');
+        btnRemover.textContent = 'Remover';
+        btnRemover.classList.add('buttonremover');
+        btnRemover.onclick = function () {
+            removerDoCarrinhoNaOutraPagina(index);
+        };
+
+        // Adicionar elementos à lista
+        itemLista.appendChild(divProdutoInfo);
+        itemLista.appendChild(labelQuantidade);
         itemLista.appendChild(inputQuantidade);
+        itemLista.appendChild(btnRemover);
 
         carrinhoContainer.appendChild(itemLista);
     });
