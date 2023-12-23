@@ -328,7 +328,6 @@ function atualizarQuantidade(index, novaQuantidade) {
         localStorage.setItem('carrinho', JSON.stringify(carrinho));
 
         // Atualizar o carrinho exibido na página
-        exibirCarrinho();
 
         calcularPrecoTotalCarrinho();
      }
@@ -346,7 +345,6 @@ function removerDoCarrinho(index) {
     localStorage.setItem('carrinho', JSON.stringify(carrinho));
 
     // Exibir o carrinho atualizado
-    exibirCarrinho();
     calcularPrecoTotalCarrinho();
 }
 
