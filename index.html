@@ -363,7 +363,7 @@ function exibirCarrinhoNaOutraPagina() {
     var carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
 
     // Obter o contêiner do carrinho
-    var carrinhoContainer = document.getElementById('carrinhoItensNaOutraPagina');
+    var carrinhoContainer = document.getElementById('carrinhoItens');
 
     // Limpar itens antigos do carrinho
     carrinhoContainer.innerHTML = '';
