@@ -231,6 +231,44 @@ footer
 </footer>
 
 <script>
+function carregarPagina() {
+            // Chame a função para exibir o carrinho ao carregar a página
+            exibirCarrinho();
+        }
+
+function abreviarNomeProduto(nome, comprimentoMaximo) {
+    if (nome.length > comprimentoMaximo) {
+        // Se o nome for mais longo que o comprimento máximo, abrevie e adicione reticências
+        return nome.substring(0, comprimentoMaximo) + '...';
+    } else {
+        // Se o nome for suficientemente curto, retorne o nome original
+        return nome;
+    }
+}
+
+function calcularPrecoTotal(produto) {
+    // Suponha que o preço unitário esteja na propriedade 'preco' do objeto produto
+    
+    return produto.quantidade * produto.preco;
+}
+
+
+function calcularPrecoTotalCarrinho() {
+    // Recuperar o carrinho do localStorage
+    var carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+
+    // Calcular o preço total do carrinho
+    var precoTotalCarrinho = carrinho.reduce(function (total, produto) {
+        return total + produto.quantidade * produto.preco;
+    }, 0);
+
+    // Exibir o preço total na página
+    var precoTotalElement = document.getElementById('precoTotalCarrinho');
+    if (precoTotalElement) {
+        precoTotalElement.textContent = 'R$ ' + precoTotalCarrinho.toFixed(2);
+    }
+}
+    
 // Recuperar o carrinho do localStorage
 var carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
 
