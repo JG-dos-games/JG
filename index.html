@@ -279,62 +279,64 @@ var carrinhoContainer = document.getElementById('carrinhoItens');
 carrinhoContainer.innerHTML = '';
 
 // Exibir os itens do carrinho
-function exibirCarrinho() {
-carrinho.forEach(function (produto, index) {
-    var nomeAbreviado = abreviarNomeProduto(produto.nome, 18); // Ajuste o comprimento conforme necessário
-    var precoTotal = calcularPrecoTotal(produto);
-    var itemLista = document.createElement('li');
-    itemLista.classList.add('carrinhoitem');
-    itemLista.innerHTML = `
-        <img class="imgcar" src="${produto.imagem}" alt="${produto.nome}">
-        <span class="inforcar">
-        ${nomeAbreviado}<span class="bordercar"></span>
-        Cor: ${produto.cor} <span class="bordercar"></span>
-         Quantidade: <input type="number" value="${produto.quantidade}" min="1" onchange="atualizarQuantidade(${index}, this.value)" style="max-width: 50px">
-        <br><hr>
-        <span class="precototal">Preço Total: R$${precoTotal.toFixed(2)}</span>
-        </span> 
-    `;
 
-        // Adicionar botão de remoção
+document.addEventListener('DOMContentLoaded', function () {
+    // Recuperar o carrinho do localStorage
+    var carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+
+    // Obter o contêiner onde você deseja exibir os itens do carrinho
+    var carrinhoContainer = document.getElementById('carrinhoItensNaOutraPagina');
+
+    // Limpar itens antigos do carrinho
+    carrinhoContainer.innerHTML = '';
+
+    // Exibir os itens do carrinho
+    carrinho.forEach(function (produto, index) {
+        var nomeAbreviado = abreviarNomeProduto(produto.nome, 18); // Ajuste o comprimento conforme necessário
+        var precoTotal = calcularPrecoTotal(produto);
+        var itemLista = document.createElement('li');
+        itemLista.classList.add('carrinhoitem');
+        itemLista.innerHTML = `
+            <img class="imgcar" src="${produto.imagem}" alt="${produto.nome}">
+            <span class="inforcar">
+            ${nomeAbreviado}<span class="bordercar"></span>
+            Cor: ${produto.cor} <span class="bordercar"></span>
+            Unidade: R$${produto.preco.toFixed(2)} <span class="bordercar"></span>
+            Quantidade: <span>${produto.quantidade}</span>
+            <br><hr>
+            <span class="precototal">Preço Total: R$${precoTotal.toFixed(2)}</span>
+            </span> 
+        `;
+        // Adicionar botão para remover o item
         var btnRemover = document.createElement('button');
         btnRemover.textContent = 'Remover';
         btnRemover.classList.add('buttonremover');
         btnRemover.onclick = function () {
-            removerDoCarrinho(index);
+            removerDoCarrinhoNaOutraPagina(index);
         };
 
         itemLista.appendChild(btnRemover);
+
+        // Adicionar campo de entrada para a quantidade
+        var inputQuantidade = document.createElement('input');
+        inputQuantidade.type = 'number';
+        inputQuantidade.value = produto.quantidade;
+        inputQuantidade.min = '1';
+        inputQuantidade.style.maxWidth = '50px';
+        inputQuantidade.onchange = function () {
+            atualizarQuantidadeNaOutraPagina(index, inputQuantidade.value);
+        };
+
+        itemLista.appendChild(inputQuantidade);
+
         carrinhoContainer.appendChild(itemLista);
     });
-}
-function atualizarQuantidade(index, novaQuantidade) {
-    // Recuperar o carrinho do localStorage
-    var carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
 
-    // Verificar se o índice é válido
-    if (index >= 0 && index < carrinho.length) {
-        // Atualizar a quantidade do produto no carrinho
-        carrinho[index].quantidade = parseInt(novaQuantidade);
+    // Calcular e exibir o preço total do carrinho
+    calcularPrecoTotalCarrinho();
+});
 
-        // Recalcular o preço total
-        var precoUnitario = carrinho[index].preco; // Substitua pelo nome real da propriedade do preço
-        var novoPrecoTotal = carrinho[index].quantidade * precoUnitario;
-
-        // Atualizar o preço total no objeto do produto
-        carrinho[index].precoTotal = novoPrecoTotal;
-
-        // Atualizar o carrinho no localStorage
-        localStorage.setItem('carrinho', JSON.stringify(carrinho));
-
-        // Atualizar o carrinho exibido na página
-
-        calcularPrecoTotalCarrinho();
-     }
-}
-
-
-function removerDoCarrinho(index) {
+function removerDoCarrinhoNaOutraPagina(index) {
     // Recuperar o carrinho do localStorage
     var carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
 
@@ -345,13 +347,70 @@ function removerDoCarrinho(index) {
     localStorage.setItem('carrinho', JSON.stringify(carrinho));
 
     // Exibir o carrinho atualizado
+    exibirCarrinhoNaOutraPagina();
     calcularPrecoTotalCarrinho();
 }
 
+function atualizarQuantidadeNaOutraPagina(index, novaQuantidade) {
+    // Recuperar o carrinho do localStorage
+    var carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
 
-// Calcular e exibir o preço total do carrinho
-calcularPrecoTotalCarrinho();
+    // Verificar se o índice é válido
+    if (index >= 0 && index < carrinho.length) {
+        // Atualizar a quantidade do produto no carrinho
+        carrinho[index].quantidade = parseInt(novaQuantidade);
 
+        // Atualizar o carrinho no localStorage
+        localStorage.setItem('carrinho', JSON.stringify(carrinho));
+
+        // Exibir o carrinho atualizado
+        exibirCarrinhoNaOutraPagina();
+        calcularPrecoTotalCarrinho();
+    }
+}
+
+function exibirCarrinhoNaOutraPagina() {
+    // Recuperar o carrinho do localStorage
+    var carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+
+    // Obter o contêiner do carrinho
+    var carrinhoContainer = document.getElementById('carrinhoItensNaOutraPagina');
+
+    // Limpar itens antigos do carrinho
+    carrinhoContainer.innerHTML = '';
+
+    // Exibir os itens do carrinho
+    carrinho.forEach(function (produto, index) {
+        // ... (código para exibir o item, semelhante ao exemplo anterior)
+        
+        // Adicionar botão para remover o item
+        var btnRemover = document.createElement('button');
+        btnRemover.textContent = 'Remover';
+        btnRemover.classList.add('buttonremover');
+        btnRemover.onclick = function () {
+            removerDoCarrinhoNaOutraPagina(index);
+        };
+
+        itemLista.appendChild(btnRemover);
+
+        // Adicionar campo de entrada para a quantidade
+        var inputQuantidade = document.createElement('input');
+        inputQuantidade.type = 'number';
+        inputQuantidade.value = produto.quantidade;
+        inputQuantidade.min = '1';
+        inputQuantidade.style.maxWidth = '50px';
+        inputQuantidade.onchange = function () {
+            atualizarQuantidadeNaOutraPagina(index, inputQuantidade.value);
+        };
+
+        itemLista.appendChild(inputQuantidade);
+
+        carrinhoContainer.appendChild(itemLista);
+    });
+
+    // Calcular e exibir o preço total do carrinho
+    calcularPrecoTotalCarrinho();
+}
 /////////////////////////////////////////////////// MENU CELULAR//////////////////////////////////////////////////////////////////////////
 
 function openNav() {
