@@ -268,17 +268,6 @@ function calcularPrecoTotalCarrinho() {
         precoTotalElement.textContent = 'R$ ' + precoTotalCarrinho.toFixed(2);
     }
 }
-    
-// Recuperar o carrinho do localStorage
-var carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-
-// Obter o contêiner onde você deseja exibir os itens do carrinho
-var carrinhoContainer = document.getElementById('carrinhoItens');
-
-// Limpar itens antigos do carrinho
-carrinhoContainer.innerHTML = '';
-
-// Exibir os itens do carrinho
 
 document.addEventListener('DOMContentLoaded', function () {
     // Recuperar o carrinho do localStorage
