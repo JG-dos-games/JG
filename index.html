@@ -231,7 +231,39 @@ footer
 </footer>
 
 <script>
+// Recuperar o carrinho do localStorage
 var carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+
+// Obter o contêiner onde você deseja exibir os itens do carrinho
+var carrinhoContainer = document.getElementById('carrinhoItensNaOutraPagina');
+
+// Limpar itens antigos do carrinho
+carrinhoContainer.innerHTML = '';
+
+// Exibir os itens do carrinho
+carrinho.forEach(function (produto, index) {
+    var nomeAbreviado = abreviarNomeProduto(produto.nome, 18); // Ajuste o comprimento conforme necessário
+    var precoTotal = calcularPrecoTotal(produto);
+    var itemLista = document.createElement('li');
+    itemLista.classList.add('carrinhoitem');
+    itemLista.innerHTML = `
+        <img class="imgcar" src="${produto.imagem}" alt="${produto.nome}">
+        <span class="inforcar">
+        ${nomeAbreviado}<span class="bordercar"></span>
+        Cor: ${produto.cor} <span class="bordercar"></span>
+        Unidade: R$${produto.preco.toFixed(2)} <span class="bordercar"></span>
+        Quantidade: <span>${produto.quantidade}</span>
+        <br><hr>
+        <span class="precototal">Preço Total: R$${precoTotal.toFixed(2)}</span>
+        </span> 
+    `;
+
+    carrinhoContainer.appendChild(itemLista);
+});
+
+// Calcular e exibir o preço total do carrinho
+calcularPrecoTotalCarrinho();
+
 /////////////////////////////////////////////////// MENU CELULAR//////////////////////////////////////////////////////////////////////////
 
 function openNav() {
