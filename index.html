@@ -312,7 +312,14 @@ function exibirCarrinhoNaOutraPagina() {
 
     // Limpar itens antigos do carrinho
     carrinhoContainer.innerHTML = '';
+    var quantidadeTotalProdutos = carrinho.length;
 
+    // Exibir a quantidade total no elemento com a classe "quanticar"
+    var quanticarElement = document.querySelector('.quanticar');
+    if (quanticarElement) {
+        quanticarElement.textContent = quantidadeTotalProdutos.toString();
+    }
+    
     // Exibir os itens do carrinho
     carrinho.forEach(function (produto, index) {
         var nomeAbreviado = abreviarNomeProduto(produto.nome, 18);
