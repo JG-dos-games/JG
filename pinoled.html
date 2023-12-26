@@ -165,7 +165,7 @@ ul {list-style-type: none; margin: 0; padding: 0}
 
 .fttexto {font-weight: 100}
 
-.logoft {max-width: 100px; margin-left: -50%; position: absolute}
+.logoft {max-width: 70px; margin-left: -50%; position: absolute}
 
 .copy {background-color: #800000; width: 100%; color: #ffffff; text-align: center; padding-top: 15px;}
 
@@ -278,7 +278,7 @@ select {display: none;}
 <h1 class="precoprodutopino">R$15,00</h1>
 <p class="loja">Produto oficial JGLoot</p>
 <hr>
-<form id="colorForm" action="https://api.sheetmonkey.io/form/7eqrTSyTcDuJHDqiJagaZS" method="post">
+<form id="colorForm" onsubmit="enviar()" action="https://api.sheetmonkey.io/form/7eqrTSyTcDuJHDqiJagaZS" method="post">
 <input type="hidden" name="produto" value="pino de led">
 <input type="hidden" name="loja" value="JGLoot Oficial">
 <label for="frete" class="fretenome">Frete:</label><br>
@@ -295,14 +295,13 @@ select {display: none;}
         <hr>
         <label for="quantidade">Quantidade:</label><br>
         <input class="inputquant" type="number" id="quantidade" name="quantidade" min="1" value="1">
-        <input type="hidden" name="Created" value="x-sheetmonkey-current-date-time" />
         <hr>
     <button class="addcar" onclick="additem()">Add Carrinho</button>
     <button id="comprar" class="comprar">Comprar</button>
     
     <div id="entrega" class="entrega">
     <hr>
-    <td><h1 class="enderecoparaentrega">ENDEREÇO PARA ENTREGA</h1></td>
+    <h1 class="enderecoparaentrega">ENDEREÇO PARA ENTREGA</h1>
 
     
     
@@ -324,8 +323,8 @@ select {display: none;}
         <input class="inputentrega" type="hidden" name="Created" value="x-sheetmonkey-current-date-time" />
 
         <button class="enviar" type="submit" onclick="enviar()">Enviar</button>
-    </form>
     </div>
+    </form>
 </div>
 </div>
 
@@ -360,7 +359,7 @@ select {display: none;}
 </div>
 <div class="precofinal">
     <p class="pfcar">Preço Final do Carrinho: <span id="precoTotalCarrinho">R$ 0.00</span></p>
-    <button class="finalizar" onclick="finalizar()">Finalizar compra</button>
+    <button class="finalizar" id="finalizar">Finalizar compra</button>
 </div>
 
 </div>
@@ -384,12 +383,11 @@ select {display: none;}
 function carregarPagina() {
             // Chame a função para exibir o carrinho ao carregar a página
             exibirCarrinho();
-            
 var cartNotification = document.getElementById('cartNotification');
     if (JSON.parse(localStorage.getItem('carrinho')).length === 0) {
         cartNotification.style.display = 'block';
     }
-        }
+}
 
 function abreviarNomeProduto(nome, comprimentoMaximo) {
     if (nome.length > comprimentoMaximo) {
@@ -612,6 +610,16 @@ car.classList.remove('hidden');
 //////////////////////////////////////////////////// APARECER ENDERECO /////////////////////////////////////////////////////////////////////
 
 document.getElementById('comprar').addEventListener('click', function() {
+      // Mostra a div oculta
+      document.getElementById('entrega').style.display = 'block';
+
+      // Rola até a div oculta
+      document.getElementById('entrega').scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+    
+document.getElementById('finalizar').addEventListener('click', function() {
       // Mostra a div oculta
       document.getElementById('entrega').style.display = 'block';
 
