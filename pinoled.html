@@ -432,6 +432,20 @@ var cartNotification = document.getElementById('cartNotification');
         cartNotification.style.display = 'none';
     }
 
+var carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+
+    
+
+    // Calcular a quantidade total de produtos no carrinho
+    var quantidadeTotalProdutos = carrinho.length;
+
+    // Exibir a quantidade total no elemento com a classe "quanticar"
+    var quanticarElement = document.querySelector('.quanticar');
+    if (quanticarElement) {
+        quanticarElement.textContent = quantidadeTotalProdutos.toString();
+    }
+
+
     // Exibir os itens do carrinho
     carrinho.forEach(function (produto, index) {
     var nomeAbreviado = abreviarNomeProduto(produto.nome, 18); // Ajuste o comprimento conforme necessário
