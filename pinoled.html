@@ -50,6 +50,8 @@ option {font-size: 15px;}
 
 #produtos a {text-decoration:none; color: black;}
 
+.produto:hover {background-color: #ffcccc;}
+
 .produto {flex: 0 0 calc(20% - 20px); margin: 10px; background-color: #ffffff; padding: 5px; box-sizing: border-box; border: 2px solid #b81414; border-radius: 5px; width: 100%;}
 
 .imgproduto {width: 100%;}
@@ -124,17 +126,19 @@ ul {list-style-type: none; margin: 0; padding: 0}
 
 .buttonremover {font-size: 12px; background-color: #b81414; color: white; padding: 5px 5px; border: none; border-radius: 4px; margin-right: 2px; position: relative; float: right; margin-top: 0}
 
+.buttonremover:hover {background-color: #b83030;}
+
 .carrinhoitem {background-color: #ffffff; padding: 5px; box-sizing: border-box; border: 2px solid #b81414; border-radius: 5px; margin-bottom: 40px; margin-left: 10%; margin-right: 10%; margin-top: 50px}
 
 .imgcar {max-width: 10%}
 
 .inforcar {font-size: 15px}
 
-.bordercar {display: inline-block; height: 90px; border: 1px solid #b81414; margin-bottom: -37px; margin-left: 15px; margin-right: 10px}
+.bordercar {display: inline-block; height: 90px; border: 1px solid #b81414; margin-bottom: -37px; margin-left: 5px; margin-right: 5px}
 
-.precototal {color: #b81414; font-weight: 500; font-size: 20px;}
+.precototal {color: #b81414; font-weight: 500; font-size: 15px;}
 
-.precofinal {background-color: #ffffff; padding: 5px; box-sizing: border-box; border: 2px solid #b81414; border-radius: 5px; width: 100%; margin-bottom: 40px}
+.precofinal {background-color: #ffffff; height: 60px; box-sizing: border-box; border: 2px solid #b81414; border-radius: 5px; margin-bottom: 40px; color: #b81414; font-weight: 500; font-size: 20px; max-width: 80%; margin-left: 10%;}
 
 .primeirocar {background-color: #fbe5e5; width: 100%; color: #fbe5e5; margin: 0}
 
@@ -144,12 +148,26 @@ ul {list-style-type: none; margin: 0; padding: 0}
 
 .textocarrinho {background-color: #b81414; color: white; text-align: center; width: 100%; margin:0; padding: 10px}
 
+.finalizar {font-size: 20px; background-color: #4CAF50; color: white; padding: 5px 10px; border: none; border-radius: 4px; float: right; margin: 10px}
+
+.finalizar:hover {background-color: #45a049;}
+
+.pfcar {float: left; margin-top: 15px; margin-left: 5px;}
+
+#corpo {flex: 1}
+
 #footer {background-color: #b81414; color: white; /* Cor do texto do footer */
     text-align: center;
     padding: 15px;
-    margin-top: 79px;}
+    margin-top: 79px; position: relative}
 
-#corpo {flex: 1}
+.fttitulo {font-weight: 1000}
+
+.fttexto {font-weight: 100}
+
+.logoft {max-width: 100px; margin-left: -50%; position: absolute}
+
+.copy {background-color: #800000; width: 100%; color: #ffffff; text-align: center; padding-top: 15px;}
 
 
 /*______________________________________________________ 700PX ______________________________________________________________________*/
@@ -341,13 +359,24 @@ select {display: none;}
     <ul id="carrinhoItens"></ul>
 </div>
 <div class="precofinal">
-    <p>Preço Final do Carrinho: <span id="precoTotalCarrinho">R$ 0.00</span></p>
+    <p class="pfcar">Preço Final do Carrinho: <span id="precoTotalCarrinho">R$ 0.00</span></p>
+    <button class="finalizar" onclick="finalizar()">Finalizar compra</button>
 </div>
 
 </div>
 <footer id="footer">
-footer
+<td><img class="logoft" src="https://jgloot.github.io/jgloot/logojgloot.png" alt="logo"></a></td>
+<p class="fttitulo">Sobre nós</p>
+<p class="fttexto"><a href="#">Conheça a JGLoot e os nossos objetivos</a></p>
+<p class="fttitulo">Anucie seus produtos</p>
+<p class="fttexto">Preencha <a href="#">Este formulário</a> para anuciar seus produtos em nosso site, mais informações em <a href="#">nosso WhatsApp</a>.</p>
+<p class="fttitulo">Anucie sua loja</p>
+<p class="fttexto">Preencha <a href="#">Este formulário</a> para anuciar sua loja em nosso site, mais informações em <a href="#">nosso WhatsApp</a>.</p>
+<p class="fttitulo">Termo de Uso e Política de Privacidade</p>
+<p class="fttexto">Inseguro sobre seus dados? Leia nosso <a href="#">Termo de Uso e Política de Privacidade</a> e tenha garantia da segurança de nosso site, mais informações em <a href="#">nosso WhatsApp</a>.</p>
 </footer>
+<div class="copy"><p>@2023 Copyright > JGLoot</p></div>
+
 
 <!___________________________________________________________________________________________>
 
@@ -457,7 +486,7 @@ var carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
         <span class="inforcar">
         ${nomeAbreviado}<span class="bordercar"></span>
         Cor: ${produto.cor} <span class="bordercar"></span>
-        Unidade: R$${produto.preco.toFixed(2)} <span class="bordercar"></span>
+        R$${produto.preco.toFixed(2)} <span class="bordercar"></span>
         Quantidade: <input type="number" value="${produto.quantidade}" min="1" onchange="atualizarQuantidade(${index}, this.value)" style="max-width: 50px">
         <br><hr>
         <span class="precototal">Preço Total: R$${precoTotal.toFixed(2)}</span>
