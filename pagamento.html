@@ -40,7 +40,7 @@
             font-weight: bold;
         }
         
-        .caroculto {display: none;}
+        .caroculto {display: none}
     </style>
 </head>
 <body>
@@ -66,9 +66,6 @@
 </div>
 <div class="precofinal">
     <p>Preço Final do Carrinho: <span id="precoTotalCarrinho">R$ 0.00</span></p>
-    <div class="precofinal">
-    <p class="pfcar">Preço Final do Carrinho: <span id="precoTotalCarrinho">R$ 0.00</span></p>
-    <button class="finalizar">Finalizar compra</button>
 </div>
 </div>
 </div>
@@ -82,25 +79,7 @@ function abreviarNomeProduto(nome, comprimentoMaximo) {
         return nome;
     }
 }
-function finalizar() {
-    // Obtenha o elemento de preço total
-    var precoTotalElement = document.getElementById('precoTotalCarrinho');
 
-    // Obtenha o valor do preço total como um número
-    var precoTotal = parseFloat(precoTotalElement.innerText.replace('R$', ''));
-
-    // Lógica condicional para redirecionar com base no preço
-   if (Math.abs(precoTotal - 15) < 0.001) {
-        // Redirecione para a tela 1
-        window.location.href = 'https://www.mercadolivre.com.br/';
-    } else if (Math.abs(precoTotal - 30) < 0.001) {
-        // Redirecione para a tela 2
-        window.location.href = 'https://br.shein.com/';
-    } else {
-        // Redirecione para uma tela padrão ou faça algo mais
-        window.location.href = 'pinoled.html';
-    }
-}
 function calcularPrecoTotal(produto) {
     // Suponha que o preço unitário esteja na propriedade 'preco' do objeto produto
     
