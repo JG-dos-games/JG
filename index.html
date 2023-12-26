@@ -219,6 +219,9 @@ select {display: none;}
 <div class="terceirocar">.</div>
 <div class="segundocar">.</div>
 <div class="primeirocar">.</div>
+<div id="cartNotification" class="textocarrinho" style="display: none;">
+   Seu Carrinho está vazio.
+</div>
     <ul id="carrinhoItens"></ul>
 </div>
 <div class="precofinal">
@@ -318,6 +321,13 @@ function exibirCarrinhoNaOutraPagina() {
     var quanticarElement = document.querySelector('.quanticar');
     if (quanticarElement) {
         quanticarElement.textContent = quantidadeTotalProdutos.toString();
+    }
+    
+    var cartNotification = document.getElementById('cartNotification');
+    if (carrinho.length === 0) {
+        cartNotification.style.display = 'block';
+    } else {
+        cartNotification.style.display = 'none';
     }
     
     // Exibir os itens do carrinho
