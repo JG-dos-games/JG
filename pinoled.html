@@ -359,7 +359,7 @@ select {display: none;}
 </div>
 <div class="precofinal">
     <p class="pfcar">Preço Final do Carrinho: <span id="precoTotalCarrinho">R$ 0.00</span></p>
-    <button class="finalizar" id="finalizar">Finalizar compra</button>
+    <a href="https://jgloot.github.io/jgloot/finalizarcompra.html"><button class="finalizar" id="finalizar">Finalizar compra</button></a>
 </div>
 
 </div>
@@ -610,16 +610,6 @@ car.classList.remove('hidden');
 //////////////////////////////////////////////////// APARECER ENDERECO /////////////////////////////////////////////////////////////////////
 
 document.getElementById('comprar').addEventListener('click', function() {
-      // Mostra a div oculta
-      document.getElementById('entrega').style.display = 'block';
-
-      // Rola até a div oculta
-      document.getElementById('entrega').scrollIntoView({
-        behavior: 'smooth'
-      });
-    });
-    
-document.getElementById('finalizar').addEventListener('click', function() {
       // Mostra a div oculta
       document.getElementById('entrega').style.display = 'block';
 
