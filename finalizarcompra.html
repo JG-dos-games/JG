@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>JGLoot</title> <link rel="shortcut icon" type="image/png" href="faviconJG.png"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1"> <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous"> <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
+<style>
+body {background-color: #ebebeb;}
+
+.logo {max-width: 80px; float: right; margin-right: 20px}
+
+.voltar {display: none;}
+
+.fc {float: left; margin-top: 10px; margin-left: 40px}
+
+.fundo {background-color: #b81414; width: 100%; top:0; height: 80px; color: white; font-size: 40px; font-weight: 700}
+
+.h2 {color: #b81414}
+
+.carrinho {margin-left: 10%; width: 80%; margin-top: 50px; background-color: #ffffff; padding: 1%; padding-bottom: 20px; border: 2px solid #b81414; border-radius: 5px; height: 100%}
+
+.entrega {display: none; margin-left: 10%; width: 80%; margin-top: 50px; background-color: #ffffff; padding: 1%; padding-bottom: 20px; border: 2px solid #b81414; border-radius: 5px; height: 100%}
+
+input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    
+    .produto-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .inputs-container {
+      margin-left: 10px;
+    }  
+    
+input:focus {
+  outline: none;
+}
+    
+
+img {max-width: 30%}
+
+hr {color: #b81414; border: 1px solid #b81414;}
+
+button {font-size: 20px; background-color: #4CAF50; color: white; padding: 5px 10px; border: none; border-radius: 4px; margin: 10px}
+
+button:hover {background-color: #45a049;}
+
+
+</style>
+</head>
+<body onload="carregarPagina()">
+<table class="fundo">
+<td class="fc">FINALIZAR COMPRA</td>
+<td><a href="index.html"><img class="logo" src="https://jgloot.github.io/jgloot/logojgloot.png" alt="logo"></a></td>
+<td><a href="index.html"><img class="voltar" src="voltar.png" alt="voltar"></a>
+</td>
+    </table>
+    
+  <form id="formulario" action="https://api.sheetmonkey.io/form/uxvqPncPLPexLG3HAgf2K9" method="post">
+<div class="carrinho">
+    <h2 class="h2">Confirme o pedido</h2>
+
+    <div id="itensCarrinho"></div>
+    
+    <h3>Total: <span id="precoTotalCarrinho">R$ 0.00</span></h3>
+ 
+    <button id="finalizar">Finalizar compra</button>
+</div>
+
+
+<div id="entrega" class="entrega">
+    <h1 class="enderecoparaentrega">ENDEREÇO PARA ENTREGA</h1>
+
+    
+    
+        <label for="cliente">Nome completo:</label>
+        <input class="inputentrega" placeholder="Nome de quem receberá o produto." type="text" id="cliente" name="cliente" required>
+
+        <label for="endereco">Bairro:</label>
+        <input class="inputentrega" placeholder="Digite o nome do bairro." type="text" id="bairro" name="bairro" required>
+
+        <label for="cidade">Rua/Travessa/Avenida:</label>
+        <input class="inputentrega" placeholder="Digite o nome da rua/travessa/avenida." type="text"  id="rua" name="rua" required>
+        
+        <label for="cidade">Número:</label>
+        <input class="inputentrega" placeholder="Digite o número da sua localidade." type="number" id="numero" name="numero" required>
+
+		<label for="complemento">Ponto de referência (opcional):</label>
+        <input class="inputentrega" placeholder="Digite um ponto de referência, escola, igreja, algo próximo." type="text" id="complemento" name="complemento">
+        
+        <input class="inputentrega" type="hidden" name="Created" value="x-sheetmonkey-current-date-time" />
+
+        <button class="enviar" type="submit">Enviar</button>
+    </div>
+  </form>
+
+  <script>
+    function carregarPagina() {
+      // Chame a função para exibir o carrinho ao carregar a página
+      exibirCarrinho();
+    }
+
+    function exibirCarrinho() {
+      // Recuperar dados do carrinho do localStorage
+      var carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+
+      // Preencher o formulário com dados do carrinho
+      preencherFormulario(carrinho);
+    }
+
+    function calcularPrecoTotal(produto) {
+      return produto.quantidade * produto.preco;
+    }
+
+    function preencherFormulario(carrinho) {
+      var itensCarrinho = document.getElementById('itensCarrinho');
+      var precoTotalCarrinhoElement = document.getElementById('precoTotalCarrinho');
+      itensCarrinho.innerHTML = ''; // Limpar conteúdo
+
+      var precoTotalCarrinho = 0;
+
+      // Preencher o formulário com a imagem e inputs para cada produto
+      carrinho.forEach(function (produto, index) {
+        // Calcular o preço total para cada produto
+        produto.precoTotal = calcularPrecoTotal(produto);
+        precoTotalCarrinho += produto.precoTotal;
+
+        // Crie div para agrupar a imagem e os inputs de cada produto
+        var divProduto = document.createElement('div');
+        divProduto.classList.add('produto-container');
+
+        // Adicione a imagem do produto
+        var imgProduto = document.createElement('img');
+        imgProduto.src = produto.imagem;
+        imgProduto.alt = produto.nome;
+        divProduto.appendChild(imgProduto);
+
+        // Crie div para agrupar os inputs de cada produto
+        var divInputs = document.createElement('div');
+        divInputs.classList.add('inputs-container');
+
+        // Crie inputs e labels para cada propriedade do produto
+        var inputsLabels = [
+          { type: 'text', name: 'nome', value: produto.nome, placeholder: 'Nome' },
+          { type: 'text', name: 'cor', value: produto.cor, placeholder: 'Cor' },
+          { type: 'number', name: 'quantidade', value: produto.quantidade, placeholder: 'Quantidade' },
+          { type: 'text', name: 'preco', value: `R$${produto.preco.toFixed(2)}`, placeholder: 'Preço Unitário' },
+          { type: 'text', name: 'precoTotal', value: `R$${produto.precoTotal.toFixed(2)}`, placeholder: 'Preço Total do Pedido' },
+        ];
+
+        inputsLabels.forEach(function (inputLabel) {
+          var label = document.createElement('label');
+          label.textContent = inputLabel.placeholder;
+
+          var input = document.createElement('input');
+          input.type = inputLabel.type;
+          input.name = inputLabel.name;
+          input.value = inputLabel.value;
+          input.placeholder = inputLabel.placeholder;
+          input.readOnly = true;
+           // Tornar o input desabilitado
+
+          // Adicione o label e o input à divInputs
+          divInputs.appendChild(label);
+          divInputs.appendChild(input);
+        });
+
+        // Adicione a divInputs ao divProduto
+        divProduto.appendChild(divInputs);
+
+        // Adicione o divProduto ao div de itensCarrinho
+        itensCarrinho.appendChild(divProduto);
+
+        // Adicione uma linha separadora entre os produtos
+        itensCarrinho.appendChild(document.createElement('hr'));
+      });
+
+      // Atualizar o preço total do carrinho
+      precoTotalCarrinhoElement.textContent = `R$ ${precoTotalCarrinho.toFixed(2)}`;
+    }
+    
+ document.getElementById('finalizar').addEventListener('click', function() {
+      // Mostra a div oculta
+      document.getElementById('entrega').style.display = 'block';
+
+      // Rola até a div oculta
+      document.getElementById('entrega').scrollIntoView({
+        behavior: 'smooth'
+      });
+    });   
+  </script>
+</body>
+</html>
