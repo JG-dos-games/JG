@@ -2,244 +2,34 @@
 <html lang="en">
 <head>
 <title>JGLoot</title> <link rel="shortcut icon" type="image/png" href="faviconJG.png"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1"> <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-        }
-
-        .container {
-            text-align: center;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            background-color: #fff;
-            max-width: 400px;
-            width: 100%;
-            border: 2px solid #b81414;
-        }
-
-        h1 {
-            color: #333;
-        }
-
-        p {
-            color: #666;
-        }
-
-        .payment-link {
-            color: #007bff;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        
-        .caroculto {display: none}
-    </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Dados Enviados</h1>
-        <p>Agora é só efetuar o pagamento.</p>
-        <p>Utilize o link abaixo para realizar o pagamento:</p>
-        <a href="#" class="payment-link" onclick="finalizar()">Link de Pagamento</a>
-    </div>
-<div class="caroculto">    
-<div id="carrinhoContainer">
-<div class="primeirocar">.</div>
-<div class="segundocar">.</div>
-<div class="terceirocar">.</div>
-    <h2 class="textocarrinho">Seu Carrinho</h2>
-<div class="terceirocar">.</div>
-<div class="segundocar">.</div>
-<div class="primeirocar">.</div>
-<div id="cartNotification" class="textocarrinho" style="display: none;">
-   Seu Carrinho está vazio.
-</div>
-    <ul id="carrinhoItens"></ul>
-</div>
-<div class="precofinal">
-    <p>Preço Final do Carrinho: <span id="precoTotalCarrinho">R$ 0.00</span></p>
-</div>
-</div>
-</div>
 <script>
-function abreviarNomeProduto(nome, comprimentoMaximo) {
-    if (nome.length > comprimentoMaximo) {
-        // Se o nome for mais longo que o comprimento máximo, abrevie e adicione reticências
-        return nome.substring(0, comprimentoMaximo) + '...';
-    } else {
-        // Se o nome for suficientemente curto, retorne o nome original
-        return nome;
-    }
-}
-
-function calcularPrecoTotal(produto) {
-    // Suponha que o preço unitário esteja na propriedade 'preco' do objeto produto
-    
-    return produto.quantidade * produto.preco;
-}
-
-
 function calcularPrecoTotalCarrinho() {
-    // Recuperar o carrinho do localStorage
     var carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-
-    // Calcular o preço total do carrinho
+    
     var precoTotalCarrinho = carrinho.reduce(function (total, produto) {
         return total + produto.quantidade * produto.preco;
     }, 0);
 
-    // Exibir o preço total na página
-    var precoTotalElement = document.getElementById('precoTotalCarrinho');
-    if (precoTotalElement) {
-        precoTotalElement.textContent = 'R$ ' + precoTotalCarrinho.toFixed(2);
-    }
+    return precoTotalCarrinho;
 }
 
 function finalizar() {
-    // Obtenha o elemento de preço total
-    var precoTotalElement = document.getElementById('precoTotalCarrinho');
+    var precoTotal = calcularPrecoTotalCarrinho();
 
-    // Obtenha o valor do preço total como um número
-    var precoTotal = parseFloat(precoTotalElement.innerText.replace('R$', ''));
-
-    // Lógica condicional para redirecionar com base no preço
-   if (Math.abs(precoTotal - 15) < 0.001) {
-        // Redirecione para a tela 1
+    if (Math.abs(precoTotal - 15) < 0.001) {
         window.location.href = 'https://www.mercadolivre.com.br/';
     } else if (Math.abs(precoTotal - 30) < 0.001) {
-        // Redirecione para a tela 2
         window.location.href = 'https://br.shein.com/';
     } else {
-        // Redirecione para uma tela padrão ou faça algo mais
         window.location.href = 'pinoled.html';
     }
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    // Exibir o carrinho na página carregada
-    exibirCarrinhoNaOutraPagina();
+    finalizar(); // Adicione isso para executar o redirecionamento no carregamento da página
 });
-
-function removerDoCarrinhoNaOutraPagina(index) {
-    // Recuperar o carrinho do localStorage
-    var carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-
-    // Remover o item do carrinho com o índice fornecido
-    carrinho.splice(index, 1);
-
-    // Atualizar o carrinho no localStorage
-    localStorage.setItem('carrinho', JSON.stringify(carrinho));
-
-    // Exibir o carrinho atualizado
-    exibirCarrinhoNaOutraPagina();
-    calcularPrecoTotalCarrinho();
-}
-
-function atualizarQuantidadeNaOutraPagina(index, novaQuantidade) {
-    // Recuperar o carrinho do localStorage
-    var carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-
-    // Verificar se o índice é válido
-    if (index >= 0 && index < carrinho.length) {
-        // Atualizar a quantidade do produto no carrinho
-        carrinho[index].quantidade = parseInt(novaQuantidade);
-
-        // Atualizar o carrinho no localStorage
-        localStorage.setItem('carrinho', JSON.stringify(carrinho));
-
-        // Exibir o carrinho atualizado
-        exibirCarrinhoNaOutraPagina();
-        calcularPrecoTotalCarrinho();
-    }
-}
-
-function exibirCarrinhoNaOutraPagina() {
-    // Recuperar o carrinho do localStorage
-    var carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-
-    // Obter o contêiner do carrinho
-    var carrinhoContainer = document.getElementById('carrinhoItens');
-
-    // Limpar itens antigos do carrinho
-    carrinhoContainer.innerHTML = '';
-    var quantidadeTotalProdutos = carrinho.length;
-
-    // Exibir a quantidade total no elemento com a classe "quanticar"
-    var quanticarElement = document.querySelector('.quanticar');
-    if (quanticarElement) {
-        quanticarElement.textContent = quantidadeTotalProdutos.toString();
-    }
-    
-    var cartNotification = document.getElementById('cartNotification');
-    if (carrinho.length === 0) {
-        cartNotification.style.display = 'block';
-    } else {
-        cartNotification.style.display = 'none';
-    }
-    
-    // Exibir os itens do carrinho
-    carrinho.forEach(function (produto, index) {
-        var nomeAbreviado = abreviarNomeProduto(produto.nome, 18);
-        var precoTotal = calcularPrecoTotal(produto);
-
-        var itemLista = document.createElement('li');
-        itemLista.classList.add('carrinhoitem');
-
-        // Criar div para a informação do produto
-        var divProdutoInfo = document.createElement('div');
-        divProdutoInfo.classList.add('inforcar');
-
-        // Adicionar informações do produto à div
-        divProdutoInfo.innerHTML = `
-        <img class="imgcar" src="${produto.imagem}" alt="${produto.nome}">
-            ${nomeAbreviado}<span class="bordercar"></span>
-            Cor: ${produto.cor} <span class="bordercar"></span>
-            Unidade: R$${produto.preco.toFixed(2)} <span class="bordercar"></span>
-            Quantidade: <span>${produto.quantidade}</span>
-            <br><hr>
-            <span class="precototal">Preço Total: R$${precoTotal.toFixed(2)}</span>
-        `;
-
-        // Adicionar label e campo de entrada para a quantidade
-        var labelQuantidade = document.createElement('label');
-        labelQuantidade.textContent = 'Quantidade:';
-        var inputQuantidade = document.createElement('input');
-        inputQuantidade.type = 'number';
-        inputQuantidade.value = produto.quantidade;
-        inputQuantidade.min = '1';
-        inputQuantidade.style.maxWidth = '50px';
-        inputQuantidade.onchange = function () {
-            atualizarQuantidadeNaOutraPagina(index, inputQuantidade.value);
-        };
-
-        // Adicionar botão para remover o item
-        var btnRemover = document.createElement('button');
-        btnRemover.textContent = 'Remover';
-        btnRemover.classList.add('buttonremover');
-        btnRemover.onclick = function () {
-            removerDoCarrinhoNaOutraPagina(index);
-        };
-
-        // Adicionar elementos à lista
-        itemLista.appendChild(divProdutoInfo);
-        itemLista.appendChild(labelQuantidade);
-        itemLista.appendChild(inputQuantidade);
-        itemLista.appendChild(btnRemover);
-
-        carrinhoContainer.appendChild(itemLista);
-    });
-
-    // Calcular e exibir o preço total do carrinho
-    calcularPrecoTotalCarrinho();
-}
 </script>
 </body>
 </html>
