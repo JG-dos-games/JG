@@ -834,17 +834,19 @@ var cepIndisponivel = [
 if (cepsFreteGratis.includes(cep)) {
     precofrete.textContent = "Chegará em até 2 dias gratuitamente.";	
     precofrete.style.color = "green";
-    numeropreco.textContent = "0";
 } else if (cepsDezReais.includes(cep)) {
-    precofrete.textContent = "Chegará em até 2 dias por R$10,00.";
+    precofrete.textContent = "Chegará em até 2 dias por:";
+    precofrete.style.color = "green";
     numeropreco.style.color = "green";
     numeropreco.textContent = "R$10,00";
 } else if (cepsQuinze.includes(cep)) {
-    precofrete.textContent = "Chegará em até 2 dias por R$15,00.";
+    precofrete.textContent = "Chegará em até 2 dias por:";
+    precofrete.style.color = "green";
     numeropreco.textContent = "R$15,00";
     numeropreco.style.color = "green";	
 } else if (cepsVinte.includes(cep)) {
-    precofrete.textContent = "Chegará em até 2 dias por R$20,00.";
+    precofrete.textContent = "Chegará em até 2 dias por:";
+    precofrete.style.color = "green";
     numeropreco.style.color = "green";
     numeropreco.textContent = "R$20,00";
 } else if (cepIndisponivel.includes(cep)) {
