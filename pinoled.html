@@ -296,8 +296,8 @@ select {display: none;}
         <label for="quantidade">Quantidade:</label><br>
         <input class="inputquant" type="number" id="quantidade" name="quantidade" min="1" value="1">
         <hr>
-    <button class="addcar" onclick="additem()">Add Carrinho</button>
-    <button id="comprar" class="comprar">Comprar</button>
+    <span class="addcar" onclick="additem()">Add Carrinho</span>
+    <span id="comprar" class="comprar">Comprar</span>
     
     <div id="entrega" class="entrega">
     <hr>
@@ -322,7 +322,7 @@ select {display: none;}
         
         <input class="inputentrega" type="hidden" name="Created" value="x-sheetmonkey-current-date-time" />
 
-        <button class="enviar" type="submit" onclick="setPrecoCookie()">Enviar</button>
+        <button class="enviar" type="submit" onclick="setPrecoCookie()">Finalizar compra</button>
     </div>
     </form>
 </div>
