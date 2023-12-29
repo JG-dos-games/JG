@@ -35,9 +35,9 @@ if (precoProduto !== null) {
     var precoTotalComFrete = precoProduto + frete;
 
     // Condição para redirecionar com base no valor do preço total com o frete
-    if (precoTotalComFrete === 15.00) {
+    if (precoTotalComFrete === 15) {
         window.location.href = 'https://cobranca.picpay.com/p/1703712000658c9500b155e';
-    } else if (precoTotalComFrete === 30.00) {
+    } else if (precoTotalComFrete === 30) {
         window.location.href = 'https://cobranca.picpay.com/p/1703712031658c951fc2879';
     } else {
         console.log('Valor do preço total com frete não corresponde a nenhum caso específico.');
