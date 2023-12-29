@@ -169,6 +169,8 @@ ul {list-style-type: none; margin: 0; padding: 0}
 
 .copy {background-color: #800000; width: 100%; color: #ffffff; text-align: center; padding-top: 15px;}
 
+.precofrete {display: none}
+
 
 /*______________________________________________________ 700PX ______________________________________________________________________*/
 
@@ -285,6 +287,7 @@ select {display: none;}
 <input class="inputfrete" type="text" id="campofrete" placeholder="Digite seu CEP" maxlength="9" name="cep" required>
 <button class="botaocalcular" onclick="calcular()">Calcular</button>
 <p id="frete">A taxa de entrega aparecerá aqui</p>
+<p id="precofrete"></p>
 <hr>
 <label for="cor">Escolha uma cor:</label><br>
 	
@@ -385,14 +388,22 @@ function setPrecoCookie() {
     // Obter informações do produto
     var precoUnidade = 15.00;  // Valor do preço por unidade
     var quantidade = parseInt(document.getElementById('quantidade').value) || 1; // Valor padrão é 1 se não for um número válido
-
+    var frete = parseFloat(document.getElementById('precofrete').value) || 0; // Valor padrão é 0 se não for um número válido
+ 
     // Calcular o preço total
-    var precoTotal = precoUnidade * quantidade;
+    var precoTotal = (precoUnidade * quantidade) + frete;
 
     // Definir o preço total como um cookie
-    document.cookie = 'preco_produto=' + precoTotal + '; expires=Thu, 01 Jan 2030 00:00:00 UTC; path=/';
+    document.cookie = 'preco_produto=' + precoTotal.toFixed(2) + '; expires=Thu, 01 Jan 2030 00:00:00 UTC; path=/';
  	 
 }
+
+function calcularFrete() {
+    // Obter o valor do campo de frete
+    var frete = parseFloat(document.getElementById('precofrete').value) || 0; // Valor padrão é 0 se não for um número válido
+
+    return frete;
+}	
 
 
 function carregarPagina() {
@@ -701,6 +712,7 @@ function mudarImagem(novaImagem) {
 function calcular() {
   var cep = document.getElementById("campofrete").value;
   var precofrete = document.getElementById("frete");
+  var numeropreco = document.getElementById("precofrete");
 	
 ///////////////////////////////////////////////////////// CEPS GRATIS ///////////////////////////////////////////////////////////////////////
   
@@ -831,15 +843,19 @@ var cepIndisponivel = [
 if (cepsFreteGratis.includes(cep)) {
     precofrete.textContent = "Chegará em até 2 dias gratuitamente.";
     precofrete.style.color = "green";
+    numeropreco.textContent = "0";
 } else if (cepsDezReais.includes(cep)) {
     precofrete.textContent = "Chegará em até 2 dias por R$10,00.";
     precofrete.style.color = "green";
+    numeropreco.textContent = "10.00";
 } else if (cepsQuinze.includes(cep)) {
     precofrete.textContent = "Chegará em até 2 dias por R$15,00.";
     precofrete.style.color = "green";
+    numeropreco.textContent = "15.00";
 } else if (cepsVinte.includes(cep)) {
     precofrete.textContent = "Chegará em até 2 dias por R$20,00.";
     precofrete.style.color = "green";
+    numeropreco.textContent = "20.00";
 } else if (cepIndisponivel.includes(cep)) {
     precofrete.textContent = "Entrega indisponível.";
     precofrete.style.color = "red";
