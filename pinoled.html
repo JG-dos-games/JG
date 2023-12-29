@@ -380,6 +380,10 @@ select {display: none;}
 <!___________________________________________________________________________________________>
 
 <script>
+document.getElementById('quantidade').addEventListener('change', function() {
+    // Quando o valor do campo de entrada for alterado, faça o campo perder o foco
+    this.blur();
+});	
     // Obter o elemento de preço pelo nome da classe
 function setPrecoCookie() {
  window.onload = function () {	
