@@ -384,30 +384,23 @@ select {display: none;}
 
 <script>	
 function setPrecoCookie() {
-    var precoUnidade = 15.00;
-    var quantidade = parseInt(document.getElementById('quantidade').value) || 1;
-    
-    // Obtém o campo de frete
-    var freteElement = document.getElementById('precofrete');
+    var precoUnidade = 15.00;  // Valor do preço por unidade
+    var quantidade = parseInt(document.getElementById('quantidade').value) || 1; // Valor padrão é 1 se não for um número válido
+    var frete = parseFloat(document.getElementById('precofrete').value) || 0; // Valor padrão é 0 se não for um número válido
 
-    // Verifica se o campo de frete está definido
-    if (freteElement) {
-        // Obtém o valor do campo de frete
-        var frete = parseFloat(freteElement.value) || 0;
+    var precoTotal = (precoUnidade * quantidade) + frete;
 
-        console.log('precoUnidade:', precoUnidade);
-        console.log('quantidade:', quantidade);
-        console.log('frete:', frete);
-
-        var precoTotal = (precoUnidade * quantidade) + frete;
-
-        console.log('precoTotal:', precoTotal);
-
-        document.cookie = 'preco_produto=' + precoTotal + '; expires=Thu, 01 Jan 2030 00:00:00 UTC; path=/';
-    } else {
-        console.log('Campo de frete não encontrado.');
-    }
+    // Definir o preço total como um cookie
+    document.cookie = 'preco_produto=' + precoTotal.toFixed(2) + '; expires=Thu, 01 Jan 2030 00:00:00 UTC; path=/';
 }
+
+function calcularFrete() {
+    // Obter o valor do campo de frete
+    var frete = parseFloat(document.getElementById('precofrete').value) || 0; // Valor padrão é 0 se não for um número válido
+
+    return frete;
+}
+
 
 // Chama a função quando o documento estiver completamente carregado
 document.addEventListener('DOMContentLoaded', function () {
