@@ -381,8 +381,7 @@ select {display: none;}
 
 <script>	
     // Obter o elemento de preço pelo nome da classe
-function setPrecoCookie() {
- window.onload = function () {	
+function setPrecoCookie() {	
     // Obter informações do produto
     var precoUnidade = 15.00;  // Valor do preço por unidade
     var quantidade = parseInt(document.getElementById('quantidade').value) || 1; // Valor padrão é 1 se não for um número válido
@@ -392,7 +391,7 @@ function setPrecoCookie() {
 
     // Definir o preço total como um cookie
     document.cookie = 'preco_produto=' + precoTotal + '; expires=Thu, 01 Jan 2030 00:00:00 UTC; path=/';
- };	 
+ 	 
 }
 
 
