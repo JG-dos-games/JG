@@ -5,6 +5,7 @@
 </head>
 <body>
 <script>
+window.onload = function () {
     // Função para obter o valor de um cookie pelo nome
 function getCookie(name) {
     var cookies = document.cookie.split(';');
@@ -18,7 +19,7 @@ function getCookie(name) {
     }
     return null;
 }
-window.onload = function () {
+
 // Obter o valor do cookie de preço
 var precoProduto = getCookie('preco_produto');
 
