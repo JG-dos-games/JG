@@ -386,7 +386,7 @@ select {display: none;}
 function setPrecoCookie() {
     var precoUnidade = 15.00;  // Valor do preço por unidade
     var quantidade = parseInt(document.getElementById('quantidade').value) || 1; // Valor padrão é 1 se não for um número válido
-    var frete = parseFloat(document.getElementById('precofrete').value) || 0; // Valor padrão é 0 se não for um número válido
+    var frete = parseFloat(document.getElementById('precofrete').textContent.replace('R$', '').trim()) || 0; // Valor padrão é 0 se não for um número válido
 
     var precoTotal = (precoUnidade * quantidade) + frete;
 
@@ -836,15 +836,15 @@ if (cepsFreteGratis.includes(cep)) {
 } else if (cepsDezReais.includes(cep)) {
     precofrete.textContent = "Chegará em até 2 dias por R$10,00.";
     precofrete.style.color = "green";
-    numeropreco.textContent = "10";
+    numeropreco.textContent = "R$10,00";
 } else if (cepsQuinze.includes(cep)) {
     precofrete.textContent = "Chegará em até 2 dias por R$15,00.";
     precofrete.style.color = "green";
-    numeropreco.textContent = "15";
+    numeropreco.textContent = "R$15,00";
 } else if (cepsVinte.includes(cep)) {
     precofrete.textContent = "Chegará em até 2 dias por R$20,00.";
     precofrete.style.color = "green";
-    numeropreco.textContent = "20";
+    numeropreco.textContent = "R$20,00";
 } else if (cepIndisponivel.includes(cep)) {
     precofrete.textContent = "Entrega indisponível.";
     precofrete.style.color = "red";
