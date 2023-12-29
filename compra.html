@@ -23,24 +23,29 @@
             return null;
         }
 
-        // Obter o valor do cookie de preço
-        var precoProduto = getCookie('preco_produto');
+// Obter o valor do cookie de preço
+var precoProduto = getCookie('preco_produto');
 
-        // Verificar se o cookie foi encontrado
-        if (precoProduto !== null) {
-            console.log('Preço do produto recuperado:', precoProduto);
+// Verificar se o cookie foi encontrado
+if (precoProduto !== null) {
+    console.log('Preço do produto recuperado:', precoProduto);
 
-            // Condição para redirecionar com base no valor do preço
-            if (Math.abs(precoProduto - 15.00) < 0.001) {
-                window.location.href = 'https://cobranca.picpay.com/p/1703712000658c9500b155e';
-            } else if (Math.abs(precoProduto - 30.00) < 0.001) {
-                window.location.href = 'https://cobranca.picpay.com/p/1703712031658c951fc2879';
-            } else {
-                console.log('Valor do preço não corresponde a nenhum caso específico.');
-            }
-        } else {
-            console.log('Cookie não encontrado');
-        }
+    // Adicione o custo do frete ao preço total
+    var frete = calcularFrete(); // Chame a função para calcular o frete
+    var precoTotalComFrete = precoProduto + frete;
+
+    // Condição para redirecionar com base no valor do preço total com o frete
+    if (precoTotalComFrete === 15.00) {
+        window.location.href = 'https://cobranca.picpay.com/p/1703712000658c9500b155e';
+    } else if (precoTotalComFrete === 30.00) {
+        window.location.href = 'https://cobranca.picpay.com/p/1703712031658c951fc2879';
+    } else {
+        console.log('Valor do preço total com frete não corresponde a nenhum caso específico.');
+    }
+} else {
+    console.log('Cookie não encontrado');
+}
+
     </script>
 </body>
 </html>
