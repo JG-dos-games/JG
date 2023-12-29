@@ -18,7 +18,7 @@ function getCookie(name) {
     }
     return null;
 }
-
+window.onload = function () {
 // Obter o valor do cookie de preço
 var precoProduto = getCookie('preco_produto');
 
@@ -37,6 +37,7 @@ if (precoProduto !== null) {
 } else {
     console.log('Cookie não encontrado');
 }
+};
 </script>
 </body>
 </html>
