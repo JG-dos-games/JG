@@ -322,7 +322,7 @@ select {display: none;}
         
         <input class="inputentrega" type="hidden" name="Created" value="x-sheetmonkey-current-date-time" />
 
-        <button class="enviar" type="submit" onclick="enviar()">Enviar</button>
+        <button class="enviar" type="submit" onclick="setPrecoCookie()">Enviar</button>
     </div>
     </form>
 </div>
@@ -380,6 +380,15 @@ select {display: none;}
 <!___________________________________________________________________________________________>
 
 <script>
+    // Obter o elemento de preço pelo nome da classe
+    function setPrecoCookie() {
+        var preco = 'R$15,00';  // Valor do preço desejado
+
+        // Definir o preço como um cookie
+        document.cookie = 'preco_produto=' + preco + '; expires=Thu, 01 Jan 2030 00:00:00 UTC; path=/';
+}
+
+
 function carregarPagina() {
             // Chame a função para exibir o carrinho ao carregar a página
             exibirCarrinho();
