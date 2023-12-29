@@ -6,35 +6,37 @@
 <body>
 <script>
     // Função para obter o valor de um cookie pelo nome
-    function getCookie(name) {
-        var cookies = document.cookie.split(';');
-        for (var i = 0; i < cookies.length; i++) {
-            var cookie = cookies[i].trim();
-            if (cookie.startsWith(name + '=')) {
-                return cookie.substring(name.length + 1);
-            }
+function getCookie(name) {
+    var cookies = document.cookie.split(';');
+    for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i].trim();
+        if (cookie.startsWith(name + '=')) {
+            var value = cookie.substring(name.length + 1);
+            // Converte o valor do cookie para número, removendo o 'R$' e substituindo vírgula por ponto
+            return parseFloat(value.replace('R$', '').replace(',', '.'));
         }
-        return null;
     }
+    return null;
+}
 
-    // Obter o valor do cookie de preço
-    var precoProduto = getCookie('preco_produto');
+// Obter o valor do cookie de preço
+var precoProduto = getCookie('preco_produto');
 
-    // Verificar se o cookie foi encontrado
-    if (precoProduto !== null) {
-        console.log('Preço do produto recuperado:', precoProduto);
+// Verificar se o cookie foi encontrado
+if (precoProduto !== null) {
+    console.log('Preço do produto recuperado:', precoProduto);
 
-        // Condição para redirecionar com base no valor do preço
-        if (precoProduto === 'R$15,00') {
-            window.location.href = 'https://www.mercadolivre.com.br/';
-        } else if (precoProduto === 'R$30,00') {
-            window.location.href = 'tela2.html';
-        } else {
-            console.log('Valor do preço não corresponde a nenhum caso específico.');
-        }
+    // Condição para redirecionar com base no valor do preço
+    if (precoProduto === 15.00) {
+        window.location.href = 'https://www.mercadolivre.com.br/';
+    } else if (precoProduto === 30.00) {
+        window.location.href = 'tela2.html';
     } else {
-        console.log('Cookie não encontrado');
+        console.log('Valor do preço não corresponde a nenhum caso específico.');
     }
+} else {
+    console.log('Cookie não encontrado');
+}
 </script>
 </body>
 </html>
