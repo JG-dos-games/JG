@@ -28,9 +28,9 @@ if (precoProduto !== null) {
     console.log('Preço do produto recuperado:', precoProduto);
 
     // Condição para redirecionar com base no valor do preço
-    if (precoProduto === 15.00) {
+    if (Math.abs(precoProduto - 15.00) < 0.001) {
         window.location.href = 'https://cobranca.picpay.com/p/1703712000658c9500b155e';
-    } else if (precoProduto === 30.00) {
+    } else if (Math.abs(precoProduto - 30.00) < 0.001) {
         window.location.href = 'https://cobranca.picpay.com/p/1703712031658c951fc2879';
     } else {
         console.log('Valor do preço não corresponde a nenhum caso específico.');
