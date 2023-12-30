@@ -961,7 +961,7 @@ document.getElementById('finalizar').addEventListener('click', function() {
     var resultadoFinal = parseFloat(resultadoFinalElement.innerHTML);
 
     // Redirecione para a outra tela com o parâmetro na URL
-    window.location.href = 'https://jgloot.github.io/jgloot/finalizarcompra.html?resultado=' + resultadoFinal;
+    document.cookie = "resultadoFinal=" + resultadoFinal.toFixed(2) + "; expires=Thu, 01 Jan 2099 00:00:00 UTC; path=/";
 });
 
 
