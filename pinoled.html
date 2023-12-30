@@ -380,8 +380,7 @@ select {display: none;}
 <hr class="hrfreteum">
 <p class="pfcar">Resultado Final: R$<span id="resultadoFinal">0.00</span></p>
 </h5>
-    <a href="https://jgloot.github.io/jgloot/finalizarcompra.html">
-    <button class="finalizar" id="finalizar">Finalizar compra</button></a>
+    <button class="finalizar" id="finalizar">Finalizar compra</button>
 </div>
 
 </div>
@@ -899,7 +898,7 @@ function calculofinal() {
     var indisp = cepIndisponivel;
 
     if (ftgratis.includes(ftcep)) {
-        ftpreco.textContent = "Chegará em até 2 dias gratuitamente.";
+        ftpreco.textContent = "Chegará em até dois dias gratuitamente.";
         ftpreco.style.color = "green";
         ftpreco.style.marginLeft = "15px";
     } else if (ftdez.includes(ftcep)) {
@@ -957,7 +956,13 @@ function obterPrecoft() {
     return precoft;
 }
 
+document.getElementById('finalizar').addEventListener('click', function() {
+    // Obtenha o valor atualizado de resultadoFinal
+    var resultadoFinal = parseFloat(resultadoFinalElement.innerHTML);
 
+    // Redirecione para a outra tela com o parâmetro na URL
+    window.location.href = 'https://jgloot.github.io/jgloot/finalizarcompra.html?resultado=' + resultadoFinal;
+});
 
 
 calculofinal();
