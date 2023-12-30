@@ -140,7 +140,7 @@ ul {list-style-type: none; margin: 0; padding: 0}
 
 .precototal {color: #b81414; font-weight: 500; font-size: 15px;}
 
-.precofinal {background-color: #ffffff; height: 60px; box-sizing: border-box; border: 2px solid #b81414; border-radius: 5px; margin-bottom: 40px; color: #b81414; font-weight: 500; font-size: 20px; max-width: 80%; margin-left: 10%;}
+.precofinal {background-color: #ffffff; height: 250px; box-sizing: border-box; border: 2px solid #b81414; border-radius: 5px; margin-bottom: 40px; color: #b81414; font-weight: 500; font-size: 20px; max-width: 80%; margin-left: 10%;}
 
 .primeirocar {background-color: #fbe5e5; width: 100%; color: #fbe5e5; margin: 0}
 
@@ -150,11 +150,11 @@ ul {list-style-type: none; margin: 0; padding: 0}
 
 .textocarrinho {background-color: #b81414; color: white; text-align: center; width: 100%; margin:0; padding: 10px}
 
-.finalizar {font-size: 20px; background-color: #4CAF50; color: white; padding: 5px 10px; border: none; border-radius: 4px; float: right; margin: 10px}
+.finalizar {font-size: 20px; background-color: #4CAF50; color: white; padding: 5px 10px; border: none; border-radius: 4px; margin: 10px}
 
 .finalizar:hover {background-color: #45a049;}
 
-.pfcar {float: left; margin-top: 15px; margin-left: 5px;}
+.pfcar {margin-top: 15px; margin-left: 5px;}
 
 #corpo {flex: 1}
 
@@ -172,6 +172,16 @@ ul {list-style-type: none; margin: 0; padding: 0}
 .copy {background-color: #800000; width: 100%; color: #ffffff; text-align: center; padding-top: 15px;}
 
 .precofrete {display: none}
+
+.hrfrete {border: 2px solid black; margin-left: -5px}
+
+.hrfreteum {border: 2px solid black; }
+
+#campofinal {width: 20%; padding: 8px; box-sizing: border-box; font-size: 15px}
+
+.botaocalcularum {background-color: #4CAF50; color: white; padding: 5px 10px; border: none; border-radius: 4px; font-size: 15px}
+
+.botaocalcularum:hover {background-color: #45a049;}
 
 
 /*______________________________________________________ 700PX ______________________________________________________________________*/
@@ -363,8 +373,13 @@ select {display: none;}
     <ul id="carrinhoItens"></ul>
 </div>
 <div class="precofinal">
-    <p class="pfcar">Preço Final do Carrinho: <span id="precoTotalCarrinho">R$ 0.00</span></p>
-    <a href="https://jgloot.github.io/jgloot/finalizarcompra.html"><button class="finalizar" id="finalizar">Finalizar compra</button></a>
+    <h5 class="pfcar">Preço Final do Carrinho: <span id="precoTotalCarrinho">R$0.00</span><br><hr class="hrfrete"> + Frete de:
+    <input type="text" id="campofinal" placeholder="Digite seu CEP" maxlength="9" name="cep" required>
+<span class="botaocalcularum" onclick="calculofinal()">Calcular</span>
+<h6 id="precoft"></h6></h5>
+<hr class="hrfreteum">
+    <a href="https://jgloot.github.io/jgloot/finalizarcompra.html">
+    <button class="finalizar" id="finalizar">Finalizar compra</button></a>
 </div>
 
 </div>
@@ -700,7 +715,6 @@ function mudarImagem(novaImagem) {
 	
 //////////////////////////////////////////////////// CALCULAR FRETE /////////////////////////////////////////////////////////////////////
 
-function calcular() {
   var cep = document.getElementById("campofrete").value;
   var precofrete = document.getElementById("frete");
   var numeropreco = document.getElementById("precofrete");
@@ -831,34 +845,88 @@ var cepIndisponivel = [
 
 /////////////////////////////////////////////////// MENSAGEM FRETE /////////////////////////////////////////////////////////////////////
 
-if (cepsFreteGratis.includes(cep)) {
-    precofrete.textContent = "Chegará em até 2 dias gratuitamente.";	
-    precofrete.style.color = "green";
-} else if (cepsDezReais.includes(cep)) {
-    precofrete.textContent = "Chegará em até 2 dias por:";
-    precofrete.style.color = "green";
-    numeropreco.style.color = "green";
-    numeropreco.textContent = "R$10,00";
-} else if (cepsQuinze.includes(cep)) {
-    precofrete.textContent = "Chegará em até 2 dias por:";
-    precofrete.style.color = "green";
-    numeropreco.textContent = "R$15,00";
-    numeropreco.style.color = "green";	
-} else if (cepsVinte.includes(cep)) {
-    precofrete.textContent = "Chegará em até 2 dias por:";
-    precofrete.style.color = "green";
-    numeropreco.style.color = "green";
-    numeropreco.textContent = "R$20,00";
-} else if (cepIndisponivel.includes(cep)) {
-    precofrete.textContent = "Entrega indisponível.";
-    precofrete.style.color = "red";
-} else if (cep === null || cep === "" || cep != cepsFreteGratis) {
-    precofrete.textContent = "CEP inválido.";
-    precofrete.style.color = "red";
+function calcular() {
+var ncep = cep.value;
+var txfrete = precofrete;
+var npreco = numeropreco;
+var fretegratis = cepsFreteGratis;
+var fretedez = cepsDezReais;
+var fretequinze = cepsQuinze;
+var fretevinte = cepsVinte;
+var indisponivel = cepIndisponivel;
+
+if (fretegratis.includes(ncep)) {
+    txfrete.textContent = "Chegará em até 2 dias gratuitamente.";	
+    txfrete.style.color = "green";
+} else if (fretedez.includes(ncep)) {
+    txfrete.textContent = "Chegará em até 2 dias por:";
+    txfrete.style.color = "green";
+    npreco.style.color = "green";
+    npreco.textContent = "R$10,00";
+} else if (fretequinze.includes(ncep)) {
+    txfrete.textContent = "Chegará em até 2 dias por:";
+    txfrete.style.color = "green";
+    npreco.textContent = "R$15,00";
+    npreco.style.color = "green";	
+} else if (fretevinte.includes(ncep)) {
+    txfrete.textContent = "Chegará em até 2 dias por:";
+    txfrete.style.color = "green";
+    npreco.style.color = "green";
+    npreco.textContent = "R$20,00";
+} else if (indisponivel.includes(ncep)) {
+    txfrete.textContent = "Entrega indisponível.";
+    npreco.style.color = "red";
+} else if (ncep === null || ncep === "" || ncep != fretegratis) {
+    txfrete.textContent = "CEP inválido.";
+    txfrete.style.color = "red";
+}
+}
+
+
+  var cepum = document.getElementById("campofinal");
+  var numeroprecoum = document.getElementById("precoft");
+  
+  
+function calculofinal() {
+var ftcep = cepum.value;
+var ftpreco = numeroprecoum;
+var ftgratis = cepsFreteGratis;
+var ftdez = cepsDezReais;
+var ftquinze = cepsQuinze;
+var ftvinte = cepsVinte;
+var indisp = cepIndisponivel;
+
+if (ftgratis.includes(ftcep)) {
+    ftpreco.textContent = "Chegará em até 2 dias gratuitamente.";	
+    ftpreco.style.color = "green";
+    ftpreco.style.marginLeft = "15px";
+} else if (ftdez.includes(ftcep)) {
+    ftpreco.style.color = "green";
+    ftpreco.textContent = "R$10,00";
+    ftpreco.style.marginLeft = "15px";
+} else if (ftquinze.includes(ftcep)) {
+    ftpreco.textContent = "R$15,00";
+    ftpreco.style.color = "green";	
+    ftpreco.style.marginLeft = "15px";
+} else if (ftvinte.includes(ftcep)) {
+    ftpreco.style.color = "green";
+    ftpreco.textContent = "R$20,00";
+    ftpreco.style.marginLeft = "15px";
+} else if (indisp.includes(ftcep)) {
+    ftpreco.textContent = "Entrega indisponível.";
+    ftpreco.style.color = "red";
+    ftpreco.style.marginLeft = "15px";
+} else if (ftcep === null || ftcep === "" || ftcep != ftgratis) {
+    ftpreco.textContent = "CEP inválido.";
+    ftpreco.style.color = "red";
+    ftpreco.style.marginLeft = "15px";
 }
 }
 $(document).ready(function () {
   var $campo = $("#campofrete");
+  $campo.mask('00000-000', {reverse: true});
+
+  var $campo = $("#campofinal");
   $campo.mask('00000-000', {reverse: true});
 });
 </script>
