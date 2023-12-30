@@ -68,7 +68,7 @@ button:hover {background-color: #45a049;}
 
     <div id="itensCarrinho"></div>
     
-    <h3>Total: <span id="precoTotalCarrinho">R$ 0.00</span></h3>
+<h3>Total: <span id="precoTotalCarrinho">R$ ${resultadoFinal.toFixed(2)}</span></h3>
  
     <button id="finalizar">Finalizar compra</button>
 </div>
@@ -101,6 +101,9 @@ button:hover {background-color: #45a049;}
   </form>
 
   <script>
+var resultadoFinal = parseFloat(new URLSearchParams(window.location.search).get('resultado'));
+  
+  
     function carregarPagina() {
       // Chame a função para exibir o carrinho ao carregar a página
       exibirCarrinho();
