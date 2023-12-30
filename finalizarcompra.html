@@ -101,35 +101,35 @@ button:hover {background-color: #45a049;}
   </form>
 
   <script>
-var resultadoFinal = parseFloat(new URLSearchParams(window.location.search).get('resultado'));
-  
-  
-    function carregarPagina() {
-      // Chame a função para exibir o carrinho ao carregar a página
-      exibirCarrinho();
-    }
+function carregarPagina() {
+    // Chame a função para exibir o carrinho ao carregar a página
+    exibirCarrinho();
+    // Exiba o valor de resultadoFinal
+    var resultadoFinal = parseFloat(new URLSearchParams(window.location.search).get('resultado'));
+    document.getElementById('precoTotalCarrinho').textContent = `R$ ${resultadoFinal.toFixed(2)}`;
+}
 
-    function exibirCarrinho() {
-      // Recuperar dados do carrinho do localStorage
-      var carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+function exibirCarrinho() {
+    // Recuperar dados do carrinho do localStorage
+    var carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
 
-      // Preencher o formulário com dados do carrinho
-      preencherFormulario(carrinho);
-    }
+    // Preencher o formulário com dados do carrinho
+    preencherFormulario(carrinho);
+}
 
-    function calcularPrecoTotal(produto) {
-      return produto.quantidade * produto.preco;
-    }
+function calcularPrecoTotal(produto) {
+    return produto.quantidade * produto.preco;
+}
 
-    function preencherFormulario(carrinho) {
-      var itensCarrinho = document.getElementById('itensCarrinho');
-      var precoTotalCarrinhoElement = document.getElementById('precoTotalCarrinho');
-      itensCarrinho.innerHTML = ''; // Limpar conteúdo
+function preencherFormulario(carrinho) {
+    var itensCarrinho = document.getElementById('itensCarrinho');
+    var precoTotalCarrinhoElement = document.getElementById('precoTotalCarrinho');
+    itensCarrinho.innerHTML = ''; // Limpar conteúdo
 
-      var precoTotalCarrinho = 0;
+    var precoTotalCarrinho = 0;
 
-      // Preencher o formulário com a imagem e inputs para cada produto
-      carrinho.forEach(function (produto, index) {
+    // Preencher o formulário com a imagem e inputs para cada produto
+    carrinho.forEach(function (produto, index) {
         // Calcular o preço total para cada produto
         produto.precoTotal = calcularPrecoTotal(produto);
         precoTotalCarrinho += produto.precoTotal;
@@ -150,28 +150,28 @@ var resultadoFinal = parseFloat(new URLSearchParams(window.location.search).get(
 
         // Crie inputs e labels para cada propriedade do produto
         var inputsLabels = [
-          { type: 'text', name: 'nome', value: produto.nome, placeholder: 'Nome' },
-          { type: 'text', name: 'cor', value: produto.cor, placeholder: 'Cor' },
-          { type: 'number', name: 'quantidade', value: produto.quantidade, placeholder: 'Quantidade' },
-          { type: 'text', name: 'preco', value: `R$${produto.preco.toFixed(2)}`, placeholder: 'Preço Unitário' },
-          { type: 'text', name: 'precoTotal', value: `R$${produto.precoTotal.toFixed(2)}`, placeholder: 'Preço Total do Pedido' },
+            { type: 'text', name: 'nome', value: produto.nome, placeholder: 'Nome' },
+            { type: 'text', name: 'cor', value: produto.cor, placeholder: 'Cor' },
+            { type: 'number', name: 'quantidade', value: produto.quantidade, placeholder: 'Quantidade' },
+            { type: 'text', name: 'preco', value: `R$${produto.preco.toFixed(2)}`, placeholder: 'Preço Unitário' },
+            { type: 'text', name: 'precoTotal', value: `R$${produto.precoTotal.toFixed(2)}`, placeholder: 'Preço Total do Pedido' },
         ];
 
         inputsLabels.forEach(function (inputLabel) {
-          var label = document.createElement('label');
-          label.textContent = inputLabel.placeholder;
+            var label = document.createElement('label');
+            label.textContent = inputLabel.placeholder;
 
-          var input = document.createElement('input');
-          input.type = inputLabel.type;
-          input.name = inputLabel.name;
-          input.value = inputLabel.value;
-          input.placeholder = inputLabel.placeholder;
-          input.readOnly = true;
-           // Tornar o input desabilitado
+            var input = document.createElement('input');
+            input.type = inputLabel.type;
+            input.name = inputLabel.name;
+            input.value = inputLabel.value;
+            input.placeholder = inputLabel.placeholder;
+            input.readOnly = true;
+            // Tornar o input desabilitado
 
-          // Adicione o label e o input à divInputs
-          divInputs.appendChild(label);
-          divInputs.appendChild(input);
+            // Adicione o label e o input à divInputs
+            divInputs.appendChild(label);
+            divInputs.appendChild(input);
         });
 
         // Adicione a divInputs ao divProduto
@@ -182,21 +182,24 @@ var resultadoFinal = parseFloat(new URLSearchParams(window.location.search).get(
 
         // Adicione uma linha separadora entre os produtos
         itensCarrinho.appendChild(document.createElement('hr'));
-      });
+    });
 
-      // Atualizar o preço total do carrinho
-      precoTotalCarrinhoElement.textContent = `R$ ${precoTotalCarrinho.toFixed(2)}`;
-    }
-    
- document.getElementById('finalizar').addEventListener('click', function() {
-      // Mostra a div oculta
-      document.getElementById('entrega').style.display = 'block';
+    // Atualizar o preço total do carrinho
+    precoTotalCarrinhoElement.textContent = `R$ ${precoTotalCarrinho.toFixed(2)}`;
+}
 
-      // Rola até a div oculta
-      document.getElementById('entrega').scrollIntoView({
+document.getElementById('finalizar').addEventListener('click', function () {
+    // Mostra a div oculta
+    document.getElementById('entrega').style.display = 'block';
+
+    // Rola até a div oculta
+    document.getElementById('entrega').scrollIntoView({
         behavior: 'smooth'
-      });
-    });   
+    });
+});
+
+// Chame a função para carregar a página ao final do script
+carregarPagina();
   </script>
 </body>
 </html>
