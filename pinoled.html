@@ -416,6 +416,7 @@ function setPrecoCookie() {
 function carregarPagina() {
             // Chame a função para exibir o carrinho ao carregar a página
             exibirCarrinho();
+	    calculofinal();
 var cartNotification = document.getElementById('cartNotification');
     if (JSON.parse(localStorage.getItem('carrinho')).length === 0) {
         cartNotification.style.display = 'block';
@@ -967,7 +968,6 @@ document.getElementById('finalizar').addEventListener('click', function() {
 });
 
 
-calculofinal();
 $(document).ready(function () {
   var $campo = $("#campofrete");
   $campo.mask('00000-000', {reverse: true});
