@@ -118,6 +118,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var precoTotalCarrinhoElement = document.getElementById('precoTotalCarrinho');
     precoTotalCarrinhoElement.textContent = `R$ ${resultadoFinal.toFixed(2)}`;
 
+    exibirCarrinho();	
     // Se precisar de mais manipulações com o valor, você pode fazer aqui.
 });
 
@@ -209,9 +210,6 @@ document.getElementById('finalizar').addEventListener('click', function () {
         behavior: 'smooth'
     });
 });
-
-// Chame a função para carregar a página ao final do script
-carregarPagina();
   </script>
 </body>
 </html>
