@@ -68,7 +68,7 @@ button:hover {background-color: #45a049;}
 
     <div id="itensCarrinho"></div>
     
-<h3>Total: <span id="precoTotalCarrinho">R$ ${resultadoFinal.toFixed(2)}</span></h3>
+<h3>Total: <span id="precoTotalCarrinho">R$0.00</span></h3>
  
     <button id="finalizar">Finalizar compra</button>
 </div>
@@ -101,13 +101,25 @@ button:hover {background-color: #45a049;}
   </form>
 
   <script>
-function carregarPagina() {
-    // Chame a função para exibir o carrinho ao carregar a página
-    exibirCarrinho();
-    // Exiba o valor de resultadoFinal
-    var resultadoFinal = parseFloat(new URLSearchParams(window.location.search).get('resultado'));
-    document.getElementById('precoTotalCarrinho').textContent = `R$ ${resultadoFinal.toFixed(2)}`;
+function getCookie(name) {
+    var cookieArray = document.cookie.split(';');
+    var cookie = cookieArray.find(c => c.includes(name));
+    if (cookie) {
+        return parseFloat(cookie.split('=')[1]);
+    }
+    return null;
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Recupera o valor do cookie resultadoFinal
+    var resultadoFinal = getCookie('resultadoFinal');
+
+    // Exibe o valor onde for necessário, por exemplo:
+    var precoTotalCarrinhoElement = document.getElementById('precoTotalCarrinho');
+    precoTotalCarrinhoElement.textContent = `R$ ${resultadoFinal.toFixed(2)}`;
+
+    // Se precisar de mais manipulações com o valor, você pode fazer aqui.
+});
 
 function exibirCarrinho() {
     // Recuperar dados do carrinho do localStorage
