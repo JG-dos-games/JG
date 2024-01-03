@@ -140,7 +140,7 @@ ul {list-style-type: none; margin: 0; padding: 0}
 
 .precototal {color: #b81414; font-weight: 500; font-size: 15px;}
 
-.precofinal {background-color: #ffffff; height: 300px; box-sizing: border-box; border: 2px solid #b81414; border-radius: 5px; margin-bottom: 40px; color: #b81414; font-weight: 500; font-size: 20px; max-width: 80%; margin-left: 10%;}
+.precofinal {background-color: #ffffff; height: 300px; box-sizing: border-box; border: 2px solid #b81414; border-radius: 5px; margin-bottom: 40px; color: #b81414; font-weight: 500; max-width: 80%; margin-left: 10%; padding: 10px}
 
 .primeirocar {background-color: #fbe5e5; width: 100%; color: #fbe5e5; margin: 0}
 
@@ -150,7 +150,7 @@ ul {list-style-type: none; margin: 0; padding: 0}
 
 .textocarrinho {background-color: #b81414; color: white; text-align: center; width: 100%; margin:0; padding: 10px}
 
-.finalizar {font-size: 20px; background-color: #4CAF50; color: white; padding: 5px 10px; border: none; border-radius: 4px; margin: 10px}
+.finalizar {font-size: 20px; background-color: #4CAF50; color: white; padding: 5px 10px; border: none; border-radius: 4px; margin-top: 10px}
 
 .finalizar:hover {background-color: #45a049;}
 
@@ -167,6 +167,8 @@ ul {list-style-type: none; margin: 0; padding: 0}
 
 .fttexto {font-weight: 100}
 
+.fttexto a{color: white; font-weight: 500}
+
 .logoft {max-width: 70px; margin-left: -50%; position: absolute}
 
 .copy {background-color: #800000; width: 100%; color: #ffffff; text-align: center; padding-top: 15px;}
@@ -182,6 +184,11 @@ ul {list-style-type: none; margin: 0; padding: 0}
 .botaocalcularum {background-color: #4CAF50; color: white; padding: 5px 10px; border: none; border-radius: 4px; font-size: 15px}
 
 .botaocalcularum:hover {background-color: #45a049;}
+
+.hrsete {display: none}
+
+.hrseteum {display: none}
+
 
 
 /*______________________________________________________ 700PX ______________________________________________________________________*/
@@ -216,6 +223,20 @@ select {display: none;}
 .imagenspino {float: none; width: 100%;}
 
 .inforproduto {border-left: none; margin-left: 5px; margin-right: 5px;}
+
+.carrinhoitem {background-color: #ffffff; padding: 10px; box-sizing: border-box; border: 2px solid #b81414; border-radius: 5px; margin-bottom: 40px; margin-left: 10%; margin-right: 10%; margin-top: 50px; height: 300px;}
+
+.bordercar {display: none}
+
+.imgcar {max-width: 50px; float: left; box-sizing: border-box; border: 2px solid #b81414; border-radius: 5px; margin-right: 10px}
+
+.inforcar {font-size: 15px;}
+
+.hrsete {display: block}
+
+.hrseteum {display: block;}
+
+.nomeespecial {font-size: 25px}
 }
 
 /*______________________________________________________ 550PX ______________________________________________________________________*/
@@ -227,6 +248,8 @@ select {display: none;}
 #produtos {margin-left: 10px; margin-right: 10px;}
  
 #pino {margin-left: 5%; margin-right: 5%; width: 90%}
+
+.nomeespecial {font-size: 20px}
 }
 </style>
 </head>
@@ -373,13 +396,13 @@ select {display: none;}
     <ul id="carrinhoItens"></ul>
 </div>
 <div class="precofinal">
-    <h5 class="pfcar">Preço Final do Carrinho: <span id="precoTotalCarrinho">R$0.00</span><br><hr class="hrfrete"> + Frete de:
+    <h6 class="pfcar">Preço Final do Carrinho: <span id="precoTotalCarrinho">R$0.00</span><br><hr class="hrfrete"> + Frete de:
     <input type="text" id="campofinal" placeholder="Digite seu CEP" maxlength="9" name="cep" required>
 <span class="botaocalcularum" onclick="calculofinal()">Calcular</span>
 <h6 id="precoft"></h6>
 <hr class="hrfreteum">
 <p class="pfcar">Resultado Final: R$<span id="resultadoFinal">0.00</span></p>
-</h5>
+</h6>
     <button class="finalizar" id="finalizar">Finalizar compra</button>
 </div>
 
@@ -389,11 +412,11 @@ select {display: none;}
 <p class="fttitulo">Sobre nós</p>
 <p class="fttexto"><a href="#">Conheça a JGLoot e os nossos objetivos</a></p>
 <p class="fttitulo">Anucie seus produtos</p>
-<p class="fttexto">Preencha <a href="#">Este formulário</a> para anuciar seus produtos em nosso site, mais informações em <a href="#">nosso WhatsApp</a>.</p>
+<p class="fttexto">Preencha <a href="https://docs.google.com/forms/d/e/1FAIpQLSfhuFpzp3EjnIlVT7WQPRmiuR9JU67ogPpiGjKPTi4Py-GYwQ/viewform?usp=sf_link">Este formulário</a> para anuciar seus produtos em nosso site, mais informações em <a href="https://wa.me/5593992244987">nosso WhatsApp</a>.</p>
 <p class="fttitulo">Anucie sua loja</p>
-<p class="fttexto">Preencha <a href="#">Este formulário</a> para anuciar sua loja em nosso site, mais informações em <a href="#">nosso WhatsApp</a>.</p>
+<p class="fttexto">Preencha <a href="#">Este formulário</a> para anuciar sua loja em nosso site, mais informações em <a href="https://wa.me/5593992244987">nosso WhatsApp</a>.</p>
 <p class="fttitulo">Termo de Uso e Política de Privacidade</p>
-<p class="fttexto">Inseguro sobre seus dados? Leia nosso <a href="#">Termo de Uso e Política de Privacidade</a> e tenha garantia da segurança de nosso site, mais informações em <a href="#">nosso WhatsApp</a>.</p>
+<p class="fttexto">Inseguro sobre seus dados? Leia nosso <a href="#">Termo de Uso e Política de Privacidade</a> e tenha garantia da segurança de nosso site, mais informações em <a href="https://wa.me/5593992244987">nosso WhatsApp</a>.</p>
 </footer>
 <div class="copy"><p>@2023 Copyright > JGLoot</p></div>
 
@@ -413,6 +436,22 @@ function setPrecoCookie() {
 }
 
 
+    var meuInput = document.getElementById('quantidade');
+
+    meuInput.addEventListener('input', function() {
+        var valor = parseInt(meuInput.value);
+
+        // Verifica se o valor é maior que 5
+        if (valor > 5) {
+            // Define o valor como 5
+            meuInput.value = 5;
+
+            // Exibe um alerta
+            alert('Você atingiu a quantidade máxima disponível para esse item');
+        }
+    });
+    
+    
 function carregarPagina() {
             // Chame a função para exibir o carrinho ao carregar a página
             exibirCarrinho();
@@ -452,6 +491,8 @@ function additem() {
 
     // Verificar se o carrinho já existe no localStorage
     var carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+    
+    
 
     // Adicionar o produto ao carrinho
     carrinho.push(produto);
@@ -464,6 +505,7 @@ var cartNotification = document.getElementById('cartNotification');
     
     exibirCarrinho();
     calcularPrecoTotalCarrinho();
+    calculofinal();
     
     alert('Produto adicionado ao carrinho!');
 }
@@ -509,6 +551,10 @@ var carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
 
     // Exibir os itens do carrinho
     carrinho.forEach(function (produto, index) {
+    if (produto.quantidade > 5) {
+    produto.quantidade = 5;
+    alert('Você atingiu a quantidade máxima permitida.');  // Não adiciona o produto se a quantidade exceder 5
+    }
     var nomeAbreviado = abreviarNomeProduto(produto.nome, 18); // Ajuste o comprimento conforme necessário
     var precoTotal = calcularPrecoTotal(produto);
     var itemLista = document.createElement('li');
@@ -516,15 +562,15 @@ var carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
     itemLista.innerHTML = `
         <img class="imgcar" src="${produto.imagem}" alt="${produto.nome}">
         <span class="inforcar">
-        ${nomeAbreviado}<span class="bordercar"></span>
-        Cor: ${produto.cor} <span class="bordercar"></span>
-        R$${produto.preco.toFixed(2)} <span class="bordercar"></span>
+        <span class="nomeespecial">
+        ${nomeAbreviado}</span><hr class="hrseteum"><span class="bordercar"></span>
+        Cor: ${produto.cor} <hr class="hrsete"><span class="bordercar"></span>
+        R$${produto.preco.toFixed(2)} <hr class="hrsete"><span class="bordercar"></span>
         Quantidade: <input type="number" value="${produto.quantidade}" min="1" onchange="atualizarQuantidade(${index}, this.value)" style="max-width: 50px">
-        <br><hr>
+        <br><hr class="hrcarrinho">
         <span class="precototal">Preço Total: R$${precoTotal.toFixed(2)}</span>
         </span> 
     `;
-
         // Adicionar botão de remoção
         var btnRemover = document.createElement('button');
         btnRemover.textContent = 'Remover';
@@ -597,6 +643,7 @@ function removerDoCarrinho(index) {
     // Exibir o carrinho atualizado
     exibirCarrinho();
     calcularPrecoTotalCarrinho();
+    calculofinal();
 }
 
 /////////////////////////////////////////////////// MENU CELULAR/////////////////////////////////////////////////////////////////////////
@@ -846,6 +893,14 @@ var cepIndisponivel = [
 "68033-050", "68033-062", "68033-052", "68033-080", "68033-055", "68033-074", "68033-056", "68033-078", "68033-066", "68033-082", "68033-072", "68033-070", "68033-076", "68033-054", "68033-060", "68033-058", "68033-084", "68033-064", "68033-086", "68033-068", "68033-088"
 ];
 
+
+//////////////////////////////////////////////////// CALCULAR FRETE /////////////////////////////////////////////////////////////////////
+
+  var cep = document.getElementById("campofrete");
+  var precofrete = document.getElementById("frete");
+  var numeropreco = document.getElementById("precofrete");
+  
+
 /////////////////////////////////////////////////// MENSAGEM FRETE /////////////////////////////////////////////////////////////////////
 
 function calcular() {
@@ -919,7 +974,7 @@ function calculofinal() {
         ftpreco.style.color = "red";
         ftpreco.style.marginLeft = "15px";
     } else if (ftcep === null || ftcep === "" || ftcep != ftgratis) {
-        ftpreco.textContent = "CEP inválido.";
+        ftpreco.textContent = "Digite um CEP válido.";
         ftpreco.style.color = "red";
         ftpreco.style.marginLeft = "15px";
     }
