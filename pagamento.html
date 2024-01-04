@@ -6,19 +6,16 @@
 <body>
 <script>
 function getCookie(name) {
-var cookies = document.cookie.split(';');
-for (var i = 0; i < cookies.length; i++) {
-var cookie = cookies[i].trim();
-if (cookie.startsWith(name + '=')) {
-var value = cookie.substring(name.length + 1);
-return parseFloat(value.replace('R$', '').replace(',', '.'));
-}
+var cookieArray = document.cookie.split(';');
+var cookie = cookieArray.find(c => c.includes(name));
+if (cookie) {
+return parseFloat(cookie.split('=')[1]);
 }
 return null;
 }
+function finalizar() {
 var resultadoFinal = getCookie('resultadoFinal');
-if (precoProduto !== null) {
-console.log('Preço do produto recuperado:', precoProduto);
+if (resultadoFinal !== null) {
       if (Math.abs(resultadoFinal - 1.00) < 0.001) {
         window.location.href = 'https://cobranca.picpay.com/p/17041977776593fe9109cc4';
       } else if (Math.abs(resultadoFinal - 2.00) < 0.001) {
@@ -225,6 +222,9 @@ console.log('Preço do produto recuperado:', precoProduto);
     } else {
         console.error("Cookie 'resultadoFinal' não definido.");
     }
+document.addEventListener('DOMContentLoaded', function () {
+      finalizar();
+});
     </script>
 </body>
 </html>
