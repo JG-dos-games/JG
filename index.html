@@ -234,7 +234,50 @@ footer
 </footer>
 
 <script>
+function carregarPagina(){
+checkCookie();
+}
 
+  function checkCookie() {
+    var cookieValue = getCookie('alertShown');
+    
+    if (cookieValue === null || cookieValue === "") {
+      // Exibe o alerta
+	alert ('Clicando em OK, você concorda com os Termos de Uso e Políticas de Privacidade JGLoot presente no final da página');
+      
+      // Define o cookie 'alertShown'
+      setCookie('alertShown', 'true', 365);  // O número '365' representa a validade do cookie em dias
+    }
+  }
+
+  // Função para obter o valor de um cookie
+  function getCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    
+    for(var i=0; i < ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+      if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+    }
+    
+    return null;
+  }
+
+  // Função para definir um cookie
+  function setCookie(name, value, days) {
+    var expires = "";
+    
+    if (days) {
+      var date = new Date();
+      date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+      expires = "; expires=" + date.toUTCString();
+    }
+    
+    document.cookie = name + "=" + value + expires + "; path=/";
+  }
+
+  
 function abreviarNomeProduto(nome, comprimentoMaximo) {
     if (nome.length > comprimentoMaximo) {
         // Se o nome for mais longo que o comprimento máximo, abrevie e adicione reticências
