@@ -358,6 +358,11 @@ select {display: none;}
 		<label for="cidade">Ponto de referência (opcional):</label>
         <input class="inputentrega" placeholder="Digite um ponto de referência, escola, igreja, algo próximo." type="text" id="complemento" name="complemento">
         
+        <label for="cliente">Número de telefone:</label>
+        <input class="inputentrega" placeholder="Para confirmação de pagamento, informações, entre outros..." type="text" id="telefone" name="telefone" maxlength="15" required>
+        
+        <h6>Após confirmação de pagamento entraremos em contato (pode demorar alguns minutos).</h6>
+        
         <input class="inputentrega" type="hidden" name="Created" value="x-sheetmonkey-current-date-time" />
 
         <button class="enviar" type="submit" onclick="setPrecoCookie()">Finalizar compra</button>
@@ -1029,6 +1034,9 @@ $(document).ready(function () {
 
   var $campo = $("#campofinal");
   $campo.mask('00000-000', {reverse: true});
+  
+  var $campo = $("#telefone");
+  $campo.mask('(00) 00000-0000', {reverse: false});
 });
 </script>
 	
