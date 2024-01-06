@@ -169,7 +169,7 @@ ul {list-style-type: none; margin: 0; padding: 0}
 
 .fttexto a{color: white; font-weight: 500}
 
-.logoft {max-width: 70px; margin-left: -50%; position: absolute}
+.logoft {max-width: 10%; margin-left: -50%; position: absolute}
 
 .copy {background-color: #800000; width: 100%; color: #ffffff; text-align: center; padding-top: 15px;}
 
@@ -401,6 +401,7 @@ select {display: none;}
     <ul id="carrinhoItens"></ul>
 </div>
 <div class="precofinal">
+<form action="#" method="post">
     <h6 class="pfcar">Preço Final do Carrinho: <span id="precoTotalCarrinho">R$0.00</span><br><hr class="hrfrete"> + Frete de:
     <input type="text" id="campofinal" placeholder="Digite seu CEP" maxlength="9" name="cep" required>
 <span class="botaocalcularum" onclick="calculofinal()">Calcular</span>
@@ -409,6 +410,7 @@ select {display: none;}
 <p class="pfcar">Resultado Final: R$<span id="resultadoFinal">0.00</span></p>
 </h6>
     <button class="finalizar" id="finalizar">Finalizar compra</button>
+</form>    
 </div>
 
 </div>
@@ -1021,11 +1023,18 @@ document.getElementById('finalizar').addEventListener('click', function() {
     // Obtenha o valor atualizado de resultadoFinal
     var resultadoFinal = parseFloat(resultadoFinalElement.innerHTML);
 
-    // Redirecione para a outra tela com o parâmetro na URL
-    document.cookie = "resultadoFinal=" + resultadoFinal.toFixed(2);
-    
-    window.location.href = 'https://jgloot.github.io/jgloot/finalizarcompra.html';
+    // Verifique se o campo de entrada está preenchido
+    var inputValor = document.getElementById('campofinal').value; // Substitua 'seuCampoDeInput' pelo ID do seu campo de input
+    if (inputValor.trim() !== "") {
+        // Redirecione para a outra tela com o parâmetro na URL
+        document.cookie = "resultadoFinal=" + resultadoFinal.toFixed(2);
+        window.location.href = 'https://jgloot.github.io/jgloot/finalizarcompra.html';
+    } else {
+        // Exiba uma mensagem de erro ou realize outra ação, caso o campo não esteja preenchido
+        alert("Por favor, calcule o frete antes de finalizar.");
+    }
 });
+
 
 
 $(document).ready(function () {
