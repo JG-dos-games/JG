@@ -60,17 +60,19 @@ ul {list-style-type: none; margin: 0; padding: 0}
 
 .buttonremover {font-size: 12px; background-color: #b81414; color: white; padding: 5px 5px; border: none; border-radius: 4px; margin-right: 2px; position: relative; float: right; margin-top: 0; z-index: 1;}
 
+.buttonremover:hover {background-color: #b83030;}
+
 .carrinhoitem {background-color: #ffffff; padding: 5px; box-sizing: border-box; border: 2px solid #b81414; border-radius: 5px; margin-bottom: 40px; margin-left: 10%; margin-right: 10%; margin-top: 50px}
 
 .imgcar {max-width: 10%}
 
 .inforcar {font-size: 15px}
 
-.bordercar {display: inline-block; height: 90px; border: 1px solid #b81414; margin-bottom: -37px; margin-left: 15px; margin-right: 10px}
+.bordercar {display: inline-block; height: 90px; border: 1px solid #b81414; margin-bottom: -37px; margin-left: 5px; margin-right: 5px}
 
-.precototal {color: #b81414; font-weight: 500; font-size: 20px;}
+.precototal {color: #b81414; font-weight: 500; font-size: 15px;}
 
-.precofinal {background-color: #ffffff; padding: 5px; box-sizing: border-box; border: 2px solid #b81414; border-radius: 5px; width: 100%; margin-bottom: 40px}
+.precofinal {background-color: #ffffff; height: 300px; box-sizing: border-box; border: 2px solid #b81414; border-radius: 5px; margin-bottom: 40px; color: #b81414; font-weight: 500; max-width: 80%; margin-left: 10%; padding: 10px}
 
 .primeirocar {background-color: #fbe5e5; width: 100%; color: #fbe5e5; margin: 0}
 
@@ -80,9 +82,41 @@ ul {list-style-type: none; margin: 0; padding: 0}
 
 .textocarrinho {background-color: #b81414; color: white; text-align: center; width: 100%; margin:0; padding: 10px}
 
-#footer {background-color: #b81414; color: white; text-align: center; padding: 15px; margin-top: 79px;}
+.finalizar {font-size: 20px; background-color: #4CAF50; color: white; padding: 5px 10px; border: none; border-radius: 4px; margin-top: 10px}
+
+.finalizar:hover {background-color: #45a049;}
+
+.pfcar {margin-top: 15px; margin-left: 5px;}
 
 #corpo {flex: 1}
+
+#footer {background-color: #b81414; color: white; text-align: center; padding: 15px; margin-top: 79px; position: relative}
+
+.fttitulo {font-weight: 1000}
+
+.fttexto {font-weight: 100}
+
+.fttexto a{color: white; font-weight: 500}
+
+.logoft {max-width: 10%; margin-left: -50%; position: absolute}
+
+.copy {background-color: #800000; width: 100%; color: #ffffff; text-align: center; padding-top: 15px;}
+
+.precofrete {display: none}
+
+.hrfrete {border: 2px solid black; margin-left: -5px}
+
+.hrfreteum {border: 2px solid black; }
+
+#campofinal {width: 20%; padding: 8px; box-sizing: border-box; font-size: 15px}
+
+.botaocalcularum {background-color: #4CAF50; color: white; padding: 5px 10px; border: none; border-radius: 4px; font-size: 15px}
+
+.botaocalcularum:hover {background-color: #45a049;}
+
+.hrsete {display: none}
+
+.hrseteum {display: none}
 
 .propaganda {max-width: 200px; margin-right: -20px; margin-bottom: -1px;}
   
@@ -113,6 +147,24 @@ body {padding-top: 72px;}
 select {display: none;}
 
 .produto {flex: 0 0 calc(33% - 20px);}
+
+.carrinhoitem {background-color: #ffffff; padding: 10px; box-sizing: border-box; border: 2px solid #b81414; border-radius: 5px; margin-bottom: 40px; margin-left: 10%; margin-right: 10%; margin-top: 50px; height: 300px;}
+
+.bordercar {display: none}
+
+.imgcar {max-width: 50px; float: left; box-sizing: border-box; border: 2px solid #b81414; border-radius: 5px; margin-right: 10px}
+
+.inforcar {font-size: 15px;}
+
+.hrsete {display: block}
+
+.hrseteum {display: block;}
+
+.nomeespecial {font-size: 25px}
+
+.carrinhoitem {background-color: #ffffff; padding: 5px; box-sizing: border-box; border: 2px solid #b81414; border-radius: 5px; margin-bottom: 40px; margin-left: 20px; margin-right: 20px; margin-top: 50px}
+
+.precofinal {background-color: #ffffff; height: 300px; box-sizing: border-box; border: 2px solid #b81414; border-radius: 5px; margin-bottom: 40px; color: #b81414; font-weight: 500; max-width: 90%; margin-left: 5%; padding: 10px}
 }
 
 /*______________________________________________________ 550PX ______________________________________________________________________*/
@@ -122,6 +174,8 @@ select {display: none;}
 .produto {flex: 0 0 calc(50% - 20px);}
   
 #produtos {margin-left: 10px; margin-right: 10px;}
+
+.nomeespecial {font-size: 20px}
 }
 
 /*______________________________________________________ SLIDES ______________________________________________________________________*/
