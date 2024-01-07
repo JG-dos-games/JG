@@ -477,11 +477,17 @@ function showSlides() {
 
 //////////////////////////////////////////////////// BUSCAR PRODUTOS /////////////////////////////////////////////////////////////////////
 
+function removerAcentos(str) {
+  return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+}
+
 document.getElementById('campopesquisa').addEventListener('input', function() {
-  var searchTerm = this.value.toLowerCase();
+  var searchTerm = removerAcentos(this.value.toLowerCase());
   var produto = document.querySelectorAll('.produto');
+  
   produto.forEach(function(produto) {
-    var produtoName = produto.dataset.name.toLowerCase();
+    var produtoName = removerAcentos(produto.dataset.name.toLowerCase());
+    
     if (produtoName.includes(searchTerm)) {
       produto.style.display = 'block';
     } else {
