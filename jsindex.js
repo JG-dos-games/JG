@@ -291,8 +291,9 @@ function showSlides() {
 function removerAcentos(str) {
   return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 }
-
-document.getElementById('campopesquisa').addEventListener('input', function() {
+var campopesquisaElement = document.getElementById('campopesquisa');
+if (campopesquisaElement) {
+    campopesquisaElement.addEventListener('input', function() {
   var searchTerm = removerAcentos(this.value.toLowerCase());
   var produto = document.querySelectorAll('.produto');
   
@@ -306,6 +307,9 @@ document.getElementById('campopesquisa').addEventListener('input', function() {
     }
   });
 });
+} else {
+    console.error('Elemento campopesquisa não encontrado.');
+}
 
 
 ///////////////////////////////////////////////////// CATEGORIA PC ///////////////////////////////////////////////////////////////////////
