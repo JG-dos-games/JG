@@ -44,6 +44,30 @@ function carregarPagina() {
         exibirCarrinho();
         calculofinal();
 
+	function removerAcentos(str) {
+  return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+}
+	    
+var campopesquisaElement = document.getElementById('campopesquisa');
+if (campopesquisaElement) {
+    campopesquisaElement.addEventListener('input', function() {
+  var searchTerm = removerAcentos(this.value.toLowerCase());
+  var produto = document.querySelectorAll('.produto');
+  
+  produto.forEach(function(produto) {
+    var produtoName = removerAcentos(produto.dataset.name.toLowerCase());
+    
+    if (produtoName.includes(searchTerm)) {
+      produto.style.display = 'block';
+    } else {
+      produto.style.display = 'none';
+    }
+  });
+});
+} else {
+    console.error('Elemento campopesquisa não encontrado.');
+}    
+
         var cartNotification = document.getElementById('cartNotification');
         if (JSON.parse(localStorage.getItem('carrinho')).length === 0) {
             cartNotification.style.display = 'block';
@@ -288,28 +312,7 @@ function showSlides() {
 
 //////////////////////////////////////////////////// BUSCAR PRODUTOS /////////////////////////////////////////////////////////////////////
 
-function removerAcentos(str) {
-  return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-}
-var campopesquisaElement = document.getElementById('campopesquisa');
-if (campopesquisaElement) {
-    campopesquisaElement.addEventListener('input', function() {
-  var searchTerm = removerAcentos(this.value.toLowerCase());
-  var produto = document.querySelectorAll('.produto');
-  
-  produto.forEach(function(produto) {
-    var produtoName = removerAcentos(produto.dataset.name.toLowerCase());
-    
-    if (produtoName.includes(searchTerm)) {
-      produto.style.display = 'block';
-    } else {
-      produto.style.display = 'none';
-    }
-  });
-});
-} else {
-    console.error('Elemento campopesquisa não encontrado.');
-}
+
 
 
 ///////////////////////////////////////////////////// CATEGORIA PC ///////////////////////////////////////////////////////////////////////
