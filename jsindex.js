@@ -55,6 +55,7 @@ function exibirCarrinho() {
   var cartNotification = document.getElementById('cartNotification');
   if (carrinho.length === 0) {
     cartNotification.style.display = 'block';
+    document.getElementById('precofinal').style.display= 'none';
   } else {
     cartNotification.style.display = 'none';
   }
