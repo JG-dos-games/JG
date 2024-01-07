@@ -303,8 +303,7 @@ document.getElementById('campopesquisa').addEventListener('input', function() {
     }
   });
 });
-carregarPagina();
-});
+
 
 ///////////////////////////////////////////////////// CATEGORIA PC ///////////////////////////////////////////////////////////////////////
 
@@ -565,4 +564,6 @@ $(document).ready(function () {
   var $campo = $("#campofinal");
   $campo.mask('00000-000', {reverse: true});
   
+});
+carregarPagina();
 });
