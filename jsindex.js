@@ -39,15 +39,18 @@
 
   
 function carregarPagina() {
-checkCookie();
-            // Chame a função para exibir o carrinho ao carregar a página
-            exibirCarrinho();
-	    calculofinal();
-var cartNotification = document.getElementById('cartNotification');
-    if (JSON.parse(localStorage.getItem('carrinho')).length === 0) {
-        cartNotification.style.display = 'block';
-    }
+    document.addEventListener("DOMContentLoaded", function () {
+        checkCookie();
+        exibirCarrinho();
+        calculofinal();
+
+        var cartNotification = document.getElementById('cartNotification');
+        if (JSON.parse(localStorage.getItem('carrinho')).length === 0) {
+            cartNotification.style.display = 'block';
+        }
+    });
 }
+
 
 function abreviarNomeProduto(nome, comprimentoMaximo) {
     if (nome.length > comprimentoMaximo) {
@@ -288,7 +291,7 @@ function showSlides() {
 function removerAcentos(str) {
   return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 }
-document.addEventListener("DOMContentLoaded", function () {
+
 document.getElementById('campopesquisa').addEventListener('input', function() {
   var searchTerm = removerAcentos(this.value.toLowerCase());
   var produto = document.querySelectorAll('.produto');
@@ -564,6 +567,4 @@ $(document).ready(function () {
   var $campo = $("#campofinal");
   $campo.mask('00000-000', {reverse: true});
   
-});
-carregarPagina();
 });
