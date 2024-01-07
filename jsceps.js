@@ -1,7 +1,6 @@
-	
 ///////////////////////////////////////////////////////// CEPS GRATIS ///////////////////////////////////////////////////////////////////////
   
-  var cepsFreteGratis = [ 
+var cepsFreteGratis = [ 
 //CARANAZAL
 "68040-440", "68040-770", "68040-696", "68040-650", "68040-665", "68040-358", "68030-650", "68030-700", "68005-095", "68005-098", "68005-120", "68040-070", "68040-308", "68040-328", "68030-630", "68030-665", "68040-415", "68040-620", "68040-660", "68040-320", "68040-300", "68040-642", "68040-302", "68040-740", "68040-760", "68040-015", "68040-340", "68040-780", "68040-405", "68040-335", "68040-674", "68040-630", "68040-680", "68040-700", "68040-640", "68040-330", "68040-360", "68040-750", "68030-660", "68040-329", "68030-635", "68030-640", "68040-315", "68040-305", "68040-352", "68040-355", "68040-425", "68040-670", "68040-430", "68040-645", "68040-655", "68041-100", "68040-018", "68040-125", "68040-432", "68040-440", "68040-345", "68040-420", "68040-017", "68040-303", "68040-470", "68040-410", "68040-325", 
 //ALDEIA
@@ -126,11 +125,9 @@ var cepIndisponivel = [
 
 //////////////////////////////////////////////////// CALCULAR FRETE /////////////////////////////////////////////////////////////////////
 
-
 var cepum = document.getElementById("campofinal");
 var numeroprecoum = document.getElementById("precoft");
 var resultadoFinalElement = document.getElementById('resultadoFinal');
-
 function calculofinal() {
     var ftcep = cepum.value;
     var ftpreco = numeroprecoum;
@@ -139,7 +136,6 @@ function calculofinal() {
     var ftquinze = cepsQuinze;
     var ftvinte = cepsVinte;
     var indisp = cepIndisponivel;
-
     if (ftgratis.includes(ftcep)) {
         ftpreco.textContent = "Chegará em até dois dias gratuitamente.";
         ftpreco.style.color = "green";
@@ -165,62 +161,40 @@ function calculofinal() {
         ftpreco.style.color = "red";
         ftpreco.style.marginLeft = "15px";
     }
-
     var carrinho = JSON.parse(localStorage.getItem('carrinho'));
-
-    // Verifique se carrinho é um array válido
     if (Array.isArray(carrinho)) {
         var precoTotalCarrinho = 0;
-
-        // Calcule o preço total do carrinho
         for (var i = 0; i < carrinho.length; i++) {
-var quantidadeConsiderada = Math.min(carrinho[i].quantidade, 5);
-            precoTotalCarrinho += carrinho[i].preco * quantidadeConsiderada;
+	  var quantidadeConsiderada = Math.min(carrinho[i].quantidade, 5);
+          precoTotalCarrinho += carrinho[i].preco * quantidadeConsiderada;
         }
-
-        // Some os valores e exiba na tela
-        var precoft = obterPrecoft(); // Função para obter o valor correto de precoft
+        var precoft = obterPrecoft();
         var resultadoFinal = precoft + precoTotalCarrinho;
         resultadoFinalElement.innerHTML = resultadoFinal.toFixed(2);
     } else {
         console.error("Formato inválido para o carrinho.");
     }
 }
-
 function obterPrecoft() {
-    // Tente converter o valor do elemento para um número
     var precoftText = numeroprecoum.textContent || numeroprecoum.innerText;
     var precoft = parseFloat(precoftText.replace(/[^\d.,]/g, '').replace(',', '.'));
-
     if (isNaN(precoft)) {
         console.error("Valor de precoft não é um número:", precoftText);
-        return 0; // Ou outro valor padrão, se necessário
+        return 0;
     }
-
     return precoft;
 }
-
 document.getElementById('finalizar').addEventListener('click', function() {
-    // Obtenha o valor atualizado de resultadoFinal
     var resultadoFinal = parseFloat(resultadoFinalElement.innerHTML);
-
-    // Verifique se o campo de entrada está preenchido
-    var inputValor = document.getElementById('campofinal').value; // Substitua 'seuCampoDeInput' pelo ID do seu campo de input
+    var inputValor = document.getElementById('campofinal').value; 
     if (inputValor.trim() !== "") {
-        // Redirecione para a outra tela com o parâmetro na URL
         document.cookie = "resultadoFinal=" + resultadoFinal.toFixed(2);
         window.location.href = 'https://jgloot.github.io/jgloot/htmlfinalizarcompra.html';
     } else {
-        // Exiba uma mensagem de erro ou realize outra ação, caso o campo não esteja preenchido
         alert("Por favor, calcule o frete antes de finalizar.");
     }
 });
-
-
-
 $(document).ready(function () {
-
   var $campo = $("#campofinal");
   $campo.mask('00000-000', {reverse: true});
-  
 });
