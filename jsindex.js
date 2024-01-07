@@ -189,6 +189,18 @@ document.getElementById('campopesquisa').addEventListener('input', function() {
   });
 });
 
+//////////////////////////////////////////////////// OCULTAR PRODUTO /////////////////////////////////////////////////////////////////////
+
+const campopesquisa = document.getElementById('campopesquisa');
+const slide = document.getElementById('slides');
+
+campopesquisa.addEventListener('focus', function() {
+  slide.classList.add('hidden');
+});
+campopesquisa.addEventListener('blur', function() {
+  slide.classList.remove('hidden');
+});
+
 ///////////////////////////////////////////////////// CATEGORIA PC ///////////////////////////////////////////////////////////////////////
 
 function filterProducts() {
