@@ -19,6 +19,10 @@ body {padding-top: 102px; background-color: #ebebeb;  margin: 0; display: flex; 
 select {background-color: transparent; border: none; color: #ffffff; font-size: 12px;}
 
 select:hover {color: grey;}
+
+.category {margin-left: 15px; color: white;}
+
+.selected {color: grey; }
   
 option {font-size: 15px;}
 
@@ -33,6 +37,10 @@ option {font-size: 15px;}
 .sidenav .closebtn {position: absolute; top: 0; right: 10px; font-size: 36px;}
 
 .slideshow-container {margin-bottom:30px;}
+
+.propaganda {max-width: 200px; margin-right: -20px; margin-bottom: -1px;}
+
+/*______________________________________________________ PRODUTOS ______________________________________________________________________*/
 
 #produtos {display: flex; flex-wrap: wrap; margin-left: 10%; margin-right: 10%;}
 
@@ -50,9 +58,7 @@ option {font-size: 15px;}
 
 .precoproduto {margin-top: 10px; color: #b81414;}
 
-.category {margin-left: 15px; color: white;}
-
-.selected {color: grey; }
+/*______________________________________________________ CARRINHO ______________________________________________________________________*/
 
 ul {list-style-type: none; margin: 0; padding: 0}
 
@@ -88,20 +94,6 @@ ul {list-style-type: none; margin: 0; padding: 0}
 
 .pfcar {margin-top: 15px; margin-left: 5px;}
 
-#corpo {flex: 1}
-
-#footer {background-color: #b81414; color: white; text-align: center; padding: 15px; margin-top: 79px; position: relative}
-
-.fttitulo {font-weight: 1000}
-
-.fttexto {font-weight: 100}
-
-.fttexto a{color: white; font-weight: 500}
-
-.logoft {max-width: 10%; margin-left: -50%; position: absolute}
-
-.copy {background-color: #800000; width: 100%; color: #ffffff; text-align: center; padding-top: 15px;}
-
 .precofrete {display: none}
 
 .hrfrete {border: 2px solid black; margin-left: -5px}
@@ -118,7 +110,21 @@ ul {list-style-type: none; margin: 0; padding: 0}
 
 .hrseteum {display: none}
 
-.propaganda {max-width: 200px; margin-right: -20px; margin-bottom: -1px;}
+/*______________________________________________________ FOOTER ______________________________________________________________________*/
+
+#corpo {flex: 1}
+
+#footer {background-color: #b81414; color: white; text-align: center; padding: 15px; margin-top: 79px; position: relative}
+
+.fttitulo {font-weight: 1000}
+
+.fttexto {font-weight: 100}
+
+.fttexto a{color: white; font-weight: 500}
+
+.logoft {max-width: 10%; margin-left: -50%; position: absolute}
+
+.copy {background-color: #800000; width: 100%; color: #ffffff; text-align: center; padding-top: 15px;}
   
 /*______________________________________________________ 700PX ______________________________________________________________________*/
 
