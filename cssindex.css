@@ -1,6 +1,6 @@
 /*______________________________________________________ PRINCIPAL ______________________________________________________________________*/
 
-body {padding-top: 102px; background-color: #ebebeb;}
+body {padding-top: 102px; background-color: #ebebeb;  margin: 0; display: flex; flex-direction: column; min-height: 100vh;}
 
 .fundo {background-color: #b81414; position: fixed; width: 100%; top:0; height: 100px; text-align: center;}
 
@@ -12,9 +12,9 @@ body {padding-top: 102px; background-color: #ebebeb;}
 
 .op:hover {color: grey;}
 
-.carrinho {width: 50px; margin-top:65px; margin-left: 0px; text-align: left}
+.carrinho {width: 50px; margin-top:65px; text-align: left}
 
-.quanticar {position: absolute; margin-top: 22px; margin-left: -5%; font-size: 15px;}
+.quanticar {position: absolute; margin-top: 22px; margin-left: -4.5%; font-size: 15px;}
 
 select {background-color: transparent; border: none; color: #ffffff; font-size: 12px;}
 
@@ -38,6 +38,8 @@ option {font-size: 15px;}
 
 #produtos a {text-decoration:none; color: black;}
 
+.produto:hover {background-color: #ffcccc;}
+
 .produto {flex: 0 0 calc(20% - 20px); margin: 10px; background-color: #ffffff; padding: 5px; box-sizing: border-box; border: 2px solid #b81414; border-radius: 5px; width: 100%;}
 
 .imgproduto {width: 100%;}
@@ -51,6 +53,38 @@ option {font-size: 15px;}
 .category {margin-left: 15px; color: white;}
 
 .selected {color: grey; }
+
+ul {list-style-type: none; margin: 0; padding: 0}
+
+#carrinhoContainer {margin-top: 50px}
+
+.buttonremover {font-size: 12px; background-color: #b81414; color: white; padding: 5px 5px; border: none; border-radius: 4px; margin-right: 2px; position: relative; float: right; margin-top: 0}
+
+.carrinhoitem {background-color: #ffffff; padding: 5px; box-sizing: border-box; border: 2px solid #b81414; border-radius: 5px; margin-bottom: 40px; margin-left: 10%; margin-right: 10%; margin-top: 50px}
+
+.imgcar {max-width: 10%}
+
+.inforcar {font-size: 15px}
+
+.bordercar {display: inline-block; height: 90px; border: 1px solid #b81414; margin-bottom: -37px; margin-left: 15px; margin-right: 10px}
+
+.precototal {color: #b81414; font-weight: 500; font-size: 20px;}
+
+.precofinal {background-color: #ffffff; padding: 5px; box-sizing: border-box; border: 2px solid #b81414; border-radius: 5px; width: 100%; margin-bottom: 40px}
+
+.primeirocar {background-color: #fbe5e5; width: 100%; color: #fbe5e5; margin: 0}
+
+.segundocar {background-color: #e97f7f; width: 100%; color: #e97f7f; margin: 0}
+
+.terceirocar {background-color: #da2a2a; width: 100%; color: #ba2a2a; margin: 0}
+
+.textocarrinho {background-color: #b81414; color: white; text-align: center; width: 100%; margin:0; padding: 10px}
+
+#footer {background-color: #b81414; color: white; text-align: center; padding: 15px; margin-top: 79px;}
+
+#corpo {flex: 1}
+
+.propaganda {max-width: 200px; margin-right: -20px; margin-bottom: -1px;}
   
 /*______________________________________________________ 700PX ______________________________________________________________________*/
 
