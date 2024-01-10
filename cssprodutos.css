@@ -36,6 +36,8 @@ option {font-size: 15px;}
 
 .propaganda {max-width: 200px; margin-right: -20px; margin-bottom: -1px;}
 
+button {cursor: pointer;}
+
 /*____________________________________________________________ PRODUTOS ______________________________________________________________*/
 
 #produtos {display: flex; flex-wrap: wrap; margin-left: 10%; margin-right: 10%; margin-top: 30px;}
