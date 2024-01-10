@@ -1,13 +1,3 @@
-/////////////////////////////////////////////////// COOKIE PREÇO //////////////////////////////////////////////////////////////////////////
-
-function setPrecoCookie() {
-    var precoUnidade = 10.00;
-    var quantidade = parseInt(document.getElementById('quantidade').value) || 1; 
-    var frete = parseFloat(document.getElementById('precofrete').textContent.replace('R$', '').trim()) || 0;
-    var precoTotal = (precoUnidade * quantidade) + frete;
-    document.cookie = 'preco_produto=' + precoTotal.toFixed(2) + '; expires=Thu, 01 Jan 2030 00:00:00 UTC; path=/';
-}
-
 /////////////////////////////////////////////////// LIMITAR QUANTIDADE //////////////////////////////////////////////////////////////////////////
 
 var meuInput = document.getElementById('quantidade');
