@@ -189,14 +189,17 @@ document.getElementById('campopesquisa').addEventListener('input', function() {
 const campopesquisa = document.getElementById('campopesquisa');
 const pino = document.getElementById('pino');
 const car = document.getElementById('carrinhoContainer');
+const descricao = document.getElementById('descricao');
 
 campopesquisa.addEventListener('focus', function() {
 pino.classList.add('hidden');
 car.classList.add('hidden');
+descricao.classList.add('hidden');	
 });
 campopesquisa.addEventListener('blur', function() {
 pino.classList.remove('hidden');
 car.classList.remove('hidden');
+descricao.classList.remove('hidden');	
 });
 
 //////////////////////////////////////////////////// APARECER ENDERECO /////////////////////////////////////////////////////////////////////
