@@ -75,6 +75,7 @@ function exibirCarrinho() {
     document.getElementById('precofinal').style.display= 'none';
   } else {
     cartNotification.style.display = 'none';
+    document.getElementById('precofinal').style.display= 'block';   
   }
   var carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
   var quantidadeTotalProdutos = carrinho.length;
