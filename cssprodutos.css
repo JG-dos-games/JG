@@ -116,6 +116,8 @@ label {margin-bottom: 5px; font-size: 20px;}
 
 .entrebuttons {color: white}
 
+#descricao {margin-left: 10%; width: 80%; margin-top: 50px; background-color: #ffffff; padding: 1%; padding-bottom: 20px; border: 2px solid #b81414; border-radius: 5px; height: 100%}
+
 /*____________________________________________________________ CARRINHO  ______________________________________________________________*/
 
 ul {list-style-type: none; margin: 0; padding: 0}
