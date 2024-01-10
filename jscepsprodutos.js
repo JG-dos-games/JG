@@ -149,7 +149,8 @@ var fretevinte = cepsVinte;
 var indisponivel = cepIndisponivel;
 
 if (fretegratis.includes(ncep)) {
-    txfrete.textContent = "Chegará em até 2 dias gratuitamente.";	
+    txfrete.textContent = "Chegará em até 2 dias gratuitamente.";
+    npreco.style.display = 'none';
     txfrete.style.color = "green";
 } else if (fretedez.includes(ncep)) {
     txfrete.textContent = "Chegará em até 2 dias por:";
