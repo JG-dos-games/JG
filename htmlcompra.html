@@ -229,6 +229,8 @@ console.log('Preço do produto recuperado:', precoProduto);
                 window.location.href = 'https://iti.itau/receber-pix/?chargeId=431ae34a-baf8-4aab-92b0-d38103ada58f';
             } else if (Math.abs(precoProduto - 115.00) < 0.001) {
                 window.location.href = 'https://iti.itau/receber-pix/?chargeId=17d6fac6-09a7-4cd8-b719-fcbd01033578';
+            } else if (Math.abs(precoProduto - 220.00) < 0.001) {
+                window.location.href = 'https://iti.itau/receber-pix/?chargeId=d4adda2b-b928-4bb3-adea-a1abd14a0f86';
             } else {
                 alert('Este valor é um caso especial, será enviado um link especial para o número de telefone fornecido, você pode sair desta tela.');
             }
