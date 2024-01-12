@@ -34,6 +34,15 @@ function carregarPagina() {
   exibirCarrinho();
   calculofinal();
   calcularPrecoTotalCarrinho();
+  var produtosContainer = document.getElementById("produtos");
+  var produtos = Array.from(produtosContainer.getElementsByClassName("produto"));
+  produtos.sort(function () {
+      return 0.5 - Math.random();
+  });
+  produtosContainer.innerHTML = "";
+  produtos.forEach(function (produto) {
+      produtosContainer.appendChild(produto);
+  });
 }
 
 /////////////////////////////////////////////////// NOME ABREVIADO //////////////////////////////////////////////////////////////////////////
