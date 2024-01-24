@@ -5,7 +5,7 @@ meuInput.addEventListener('input', function() {
 var valor = parseInt(meuInput.value);
         if (valor > 2) {
             meuInput.value = 2;
-            alert('Você atingiu a quantidade máxima disponível por cor.');
+            alert('Você atingiu a quantidade máxima disponível.');
         }
     });
     
