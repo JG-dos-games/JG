@@ -3,8 +3,8 @@
 var meuInput = document.getElementById('quantidade');
 meuInput.addEventListener('input', function() {
 var valor = parseInt(meuInput.value);
-        if (valor > 1) {
-            meuInput.value = 1;
+        if (valor > 2) {
+            meuInput.value = 2;
             alert('Você atingiu a quantidade máxima disponível por cor.');
         }
     });
