@@ -30,10 +30,6 @@ function carregarPagina() {
 
 function verificarCorSelecionada() {
     var corSelecionada = document.querySelector('input[name="cor"]:checked');
-    if (!corSelecionada) {
-        alert('Por favor, escolha uma cor antes de adicionar ao carrinho ou comprar.');
-        return false;
-    }
     return true; 
 }
     
