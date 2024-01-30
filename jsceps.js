@@ -142,15 +142,15 @@ function calculofinal() {
         ftpreco.style.marginLeft = "15px";
     } else if (ftdez.includes(ftcep)) {
         ftpreco.style.color = "green";
-        ftpreco.textContent = "R$10,00";
+        ftpreco.textContent = "R$5,00";
         ftpreco.style.marginLeft = "15px";
     } else if (ftquinze.includes(ftcep)) {
-        ftpreco.textContent = "R$15,00";
+        ftpreco.textContent = "R$7,00";
         ftpreco.style.color = "green";
         ftpreco.style.marginLeft = "15px";
     } else if (ftvinte.includes(ftcep)) {
         ftpreco.style.color = "green";
-        ftpreco.textContent = "R$20,00";
+        ftpreco.textContent = "R$10,00";
         ftpreco.style.marginLeft = "15px";
     } else if (indisp.includes(ftcep)) {
         ftpreco.textContent = "Entrega indisponível.";
