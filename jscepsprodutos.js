@@ -153,20 +153,20 @@ if (fretegratis.includes(ncep)) {
     npreco.style.display = 'none';
     txfrete.style.color = "green";
 } else if (fretedez.includes(ncep)) {
-    txfrete.textContent = "Chegará em até 2 dias por:";
+    txfrete.textContent = "Chegará em até 2 dias com 50% off por:";
+    txfrete.style.color = "green";
+    npreco.style.color = "green";
+    npreco.textContent = "R$5,00";
+} else if (fretequinze.includes(ncep)) {
+    txfrete.textContent = "Chegará em até 2 dias com 50% off por:";
+    txfrete.style.color = "green";
+    npreco.textContent = "R$7,00";
+    npreco.style.color = "green";	
+} else if (fretevinte.includes(ncep)) {
+    txfrete.textContent = "Chegará em até 2 dias com 50% off por:";
     txfrete.style.color = "green";
     npreco.style.color = "green";
     npreco.textContent = "R$10,00";
-} else if (fretequinze.includes(ncep)) {
-    txfrete.textContent = "Chegará em até 2 dias por:";
-    txfrete.style.color = "green";
-    npreco.textContent = "R$15,00";
-    npreco.style.color = "green";	
-} else if (fretevinte.includes(ncep)) {
-    txfrete.textContent = "Chegará em até 2 dias por:";
-    txfrete.style.color = "green";
-    npreco.style.color = "green";
-    npreco.textContent = "R$20,00";
 } else if (indisponivel.includes(ncep)) {
     txfrete.textContent = "Entrega indisponível.";
     npreco.style.color = "red";
@@ -195,15 +195,15 @@ function calculofinal() {
         ftpreco.style.marginLeft = "15px";
     } else if (ftdez.includes(ftcep)) {
         ftpreco.style.color = "green";
-        ftpreco.textContent = "R$10,00";
+        ftpreco.textContent = "R$5,00";
         ftpreco.style.marginLeft = "15px";
     } else if (ftquinze.includes(ftcep)) {
-        ftpreco.textContent = "R$15,00";
+        ftpreco.textContent = "R$7,00";
         ftpreco.style.color = "green";
         ftpreco.style.marginLeft = "15px";
     } else if (ftvinte.includes(ftcep)) {
         ftpreco.style.color = "green";
-        ftpreco.textContent = "R$20,00";
+        ftpreco.textContent = "R$10,00";
         ftpreco.style.marginLeft = "15px";
     } else if (indisp.includes(ftcep)) {
         ftpreco.textContent = "Entrega indisponível.";
