@@ -1,0 +1,332 @@
+<!-- @autor JG -->
+<!doctype html>
+<html lang="pt-br">
+<head>
+<title>JGLoot</title> <link rel="shortcut icon" type="image/png" href="https://i.postimg.cc/SQ9jc494/favicon-JG.png"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1"> <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous"> <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
+<link rel="stylesheet" type="text/css" href="cssprodutos.css" media="screen" />
+</head>
+<body onload="carregarPagina()">  
+<div id="corpo">
+<table class="fundo">
+  <thead>
+    <td><a href="index.html"><img class="logo" src="https://i.postimg.cc/BbfF2nQ8/logojgloot.png" alt="logo"></a></td>
+    <td><a href="index.html"><img class="voltar" src="https://i.postimg.cc/ZYgb7Mrc/voltar.png" alt="voltar"></a></td>
+    <td><input class="form-control inputmenu" type="text" id="campopesquisa" placeholder="Buscar produtos..." type="text">
+    <nav class="navbar opcoes">
+      <a class="op" href="https://wa.me/5593992244987">Contato</a> 
+      <a class="op" href="https://www.instagram.com/_jgloot_/">Intagram</a>
+      <a class="op" href="https://www.tiktok.com/@_jgloot_">TikTok</a>
+      <select class="w-25" name="select" id="category" onchange="filterProducts()">
+        <option hidden class="text-white" value= 0 >Categorias</option>
+        <option class="text-danger" value="tudo">Tudo</option>
+        <option class="text-danger" value="acessorios">Acessórios</option>
+        <option class="text-danger" value="eletronicos">Eletrônicos</option>
+        <option class="text-danger" value="beleza">Beleza</option>
+        <option class="text-danger" value="ferramentas">Ferramentas</option>
+        <option class="text-danger" value="papelaria">Papelaria</option>
+	<option class="text-danger" value="veiculos">Veículos</option>
+	<option class="text-danger" value="moda">Moda</option>
+	<option class="text-danger" value="sexshop">Sex Shop</option>
+      </select></nav></td>           
+    <td><a href="#carrinhoContainer"><img class="carrinho" src="https://i.postimg.cc/yNKD8bxK/carrinho.png" alt="carrinho"></a></td>     
+    <td><h1 class="quanticar">0</h1></td>
+
+<!___________________________________________________________________________________________>	  
+    
+    <td><div id="mySidenav" class="sidenav" id="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <div class="category" onclick="filterproducts('all')"><a href="#">Página Inicial</a></div>
+      <hr><div class="category"><a href="https://wa.me/5593992244987">Contato</a></div>
+      <hr><div class="category"><a href="https://www.instagram.com/_jgloot_/">Intagram</a></div>
+      <hr><div class="category"><a href="https://www.tiktok.com/@_jgloot_">TikTok</a></div>
+      <hr><div class="category"><h5>Categorias:</h5></div>
+      <hr><div class="category" onclick="filterproducts('acessorios')" id="acessorios">Acessórios</div>
+      <hr><div class="category" onclick="filterproducts('eletronicos')" id="eletronicos">Eletrônicos</div>
+      <hr><div class="category" onclick="filterproducts('beleza')" id="beleza">Beleza</div>
+      <hr><div class="category" onclick="filterproducts('ferramentas')" id="ferramentas">Ferramentas</div>
+      <hr><div class="category" onclick="filterproducts('papelaria')" id="papelaria">Papelaria</div>
+      <hr><div class="category" onclick="filterproducts('veiculos')" id="veiculos">Veículos</div>
+      <hr><div class="category" onclick="filterproducts('moda')" id="moda">Moda</div>
+      <hr><div class="category" onclick="filterproducts('sexshop')" id="sexshop">Sex Shop</div>
+      <hr>
+      </div>
+      <span onclick="openNav()"><img class="menuicon" src="https://i.postimg.cc/D0fXxYLF/menu.png" alt="menu"></span></td>
+    <td><a href="https://api.whatsapp.com/send?phone=5593991991685"><img class="propaganda" src="https://i.postimg.cc/T36mL6xH/propagandatopo.png" alt="propaganda"></a></td>    
+  </thead>
+</table>
+
+
+
+<!___________________________________________________________________________________________>
+
+
+<div id="pino">
+<div class="imagenspino">
+<img id="mainImage" class="imgpino" src="https://down-br.img.susercontent.com/file/cn-11134207-7qukw-lfqi5wanqit4d4">
+<br>
+
+			<img id="color" class="thumbnail" src="https://down-br.img.susercontent.com/file/cn-11134207-7qukw-lfqi5wanqit4d4" alt="Miniatura 0" onclick="mudarImagem('https://down-br.img.susercontent.com/file/cn-11134207-7qukw-lfqi5wanqit4d4')">
+
+            <img id="color" class="thumbnail" src="https://down-br.img.susercontent.com/file/cn-11134207-7qukw-lfqi5waok0qgc0" alt="Miniatura 2" onclick="mudarImagem('https://down-br.img.susercontent.com/file/cn-11134207-7qukw-lfqi5waok0qgc0')">
+            
+            <img id="color" class="thumbnail" src="https://down-br.img.susercontent.com/file/cn-11134207-7qukw-lfqi5waolfawc4" alt="Miniatura 3" onclick="mudarImagem('https://down-br.img.susercontent.com/file/cn-11134207-7qukw-lfqi5waolfawc4')">
+            
+            <img id="color" class="thumbnail" src="https://down-br.img.susercontent.com/file/cn-11134207-7qukw-lfqi5waoim60ac" alt="Miniatura 4" onclick="mudarImagem('https://down-br.img.susercontent.com/file/cn-11134207-7qukw-lfqi5waoim60ac')">
+            
+            <img id="color" class="thumbnail" src="https://down-br.img.susercontent.com/file/cn-11134207-7qukw-lfqi5waomtvcab" alt="Miniatura 5" onclick="mudarImagem('https://down-br.img.susercontent.com/file/cn-11134207-7qukw-lfqi5waomtvcab')">
+            
+            <img id="color" class="thumbnail" src="https://down-br.img.susercontent.com/file/cn-11134207-7qukw-lfqi5wantby03d" alt="Miniatura 0" onclick="mudarImagem('https://down-br.img.susercontent.com/file/cn-11134207-7qukw-lfqi5wantby03d')">
+
+            <img id="color" class="thumbnail" src="https://down-br.img.susercontent.com/file/cn-11134207-7qukw-lfqi5wao7dmg9b" alt="Miniatura 2" onclick="mudarImagem('https://down-br.img.susercontent.com/file/cn-11134207-7qukw-lfqi5wao7dmg9b')">
+            
+            <img id="color" class="thumbnail" src="https://down-br.img.susercontent.com/file/cn-11134207-7qukw-lfqi5waoczw899" alt="Miniatura 3" onclick="mudarImagem('https://down-br.img.susercontent.com/file/cn-11134207-7qukw-lfqi5waoczw899')">
+            
+            <img id="color" class="thumbnail" src="https://down-br.img.susercontent.com/file/sg-11134201-7rbl6-lphgr8lgcz072e" alt="Miniatura 4" onclick="mudarImagem('https://down-br.img.susercontent.com/file/sg-11134201-7rbl6-lphgr8lgcz072e')">
+            
+            <img id="color" class="thumbnail" src="https://down-br.img.susercontent.com/file/8e4466209b2b81763252c95d18d1de3e" alt="Miniatura 5" onclick="mudarImagem('https://down-br.img.susercontent.com/file/8e4466209b2b81763252c95d18d1de3e')">
+            
+</div>
+
+<!____________________________________________INFORMAÇÕES_______________________________________________>
+
+
+<div class="inforproduto">
+<h5 class="nomeprodutopino">Lâmpada De Led Para Pneus Colorida Noturna Válvula Luz De Bicicleta Decoração</h5>
+<a class="avaliacoes" href="https://www.instagram.com/_jgloot_/">INSTAGRAM DA LOJA</a>
+<h1 class="precoprodutopino">R$10,00</h1>
+<p class="loja">Produto Oficial JGLoot</p>
+<hr>
+<form id="colorForm" onsubmit="enviar()" action="https://api.sheetmonkey.io/form/7eqrTSyTcDuJHDqiJagaZS" method="post">
+<input type="hidden" name="produto" value="Lâmpada De Led Para Pneus Colorida Noturna Válvula Luz De Bicicleta Decoração">
+<input type="hidden" name="loja" value="JGLoot Oficial">
+<label for="frete" class="fretenome">Frete:</label><br>
+<input class="inputfrete" type="text" id="campofrete" placeholder="Digite seu CEP" maxlength="9" name="cep" required>
+<span class="botaocalcular" onclick="calcular()">Calcular</span>
+<p id="frete">A taxa de entrega aparecerá aqui</p>
+<p id="precofrete"></p>
+<hr>
+
+
+<!________________________________________________COR___________________________________________>
+
+
+<label for="cor">Escolha uma cor:</label><br>
+	
+        <input class="cor" id="cor" type="radio" name="cor" value="Transparente"  onclick="mudarImagemCor('https://down-br.img.susercontent.com/file/cn-11134207-7qukw-lfqi5waolfawc4')" required> Rosa
+        
+        <input class="cor" id="cor" type="radio" name="cor" value="Verde"  onclick="mudarImagemCor('https://down-br.img.susercontent.com/file/cn-11134207-7qukw-lfqi5waok0qgc0')" required> Verde
+        
+        <input class="cor" id="cor" type="radio" name="cor" value="Amarelo"  onclick="mudarImagemCor('https://down-br.img.susercontent.com/file/cn-11134207-7qukw-lfqi5waoim60ac')" required> Amarelo
+        
+        <input class="cor" id="cor" type="radio" name="cor" value="Azul"  onclick="mudarImagemCor('https://down-br.img.susercontent.com/file/cn-11134207-7qukw-lfqi5waomtvcab')" required> Azul
+        
+        
+        <hr>
+        <label for="quantidade">Quantidade:</label><br>
+        <input class="inputquant" type="number" id="quantidade" name="quantidade" min="1" value="1">
+        <hr>
+    <span class="addcar" onclick="additem()" id="addcar">Adicionar Ao Carrinho</span>
+    <hr class="entrebuttons">
+    <span id="comprar" class="comprar">Comprar</span>
+    
+    
+
+    <div id="entrega" class="entrega">
+    <hr>
+    <h1 class="enderecoparaentrega">ENDEREÇO PARA ENTREGA</h1>
+
+    
+    
+        <label for="nome">Nome completo:</label>
+        <input class="inputentrega" placeholder="Nome de quem receberá o produto." type="text" id="nome" name="nome" required>
+
+        <label for="endereco">Bairro:</label>
+        <input class="inputentrega" placeholder="Digite o nome do bairro." type="text" id="bairro" name="bairro" required>
+
+        <label for="cidade">Rua/Travessa/Avenida:</label>
+        <input class="inputentrega" placeholder="Digite o nome da rua/travessa/avenida." type="text"  id="rua" name="rua" required>
+        
+        <label for="cidade">Número:</label>
+        <input class="inputentrega" placeholder="Digite o número da sua localidade." type="number" id="numero" name="numero" required>
+
+		<label for="cidade">Ponto de referência (opcional):</label>
+        <input class="inputentrega" placeholder="Digite um ponto de referência, escola, igreja, algo próximo." type="text" id="complemento" name="complemento">
+        
+        <label for="cliente">Número de telefone:</label>
+        <input class="inputentrega" placeholder="Para confirmação de pagamento, informações, entre outros..." type="text" id="telefone" name="telefone" maxlength="15" required>
+        
+        <h6>Após confirmação de pagamento entraremos em contato (pode demorar alguns minutos).</h6>
+        
+        <input class="inputentrega" type="hidden" name="Created" value="x-sheetmonkey-current-date-time" />
+
+        <button class="enviar" type="submit" onclick="setPrecoCookie()">Finalizar compra</button>
+    </div>
+    </form>
+</div>
+</div>
+
+<!____________________________________DESCRIÇÃO_______________________________________________________>
+	
+<div id="descricao">
+<h5>Descrição do produto:</h5>
+<br>
+<p style="text-align: justify">Material: Alumínio + Plástico.<br>
+
+Cor da Concha: Branca.<br>
+
+Instalação conforme última imagem (retirar papel de proteção da bateira para acender).<br>
+
+Alimentação: 3* Pilhas de Botão AG10(Inclusas).<br>
+
+Tipo de LED:Luz fluorescente.<br>
+
+Tamanho do Produto: Aproximada 7 cm x 1,5 cm x 1,5 cm.<br>
+</p>
+</div>
+
+<!____________________________________CATALÓGO_______________________________________________________>
+
+<div id="produtos">
+
+	<div class="produto" data-name="Suporte para celular acrilico acessorios R$10,00 10,00 10 reais, Suporte acrílico para mesa, Apoio para celular em acrílico, Suporte de mesa para smartphone, Suporte para celular com design acrílico, Suporte de mesa transparente para smartphone, Acessório para celular em acrílico, Suporte ergonômico para celular, Suporte para celular de mesa resistente, Suporte de acrílico para uso em escritório." data-category="acessorios"><a href="htmlproduto1.html"><img class="imgproduto" src="https://http2.mlstatic.com/D_NQ_NP_750444-MLB44662340166_012021-O.webp"><p class="nomeproduto" style="text-align: justify">Suporte Para Celular Acri...</p><h6 class="loja">Oficial JGLoot</h6><h4 class="precoproduto">R$10,00</h4></a></div>
+  
+	<div class="produto" data-name="Óleo 5w30 veiculos R$62,00 62,00 62 reais| Sintético | Petronas Selenia | Perform | 1 litro | Lubrificante | Motor | Qualidade | Desempenho | Manutenção | Viscosidade | Proteção | Lubrificação | Alto desempenho | Especificações técnicas | Normas de qualidade | Proteção contra desgaste | Eficiência energética | Redução do atrito | Lubrificação de longa duração" data-category="veiculos"><a href="htmlproduto2.html"><img class="imgproduto" src="https://i.postimg.cc/N0fNKRsP/oleo5w30.png"><p class="nomeproduto" style="text-align: justify">Óleo Selenia 5w30 Peform...</p><h6 class="loja">Lancia</h6><h4 class="precoproduto">R$62,00</h4></a></div>
+
+	<div class="produto" data-name="Óleo de Motor, veiculos R$86,00 86,00 86 reais Petronas, Syntium 7000, Sintético, 0w20, 1 litro, Lubrificante de Motor, Fluidos Automotivos, Manutenção de Veículos, Especificações de Viscosidade" data-category="veiculos"><a href="htmlproduto3.html"><img class="imgproduto" src="https://i.postimg.cc/DfYYCLtK/oleo0w20.png"><p class="nomeproduto" style="text-align: justify">Óleo Syntium 7000 0w20 1L...</p><h6 class="loja">Lancia</h6><h4 class="precoproduto">R$86,00</h4></a></div>
+	
+	<div class="produto" data-name="Fone de ouvido sem fio, eletronicos R$95,00 95,00 95 reais Bluetooth 5.0, Cancelamento de ruído, Conectividade instantânea, Áudio de alta qualidade, Design ergonômico, Estojo de carregamento sem fio, Siri ativado por voz, Controles sensíveis ao toque, Bateria de longa duração, Emparelhamento rápido, Resistente à água, Sensores de proximidade, Modo de transparência, Estabilidade de conexão, Chip H1, Compatibilidade com dispositivos Apple, Microfones duplos, Estojos personalizáveis, Atualizações de firmware automáticas Fone Bluetooth Airpods 3" data-category="eletronicos"><a href="htmlproduto4.html"><img class="imgproduto" src="https://i.postimg.cc/8P2Mry9s/1.png"><p class="nomeproduto" style="text-align: justify">Fone Bluetooth AirPods 3a...</p><h6 class="loja">Lira Imports</h6><h4 class="precoproduto">R$95,00</h4></a></div>
+  
+	<div class="produto" data-name="HAYLOU GT7 Neo, eletronicos R$220,00 220,00 220 reais Fone de Ouvido Bluetooth HAYLOU, Fone de Ouvido HAYLOU GT7, Fone Bluetooth GT7 Neo, Fone sem fio HAYLOU, Fone de Ouvido GT7 Neo, Fone de Ouvido Bluetooth sem fio, HAYLOU GT7 Neo review, Fone de Ouvido True Wireless HAYLOU GT7 Neo, Fone de Ouvido Intra-auricular HAYLOU GT7 Neo, Fone de Ouvido Estéreo Bluetooth HAYLOU, Fone de Ouvido TWS (True Wireless Stereo) HAYLOU GT7 Neo, Fone de Ouvido com Cancelamento de Ruído HAYLOU GT7 Neo, Fone de Ouvido Esportivo Bluetooth HAYLOU, Compatibilidade HAYLOU GT7 Neo, Onde comprar HAYLOU GT7 Neo, Preço HAYLOU GT7 Neo, Características HAYLOU GT7 Neo, Manual do usuário HAYLOU GT7 Neo, Fone de Ouvido com Microfone HAYLOU GT7 Neo." data-category="eletronicos"><a href="htmlproduto5.html"><img class="imgproduto" src="https://i.postimg.cc/BQjH47kQ/1.png"><p class="nomeproduto" style="text-align: justify">Fone Bluetooth HAYLOU GT7...</p><h6 class="loja">David Gonçalves</h6><h4 class="precoproduto">R$220,00</h4></a></div>
+  
+	<div class="produto" data-name="Mini Massageador Elétrico, Portátil, eletronicos R$50,00 50,00 50 reais Alívio de Tensão, Massagem Localizada, Design Compacto, Vibração Terapêutica, Relaxamento Muscular, Estimulação Circulatória, Bateria Recarregável, Massagem Pessoal, Confortável, Leve, Fácil de Usar, Massagem de Tecidos Profundos, Redução do Estresse, Alívio da Fadiga, Multifuncional, Massagem em Pontos Específicos, Massagem de Pulsação." data-category="eletronicos"><a href="htmlproduto6.html"><img class="imgproduto" src="https://i.postimg.cc/FsDZJcL5/1.png"><p class="nomeproduto" style="text-align: justify">Massageador Elétrico...</p><h6 class="loja">David Gonçalves</h6><h4 class="precoproduto">R$50,00</h4></a></div>
+   
+	<div class="produto" data-name="Carregador Lightning Turbo USB-C, eletronicos R$77,00 77,00 77 reais Carregador rápido Lightning USB-C, Adaptador de carga rápida para iPhone com conector USB-C, Carregador de alta velocidade para dispositivos Apple, Cabo de carregamento rápido Lightning para USB-C, Carregador rápido compatível com iPhone e iPad, Carregador turbo para dispositivos Apple com conector USB-C, Adaptador de energia rápido para iPhone com porta USB-C, Carregador rápido certificado para dispositivos iOS, Cabo de carregamento rápido para iPhone com USB-C." data-category="eletronicos"><a href="htmlproduto7.html"><img class="imgproduto" src="https://i.postimg.cc/0QF8Zxyd/1.png"><p class="nomeproduto" style="text-align: justify">Carregador Lightning Turb...</p><h6 class="loja">Lira Imports</h6><h4 class="precoproduto">R$77,00</h4></a></div>
+   
+	<div class="produto" data-name="Cabo Carregador Lightning Turbo USB-C, eletronicos R$50,00 50,00 50 reais Carregador rápido Lightning USB-C, Adaptador de carga rápida para iPhone com conector USB-C, Carregador de alta velocidade para dispositivos Apple, Cabo de carregamento rápido Lightning para USB-C, Carregador rápido compatível com iPhone e iPad, Carregador turbo para dispositivos Apple com conector USB-C, Adaptador de energia rápido para iPhone com porta USB-C, Carregador rápido certificado para dispositivos iOS, Cabo de carregamento rápido para iPhone com USB-C." data-category="eletronicos"><a href="htmlproduto8.html"><img class="imgproduto" src="https://i.postimg.cc/XYRgC1FZ/1.png"><p class="nomeproduto" style="text-align: justify">Cabo Carregador Lightning...</p><h6 class="loja">Lira Imports</h6><h4 class="precoproduto">R$50,00</h4></a></div>
+   
+	<div class="produto" data-name="Fone de ouvido Bluetooth Pro4, eletronicos R$95,00 95,00 95 reais Pro4 Bluetooth earphones, Fone de ouvido sem fio Pro4, Pro4 wireless headphones, Pro4 earbuds, Especificações Pro4 Bluetooth, Avaliações Pro4 Bluetooth, Onde comprar Pro4 Bluetooth, Preço do fone de ouvido Pro4, Comparação de fones de ouvido Bluetooth Pro4, Compatibilidade Pro4 Bluetooth, Recursos Pro4 earphones, Pro4 noise-cancelling, Bateria Pro4 wireless, Manual do usuário Pro4, Pro4 conectividade Bluetooth, Melhores ofertas Pro4 Bluetooth, Pro4 resistente à água, Pro4 cancelamento de ruído, Pro4 especificações técnicas." data-category="eletronicos"><a href="htmlproduto9.html"><img class="imgproduto" src="https://i.postimg.cc/Bn752x7K/1.png"><p class="nomeproduto" style="text-align: justify">Fone De Ouvido Pro 4 Blue...</p><h6 class="loja">Lira Imports</h6><h4 class="precoproduto">R$95,00</h4></a></div>
+   
+	<div class="produto" data-name="Garrafa Térmica Stanley 500ml, acessorios R$100,00 10,00 100 reais Stanley Thermos 500ml, Garrafa Térmica com 3 copos, Stanley Flask 500ml with 3 cups, Stanley Thermal Bottle 500ml 3 cups, Stanley Thermos Set 500ml 3 cups, Stanley Vacuum Bottle 500ml with cups, Stanley Thermal Flask 500ml and 3 cups, Stanley 500ml thermos and cups, Garrafa Térmica Stanley com 3 copos, Stanley Flask 500ml 3-piece set, Stanley Insulated Bottle 500ml 3 cups, Stanley 500ml thermos set, Stanley Classic Vacuum Bottle 500ml 3 cups, Garrafa Térmica Stanley 500ml conjunto 3 peças, Stanley Stainless Steel Thermos 500ml with 3 cups, Stanley 500ml Vacuum Insulated Flask with cups, Garrafa Térmica Stanley 500ml e 3 copos, Stanley Outdoor Thermos 500ml 3 cups, Stanley Adventure Series 500ml Thermos with 3 cups." data-category="acessorios"><a href="htmlproduto10.html"><img class="imgproduto" src="https://i.postimg.cc/Df6yBFLq/1.png"><p class="nomeproduto" style="text-align: justify">Garrafa Térmica Stanley 5...</p><h6 class="loja">Lira Imports</h6><h4 class="precoproduto">R$100,00</h4></a></div>
+   
+	<div class="produto" data-name="Conjunto Tecido Scuba, Moda, moda R$125,00 125,00 125 reais Estilo, Elegância, Conforto, Tendência, Roupa, Look, Design, Fashion, Beleza, Sofisticação, Vestuário, Combinação, Moderno, Versátil, Estampa, Cores Vibrantes, Textura, Modelagem, Exclusivo, Casual, Chique, Glamour, Praticidade, Despojado, Trendy, Autêntico, Coleção." data-category="moda"><a href="htmlproduto11.html"><img class="imgproduto" src="https://i.postimg.cc/RFx38W6T/1.png"><p class="nomeproduto" style="text-align: justify">Conjunto No Tecido Scuba...</p><h6 class="loja">AlCloset</h6><h4 class="precoproduto">R$125,00</h4></a></div>
+   
+	<div class="produto" data-name="Lubrificante íntimo, sexshop sexyshop sex shop sexy shop R$20,00 20,00 20 reais Gel lubrificante, K-MED, Lubrificação sexual, Intimidade, Conforto íntimo, Hidratação íntima, Prazer sexual, Facilitador sexual, Gel íntimo 25g, Sensação suave, Formulação à base de água, Prática discreta, Fórmula de longa duração, Conforto durante o sexo, Fácil aplicação, Dermatologicamente testado, Compatível com preservativos, Aumenta o prazer, Gel para relações íntimas." data-category="sexshop"><a href="htmlproduto12.html"><img class="imgproduto" src="https://i.postimg.cc/HkS0sdMh/kmedgellubrificante25g-Jo-o-Gabriel-Vasconcelos-Trindade.png"><p class="nomeproduto" style="text-align: justify">Gel Lubrificante Íntimo 25g...</p><h6 class="loja">Sedução Femi...</h6><h4 class="precoproduto">R$20,00</h4></a></div>
+   
+	<div class="produto" data-name="Chaveiro Algema Em Couro Sintético Com Argola Em Metal Brasil Fetiche Acessório sensual, sexshop sexyshop sex shop sexy shop R$5,00 5,00 5 reais Brinquedo erótico, Fantasia íntima, Prazer adulto, Design elegante, Estilo fetichista, Qualidade durável, Sensualidade, Ajustável, Prende e solta, Jogo de dominação, Estimulação erótica, Fantasia sexual, Presente provocante." data-category="sexshop"><a href="htmlproduto13.html"><img class="imgproduto" src="https://i.postimg.cc/zBRXHScg/CHAP054-Preto-1-Jo-o-Gabriel-Vasconcelos-Trindade.webp"><p class="nomeproduto" style="text-align: justify">Chaveiro Algema Em Couro...</p><h6 class="loja">Sedução Femi...</h6><h4 class="precoproduto">R$5,00</h4></a></div>
+   
+	<div class="produto" data-name="Love Lub, Hot Lub, Lubrificante corporal, La Pimienta, Estimulação térmica, Prazer intenso, Sensação quente, Aquecimento sensual, Gel íntimo, Intimidade ardente, Relaxamento sensual, Lubrificação duradoura, Formulação especial, Facilitador sexual, Prazer compartilhado, Experiência íntima, Gel sensual, Estimulante térmico, Sensualidade intensificada, Pré-aquecido, 60g." data-category="sexshop"><a href="htmlproduto14.html"><img class="imgproduto" src="https://i.postimg.cc/05zS1jp6/L053-1-Jo-o-Gabriel-Vasconcelos-Trindade.webp"><p class="nomeproduto" style="text-align: justify">Love Lub Hot Lubrificante...</p><h6 class="loja">Sedução Femi...</h6><h4 class="precoproduto">R$25,00</h4></a></div>
+   
+	<div class="produto" data-name="Love Lub, Ice Lub, Lubrificante corporal, sexshop sexyshop sex shop sexy shop R$25,00 25,00 25 reais La Pimienta, Estimulação térmica, Prazer intenso, Sensação frio, Esfriamento sensual, Gel íntimo, Intimidade ardente, Relaxamento sensual, Lubrificação duradoura, Formulação especial, Facilitador sexual, Prazer compartilhado, Experiência íntima, Gel sensual, Estimulante térmico, Sensualidade intensificada, Pré-aquecido, 60g." data-category="sexshop"><a href="htmlproduto15.html"><img class="imgproduto" src="https://i.postimg.cc/rm2MzhDR/L063-1-Jo-o-Gabriel-Vasconcelos-Trindade.webp"><p class="nomeproduto" style="text-align: justify">Love Lub Ice Lubrificante...</p><h6 class="loja">Sedução Femi...</h6><h4 class="precoproduto">R$25,00</h4></a></div>
+      
+	<div class="produto" data-name="Love Lub, Lubrificante corporal, Neutro, sexshop sexyshop sex shop sexy shop R$25,00 25,00 25 reais La Pimienta, Gel íntimo, Lubrificação duradoura, Formulação suave, Intimidade confortável, Prazer sensual, Facilitador sexual, Sensação natural, Gel neutro, Experiência íntima, 60g, Textura agradável, Compatível com brinquedos sexuais, Hidratação íntima, Sensualidade sem fragrância, Relaxamento íntimo." data-category="sexshop"><a href="htmlproduto16.html"><img class="imgproduto" src="https://i.postimg.cc/YCgpkK9B/L052-1-Jo-o-Gabriel-Vasconcelos-Trindade.webp"><p class="nomeproduto" style="text-align: justify">Love Lub Neutro Lubrificante...</p><h6 class="loja">Sedução Femi...</h6><h4 class="precoproduto">R$25,00</h4></a></div>
+    
+	<div class="produto" data-name="KGEL, Lubrificante íntimo, Tradicional, Gel íntimo, sexshop sexyshop sex shop sexy shop R$20,00 20,00 20 reais Lubrificação duradoura, Prazer sensual, Facilitador sexual, Textura suave, Fórmula tradicional, Intimidade confortável, Gel de longa duração, 50g, Hidratação íntima, Sensação natural, Prático e discreto, Para uso adulto, Compatível com preservativos, Estimulação suave, Experiência íntima aprimorada." data-category="sexshop"><a href="htmlproduto17.html"><img class="imgproduto" src="https://i.postimg.cc/BZB3mcz4/PKC208-50-1-Jo-o-Gabriel-Vasconcelos-Trindade.webp"><p class="nomeproduto" style="text-align: justify">KGEL Lubrificante Íntimo...</p><h6 class="loja">Sedução Femi...</h6><h4 class="precoproduto">R$20,00</h4></a></div>
+    
+	<div class="produto" data-name="D4, Lubrificante íntimo, Neutro, Sexy Fantasy, Gel íntimo, sexshop sexyshop sex shop sexy shop R$27,00 27,00 27 reais Lubrificação duradoura, Fórmula suave, Intimidade confortável, Prazer sensual, Facilitador sexual, Sensação natural, Gel neutro, Experiência íntima, 60g, Textura agradável, Compatível com brinquedos sexuais, Hidratação íntima, Sem fragrância, Relaxamento íntimo, Marca Sexy Fantasy." data-category="sexshop"><a href="htmlproduto18.html"><img class="imgproduto" src="https://i.postimg.cc/59Q18QcS/4003-Neutro-1-Jo-o-Gabriel-Vasconcelos-Trindade.webp"><p class="nomeproduto" style="text-align: justify">D4 Lubrificante Íntimo Neutro...</p><h6 class="loja">Sedução Femi...</h6><h4 class="precoproduto">R$27,00</h4></a></div>
+    
+	<div class="produto" data-name="Xana Loka, Excitante feminino, 15g, sexshop sexyshop sex shop sexy shop R$24,00 24,00 24 reais Linha Brasileirinhos, Hot Flowers, Estimulante íntimo, Prazer feminino, Sensação excitante, Gel sensual, Estimulação intensa, Intimidade ardente, Fórmula especial, Para uso adulto, Textura suave, Experiência íntima aprimorada, Marca Hot Flowers." data-category="sexshop"><a href="htmlproduto19.html"><img class="imgproduto" src="https://i.postimg.cc/NG8tNqMK/HC611-1-Jo-o-Gabriel-Vasconcelos-Trindade.webp"><p class="nomeproduto" style="text-align: justify">Xana Loka Excitante Femini...</p><h6 class="loja">Sedução Femi...</h6><h4 class="precoproduto">R$24,00</h4></a></div>
+    
+	<div class="produto" data-name="Chines Gel Prolongador, 15ML, Gel estimulante, Prolongamento da ereção, Prazer duradouro, Estimulação masculina, sexshop sexyshop sex shop sexy shop R$20,00 20,00 20 reais Sensação intensificada, Fórmula especial, Uso adulto, Textura suave, Fácil aplicação, Sensualidade aprimorada, Embalagem prática, Estimulante íntimo, Marca ou produto específico não mencionado." data-category="sexshop"><a href="htmlproduto20.html"><img class="imgproduto" src="https://i.postimg.cc/hv0fgX1w/SL041-1-Jo-o-Gabriel-Vasconcelos-Trindade.webp"><p class="nomeproduto" style="text-align: justify">Chines Gel Prolongador 15...</p><h6 class="loja">Sedução Femi...</h6><h4 class="precoproduto">R$20,00</h4></a></div>
+    
+	<div class="produto" data-name="110 reais R$110 câmera Wi-Fi, Jortan Branca, monitoramento remoto, segurança residencial, câmera de vigilância, visão noturna, detecção de movimento, gravação em nuvem, aplicativo móvel, instalação fácil, resolução de vídeo, áudio bidirecional, câmera IP, conexão wireless, câmera de segurança, dispositivo inteligente, visão panorâmica, câmera dome, monitoramento em tempo real." data-category="eletronicos"><a href="htmlproduto21.html"><img class="imgproduto" src="https://i.postimg.cc/RZdPrQDj/1.png"><p class="nomeproduto" style="text-align: justify">Câmera Wi-Fi Jortan Branca...</p><h6 class="loja">VA Imports</h6><h4 class="precoproduto">R$110,00</h4></a></div>
+
+	<div class="produto" data-name="Carregador Lightning Turbo USB-C, eletronicos R$60,00 60,00 60 reais Carregador Para Iphone rápido Lightning USB-C, Adaptador de carga rápida para iPhone com conector USB-C, Carregador de alta velocidade para dispositivos Apple, Cabo de carregamento rápido Lightning para USB-C, Carregador rápido compatível com iPhone e iPad, Carregador turbo para dispositivos Apple com conector USB-C, Adaptador de energia rápido para iPhone com porta USB-C, Carregador rápido certificado para dispositivos iOS, Cabo de carregamento rápido para iPhone com USB-C." data-category="eletronicos"><a href="htmlproduto22.html"><img class="imgproduto" src="https://i.postimg.cc/ZKN7Hsyc/1.png"><p class="nomeproduto" style="text-align: justify">Carregador Para Iphone...</p><h6 class="loja">VA Imports</h6><h4 class="precoproduto">R$60,00</h4></a></div>
+
+	<div class="produto" data-name="90 reais R$90 microfone sem fio, Leon GTS, preto, sistema de áudio sem fio, microfone de mão, transmissor sem fio, recepção clara, alcance longo, qualidade de som, performance ao vivo, microfone para eventos, show, apresentação, conferência, fácil de usar, bateria recarregável, sem interferência, design elegante, áudio profissional." data-category="eletronicos"><a href="htmlproduto23.html"><img class="imgproduto" src="https://i.postimg.cc/d1TtDKLd/1.png"><p class="nomeproduto" style="text-align: justify">Microfone Sem Fio Leon...</p><h6 class="loja">VA Imports</h6><h4 class="precoproduto">R$90,00</h4></a></div>
+    
+	<div class="produto" data-name="Mini Massageador Elétrico, Portátil, eletronicos R$30,00 30,00 30 reais Alívio de Tensão, Massagem Localizada, Design Compacto, Vibração Terapêutica, Relaxamento Muscular, Estimulação Circulatória, Bateria Recarregável, Massagem Pessoal, Confortável, Leve, Fácil de Usar, Massagem de Tecidos Profundos, Redução do Estresse, Alívio da Fadiga, Multifuncional, Massagem em Pontos Específicos, Massagem de Pulsação." data-category="eletronicos"><a href="htmlproduto24.html"><img class="imgproduto" src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQ8F1uy8M6yEepbjQ777-qzEizY2l4K49EgfBcEEd80LA1d59cb3SLvwhlIxgipAjoM8-otpcMjKqacrWSmvFcyiy3djSLShaUmQgFRuCg&usqp=CAE"><p class="nomeproduto" style="text-align: justify">Massageador Recarregável...</p><h6 class="loja">VA Imports</h6><h4 class="precoproduto">R$30,00</h4></a></div>
+    
+	<div class="produto" data-name="3 reais R$3 protetor espiral, cabo USB, carregador de celular, fones de ouvido, organizador de cabos, capa protetora, prevenir desgaste, prolongar vida útil, gerenciamento de cabos, acessório para cabo, evitar quebras, proteção para fios, cabo espiral, evitar dobras, durabilidade do cabo, manter integridade, proteção para carregadores, organizador de fios." data-category="acessorios"><a href="htmlproduto25.html"><img class="imgproduto" src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSXILzpi94oItkz9cdXYipWha6hHw1tQgKmazRtQ-a0ktGvxYxGaho5vNOspSIPg3HTiMEfZ8yF5wZNV1_acsdMUaFSve51lw&usqp=CAE"><p class="nomeproduto" style="text-align: justify">Protetor Espiral Para Cabos...</p><h6 class="loja">Oficial JGLoot</h6><h4 class="precoproduto">R$3,00</h4></a></div>
+
+	<div class="produto" data-name="15 reais R$15 Pó de Fada, Iluminador, Vivai, Maquiagem, Beleza, Cosméticos, Brilho, Glow, Pele radiante, Produto de beleza, Maquiagem facial, Textura suave, Destaque, Efeito luminoso, Acabamento natural, Ingredientes naturais, Embalagem elegante, Tons brilhantes, Aplicação fácil, Destaque para maçãs do rosto." data-category="beleza"><a href="htmlproduto26.html"><img class="imgproduto" src="https://i.postimg.cc/kMy6z9m1/IMG-0010-Anny-Dias.jpg"><p class="nomeproduto" style="text-align: justify">Pó De Fada Iluminador Vi...</p><h6 class="loja">Anny Dias...</h6><h4 class="precoproduto">R$15,00</h4></a></div>
+    
+	<div class="produto" data-name="200 reais R$200 TV Box, Android TV Box, Set-top box, Smart TV Box, Media box, Streaming box, IPTV box, Mini PC Android, TV Box 4K, Google TV Box, Amazon Fire TV, Apple TV Box, Roku Box, Nvidia Shield TV, TV Box WiFi, TV Box Bluetooth, TV Box Android 10, TV Box Full HD, TV Box HDMI, TV Box USB" data-category="acessorios" data-category="eletronicos" ><a href="htmlproduto27.html"><img class="imgproduto" src="https://i.postimg.cc/XY2mT4MS/tvbox1.png"><p class="nomeproduto" style="text-align: justify">TV Box (Converta Sua TV...</p><h6 class="loja">VA Imports...</h6><h4 class="precoproduto">R$200,00</h4></a></div>
+    
+    <div class="produto" data-name="70 reais R$70 Máquina de cortar cabelo Leon GTS, Leon GTS hair clipper, Cortador de cabelo Leon GTS, Aparador de cabelo Leon GTS, Máquina de corte profissional Leon GTS, Leon GTS hair trimmer, Cortadora de cabelo Leon GTS, Leon GTS hair grooming tool." data-category="acessorios"><a href="htmlproduto28.html"><img class="imgproduto" src="https://i.postimg.cc/8s8fkj7F/cortador1.png"><p class="nomeproduto" style="text-align: justify">Máquina De Cortar Cabel...</p><h6 class="loja">VA Imports...</h6><h4 class="precoproduto">R$70,00</h4></a></div>
+    
+    <div class="produto" data-name="20 reais R$20 Fone de ouvido com fio, FX-S8, Leon GTS, Preto, Fone de ouvido com fio FX-S8 Leon GTS Preto, Fone de ouvido in-ear, Fone de ouvido com microfone, Fone de ouvido para celular, Fone de ouvido para música, Fone de ouvido estéreo, Fone de ouvido com controle de volume, Fone de ouvido com cancelamento de ruído, Fone de ouvido com conector de 3,5 mm, Fone de ouvido com cabo plano, Fone de ouvido leve, Fone de ouvido confortável, Fone de ouvido de alta qualidade." data-category="acessorios"><a href="htmlproduto29.html"><img class="imgproduto" src="https://i.postimg.cc/1RgrcFrZ/fonefxs8.png"><p class="nomeproduto" style="text-align: justify">Fone De Ouvido A Fio FX...</p><h6 class="loja">VA Imports...</h6><h4 class="precoproduto">R$20,00</h4></a></div>
+    
+    <div class="produto" data-name="20 reais R$20 Fone de ouvido com fio, LE-35, Leon GTS, Preto, Fone de ouvido com fio LE-35 Leon GTS Preto, Fone de ouvido in-ear, Fone de ouvido com microfone, Fone de ouvido para celular, Fone de ouvido para música, Fone de ouvido estéreo, Fone de ouvido com controle de volume, Fone de ouvido com cancelamento de ruído, Fone de ouvido com conector de 3,5 mm, Fone de ouvido com cabo plano, Fone de ouvido leve, Fone de ouvido confortável, Fone de ouvido de alta qualidade." data-category="acessorios"><a href="htmlproduto30.html"><img class="imgproduto" src="https://i.postimg.cc/Qd6Fy4jY/fonele35.png"><p class="nomeproduto" style="text-align: justify">Fone De Ouvido A Fio LE...</p><h6 class="loja">VA Imports...</h6><h4 class="precoproduto">R$20,00</h4></a></div>
+    
+    <div class="produto" data-name="25 reais R$25 Fone de ouvido com fio, XEJ-005, Leon GTS, Preto, Fone de ouvido com fio XEJ-005 Leon GTS Preto, Fone de ouvido in-ear, Fone de ouvido com microfone, Fone de ouvido para celular, Fone de ouvido para música, Fone de ouvido estéreo, Fone de ouvido com controle de volume, Fone de ouvido com cancelamento de ruído, Fone de ouvido com conector de 3,5 mm, Fone de ouvido com cabo plano, Fone de ouvido leve, Fone de ouvido confortável, Fone de ouvido de alta qualidade." data-category="acessorios"><a href="htmlproduto31.html"><img class="imgproduto" src="https://i.postimg.cc/xCLx5bL5/fonexej005.png"><p class="nomeproduto" style="text-align: justify">Fone De Ouvido A Fio XE...</p><h6 class="loja">VA Imports...</h6><h4 class="precoproduto">R$25,00</h4></a></div>
+    
+    <div class="produto" data-name="220 reais R$220 Chuteira Nike Mercurial Vapor 14 Pro Futsal Progress Cinza Tamanho 37, Nike Mercurial Vapor 14 Pro Futsal Progress, Chuteira Nike Mercurial Vapor Futsal Cinza 37, Chuteira Nike Mercurial Vapor Futsal 37, Nike Mercurial Vapor 14 Futsal Tamanho 37, Nike Mercurial Vapor 14 Futsal Progress Cinza 37, Chuteira Futsal Nike Mercurial Vapor Tamanho 37, Chuteira Nike Mercurial Vapor 14 Pro Futsal 37, Nike Mercurial Vapor 14 Futsal Progress Cinza 37, Chuteira Nike Futsal Cinza Tamanho 37." data-category="moda"><a href="htmlproduto32.html"><img class="imgproduto" src="https://shoxstore.com.br/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/4/b/4b695c3f.jpg"><p class="nomeproduto" style="text-align: justify">Chuteira Nike Mercurial Va...</p><h6 class="loja">Tatiane Lira...</h6><h4 class="precoproduto">R$220,00</h4></a></div>
+    
+    <div class="produto" data-name="R$10,00 10,00 10 reais, Suporte acrílico para mesa, Apoio para celular em acrílico, Suporte de mesa para smartphone, Suporte para celular com design acrílico, Suporte de mesa transparente para smartphone, Acessório para celular em acrílico, Suporte ergonômico para celular, Suporte para celular de mesa resistente, Suporte de acrílico para uso em escritório." data-category="acessorios"><a href="htmlproduto33.html"><img class="imgproduto" src="https://down-br.img.susercontent.com/file/cn-11134207-7qukw-lfqi5wanqit4d4"><p class="nomeproduto" style="text-align: justify">Lâmpada De Led Para Pne...</p><h6 class="loja">Oficial JGLoot</h6><h4 class="precoproduto">R$10,00</h4></a></div>
+
+</div>
+
+
+<a href="https://api.whatsapp.com/send?phone=5593991991685"><img src="https://i.postimg.cc/2SBRgQvW/propaganda.png" style="width:70%; margin-left: 15%; margin-top: 50px; margin-bottom: 50px"></a>	
+	
+<!______________________________________CARRINHO_____________________________________________________>
+
+
+<div id="carrinhoContainer">
+<div class="primeirocar">.</div>
+<div class="segundocar">.</div>
+<div class="terceirocar">.</div>
+    <h2 class="textocarrinho">Seu Carrinho</h2>
+<div class="terceirocar">.</div>
+<div class="segundocar">.</div>
+<div class="primeirocar">.</div>
+<div id="cartNotification" class="textocarrinho" style="display: none;">
+   Seu Carrinho está vazio.
+</div>
+    <ul id="carrinhoItens"></ul>
+</div>
+
+<!____________________________________CARRINHO FINAL_______________________________________________________>
+	
+    
+<div class="precofinal" id="precofinal">
+  <h6 class="pfcar">Preço Final do Carrinho: <span id="precoTotalCarrinho">R$0.00</span><br><hr class="hrfrete"> + Frete de:
+  <input type="text" id="campofinal" placeholder="Digite seu CEP" maxlength="9" name="cep" required>
+  <span class="botaocalcularum" onclick="calculofinal()">Calcular</span>
+  <h6 id="precoft"></h6>
+  <hr class="hrfreteum">
+  <p class="pfcar">Resultado Final: R$<span id="resultadoFinal">0.00</span></p>
+  </h6>
+  <button class="finalizar" id="finalizar">Finalizar compra</button> 
+</div>
+
+
+<!______________________________________FOOTER_____________________________________________________>
+	
+    
+<footer id="footer">
+<td><img class="logoft" src="https://i.postimg.cc/BbfF2nQ8/logojgloot.png" alt="logo"></td>
+	
+<p class="fttitulo">Sobre nós</p>
+<p class="fttexto"><a href="#">Conheça a JGLoot e os nossos objetivos</a></p>
+	
+<p class="fttitulo">Anucie seus produtos</p>
+<p class="fttexto">Preencha <a href="https://docs.google.com/forms/d/e/1FAIpQLSfhuFpzp3EjnIlVT7WQPRmiuR9JU67ogPpiGjKPTi4Py-GYwQ/viewform?usp=sf_link">Este formulário</a> para anuciar seus produtos em nosso site, mais informações em <a href="https://wa.me/5593992244987">nosso WhatsApp</a>.</p>
+
+<p class="fttitulo">Divulgue sua loja</p>
+<p class="fttexto">Preencha <a href="https://docs.google.com/forms/d/e/1FAIpQLSfuq6cA0gnn44n50N8XNeVOuBwYkRLg8Q7RuaczjFqsagqGhQ/viewform?usp=sf_link">Este formulário</a> para divulgar sua loja em nosso site e redes sociais, mais informações em <a href="https://wa.me/5593992244987">nosso WhatsApp</a>.</p>
+
+<p class="fttitulo">Termos de Uso e Política de Privacidade</p>
+<p class="fttexto">Inseguro sobre seus dados? Leia nosso <a href="https://sites.google.com/view/usoeprivacidade">Termos de Uso e Política de Privacidade</a> e tenha garantia da segurança de nosso site, mais informações em <a href="https://wa.me/5593992244987">nosso WhatsApp</a>.</p>
+</footer>
+<div class="copy"><p>@2023 Copyright > JGLoot</p></div>
+
+<!___________________________________________________________________________________________>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+<script type="text/javascript" src="./jsprodutos.js"></script>
+<script type="text/javascript" src="./jscepsprodutos.js"></script>
+<script>
+/////////////////////////////////////////////////// COOKIE PREÇO //////////////////////////////////////////////////////////////////////////
+
+function setPrecoCookie() {
+    var precoUnidade = 10.00;
+    var quantidade = parseInt(document.getElementById('quantidade').value) || 1; 
+    var frete = parseFloat(document.getElementById('precofrete').textContent.replace('R$', '').trim()) || 0;
+    var precoTotal = (precoUnidade * quantidade) + frete;
+    document.cookie = 'preco_produto=' + precoTotal.toFixed(2) + '; expires=Thu, 01 Jan 2030 00:00:00 UTC; path=/';
+}
+
+</script>
+</body>
+</html>
