@@ -252,6 +252,7 @@ function filterproducts(category) {
   var carrinhoContainer = document.getElementById('carrinhoContainer');
   pino.style.display = 'none';
   carrinhoContainer.style.display = 'none';
+  descricao.style.display = 'none';
   products.forEach(function(product) {
     var productCategory = product.dataset.category;
     if (category === 'all' || productCategory === category) {
