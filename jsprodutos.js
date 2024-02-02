@@ -228,9 +228,11 @@ function filterProducts() {
     if (selectedCategory !== "tudo") {
         carrinhoContainer.style.display = 'none';
         pino.style.display = 'none';
+	descricao.style.display = 'none';    
     } else {
         carrinhoContainer.style.display = 'block';
         pino.style.display = 'block';
+	descricao.style.display = 'block';
     }
     for (var i = 0; i < products.length; i++) {
         var productCategory = products[i].getAttribute("data-category");
