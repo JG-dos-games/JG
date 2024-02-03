@@ -65,7 +65,7 @@
 <img id="mainImage" class="imgpino" src="https://i.postimg.cc/VvxxQXrG/1.png">
 <br>
 
-	    <img id="color" class="thumbnail" src="https://i.postimg.cc/VvxxQXrG/1.png" alt="Miniatura 1" onclick="mudarImagem('https://i.postimg.cc/VvxxQXrG/1.png')">
+<img id="color" class="thumbnail" src="https://i.postimg.cc/VvxxQXrG/1.png" alt="Miniatura 1" onclick="mudarImagem('https://i.postimg.cc/VvxxQXrG/1.png')">
 
 <img id="color" class="thumbnail" src="https://i.postimg.cc/YS2qsww4/2.png" alt="Miniatura 2" onclick="mudarImagem('https://i.postimg.cc/YS2qsww4/2.png')">
             
@@ -85,10 +85,9 @@
             
 <img id="color" class="thumbnail" src="https://i.postimg.cc/cCkQrcMh/10.png" alt="Miniatura 10" onclick="mudarImagem('https://i.postimg.cc/cCkQrcMh/10.png')">
             
-            <img id="color" class="thumbnail" src="https://i.postimg.cc/8kZdK1Qv/11.png" alt="Miniatura 11" onclick="mudarImagem('https://i.postimg.cc/8kZdK1Qv/11.png')">
-            
-            
-<img id="color" class="thumbnail" src="https://i.postimg.cc/GhNFRqph/12.png" alt="Miniatura 12" onclick="mudarImagem('https://i.postimg.cc/656jqjwr/7.png')">
+<img id="color" class="thumbnail" src="https://i.postimg.cc/8kZdK1Qv/11.png" alt="Miniatura 11" onclick="mudarImagem('https://i.postimg.cc/8kZdK1Qv/11.png')">
+                     
+<img id="color" class="thumbnail" src="https://i.postimg.cc/GhNFRqph/12.png" alt="Miniatura 12" onclick="mudarImagem('https://i.postimg.cc/GhNFRqph/12.png')">
            
 <img id="color" class="thumbnail" src="https://i.postimg.cc/pdMKhr8w/13.png" alt="Miniatura 13" onclick="mudarImagem('https://i.postimg.cc/pdMKhr8w/13.png')">
            
@@ -374,14 +373,18 @@ document.addEventListener('DOMContentLoaded', function() {
     var corInputs = document.querySelectorAll('input[name="cor"]');
     var tamanhoInputs = document.querySelectorAll('.tamanho-input');
     var tamanhoLabels = document.querySelectorAll('.tamanho-label');
+
     corInputs.forEach(function(input) {
         input.addEventListener('change', function() {
+            // Habilitar todos os tamanhos antes de ocultar alguns
             tamanhoInputs.forEach(function(tamanhoInput) {
+                tamanhoInput.removeAttribute('disabled');
                 tamanhoInput.style.display = 'inline';
             });
             tamanhoLabels.forEach(function(tamanhoLabel) {
                 tamanhoLabel.style.display = 'inline';
             });
+
             switch (this.value) {
                 case "PretoCaramelo":
                     ocultarTamanho("38");
@@ -412,10 +415,12 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
     function ocultarTamanho(valor) {
         var tamanhoInput = document.getElementById("tamanho" + valor);
         var tamanhoLabel = document.getElementById(valor);
         if (tamanhoInput && tamanhoLabel) {
+            tamanhoInput.setAttribute('disabled', 'disabled');
             tamanhoInput.style.display = 'none';
             tamanhoLabel.style.display = 'none';
         }
