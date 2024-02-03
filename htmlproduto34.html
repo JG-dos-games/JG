@@ -373,10 +373,9 @@ document.addEventListener('DOMContentLoaded', function() {
     var corInputs = document.querySelectorAll('input[name="cor"]');
     var tamanhoInputs = document.querySelectorAll('.tamanho-input');
     var tamanhoLabels = document.querySelectorAll('.tamanho-label');
-
+    var tamanhoOcultado = null; 
     corInputs.forEach(function(input) {
         input.addEventListener('change', function() {
-            // Habilitar todos os tamanhos antes de ocultar alguns
             tamanhoInputs.forEach(function(tamanhoInput) {
                 tamanhoInput.removeAttribute('disabled');
                 tamanhoInput.style.display = 'inline';
@@ -384,38 +383,39 @@ document.addEventListener('DOMContentLoaded', function() {
             tamanhoLabels.forEach(function(tamanhoLabel) {
                 tamanhoLabel.style.display = 'inline';
             });
-
+            if (tamanhoOcultado) {
+                tamanhoOcultado.checked = false;
+            }
             switch (this.value) {
                 case "PretoCaramelo":
-                    ocultarTamanho("38");
+                    tamanhoOcultado = ocultarTamanho("38");
                     break;
                 case "Marrom":
-                    ocultarTamanho("43");
-                    ocultarTamanho("45");
+                    tamanhoOcultado = ocultarTamanho("45");
+                    tamanhoOcultado = ocultarTamanho("43");
                     break;
                 case "Preto":
-                    ocultarTamanho("44");
-                    ocultarTamanho("45");
+                    tamanhoOcultado = ocultarTamanho("44");
+		    tamanhoOcultado = ocultarTamanho("45");
                     break;
                 case "MarromSimples":
-                    ocultarTamanho("44");
-                    ocultarTamanho("45");
+                    tamanhoOcultado = ocultarTamanho("44");
+		    tamanhoOcultado = ocultarTamanho("45");
                     break;
                 case "Camuflado":
-                    ocultarTamanho("38");
-                    ocultarTamanho("44");
-                    ocultarTamanho("45");
+                    tamanhoOcultado = ocultarTamanho("38");
+                    tamanhoOcultado = ocultarTamanho("44");
+		    tamanhoOcultado = ocultarTamanho("45");
                     break;
                 case "Caramelo":
-                    ocultarTamanho("44");
-                    ocultarTamanho("45");
+                    tamanhoOcultado = ocultarTamanho("44");
+		    tamanhoOcultado = ocultarTamanho("45");
                     break;
                 default:
                     break;
             }
         });
     });
-
     function ocultarTamanho(valor) {
         var tamanhoInput = document.getElementById("tamanho" + valor);
         var tamanhoLabel = document.getElementById(valor);
@@ -423,6 +423,7 @@ document.addEventListener('DOMContentLoaded', function() {
             tamanhoInput.setAttribute('disabled', 'disabled');
             tamanhoInput.style.display = 'none';
             tamanhoLabel.style.display = 'none';
+            return tamanhoInput;
         }
     }
 });
