@@ -22,7 +22,7 @@
         <option class="text-danger" value="acessorios">Acessórios</option>
         <option class="text-danger" value="eletronicos">Eletrônicos</option>
         <option class="text-danger" value="beleza">Beleza</option>
-        <option class="text-danger" value="ferramentas">Ferramentas</option>
+        <option class="text-danger" value="esportes">Esportes e Calçados</option>
         <option class="text-danger" value="papelaria">Papelaria</option>
 	<option class="text-danger" value="veiculos">Veículos</option>
 	<option class="text-danger" value="moda">Moda</option>
@@ -43,7 +43,7 @@
       <hr><div class="category" onclick="filterproducts('acessorios')" id="acessorios">Acessórios</div>
       <hr><div class="category" onclick="filterproducts('eletronicos')" id="eletronicos">Eletrônicos</div>
       <hr><div class="category" onclick="filterproducts('beleza')" id="beleza">Beleza</div>
-      <hr><div class="category" onclick="filterproducts('ferramentas')" id="ferramentas">Ferramentas</div>
+      <hr><div class="category" onclick="filterproducts('esportes')" id="esportes">Esportes/Calçados</div>
       <hr><div class="category" onclick="filterproducts('papelaria')" id="papelaria">Papelaria</div>
       <hr><div class="category" onclick="filterproducts('veiculos')" id="veiculos">Veículos</div>
       <hr><div class="category" onclick="filterproducts('moda')" id="moda">Moda</div>
@@ -69,13 +69,13 @@
 
 </div>
 <div class="inforproduto">
-<h5 class="nomeprodutopino">Fone De Ouvido A Fio FX-S8 Leon GTS Preto</h5>
+<h5 class="nomeprodutopino">Fone De Ouvido A Fio FX-S8 Leon GTS</h5>
 <a class="avaliacoes" href="https://www.instagram.com/va_imports__/">INSTAGRAM DA LOJA</a>
 <h1 class="precoprodutopino">R$20,00</h1>
 <p class="loja">VA Imports</p>
 <hr>
 <form id="colorForm" onsubmit="enviar()" action="https://api.sheetmonkey.io/form/7eqrTSyTcDuJHDqiJagaZS" method="post">
-<input type="hidden" name="produto" value="Fone De Ouvido A Fio FX-S8 Leon GTS Preto">
+<input type="hidden" name="produto" value="Fone De Ouvido A Fio FX-S8 Leon GTS">
 <input type="hidden" name="loja" value="VA Imports">
 
 <label for="frete" class="fretenome">Frete:</label><br>
@@ -83,7 +83,17 @@
 <span class="botaocalcular" onclick="calcular()">Calcular</span>
 <p id="frete">A taxa de entrega aparecerá aqui</p>
 <p id="precofrete"></p>
+
+	<label for="cor">Escolha uma cor:</label><br>
+	
+        <input class="cor" type="radio" name="cor" value="Branco" required> Branco
         
+        <input class="cor" type="radio" name="cor" value="Preto" required> Preto
+
+	<input class="cor" type="radio" name="cor" value="Preto" required> Vermelho
+
+        <input class="cor" type="radio" name="cor" value="Preto" required> Azul
+
         <hr>
         <label for="quantidade">Quantidade:</label><br>
         <input class="inputquant" type="number" id="quantidade" name="quantidade" min="1" value="1">
