@@ -89,8 +89,8 @@ function exibirCarrinho() {
     quanticarElement.textContent = quantidadeTotalProdutos.toString();
   }
   carrinho.forEach(function (produto, index) {
-    if (produto.quantidade > 1) {
-      produto.quantidade = 1;
+    if (produto.quantidade > 2) {
+      produto.quantidade = 2;
       alert('Você atingiu a quantidade máxima permitida.');
     }
     var nomeAbreviado = abreviarNomeProduto(produto.nome, 18);
