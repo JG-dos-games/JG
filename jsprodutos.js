@@ -122,7 +122,7 @@ function calcularPrecoTotal(produto) {
 function calcularPrecoTotalCarrinho() {
   var carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
   var precoTotalCarrinho = carrinho.reduce(function (total, produto) {
-    var quantidadeConsiderada = Math.min(produto.quantidade, 2);
+    var quantidadeConsiderada = Math.min(produto.quantidade, 1);
     return total + quantidadeConsiderada * produto.preco;
   }, 0);
   var precoTotalElement = document.getElementById('precoTotalCarrinho');
