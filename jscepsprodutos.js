@@ -219,7 +219,7 @@ function calculofinal() {
     if (Array.isArray(carrinho)) {
         var precoTotalCarrinho = 0;
         for (var i = 0; i < carrinho.length; i++) {
-	  var quantidadeConsiderada = Math.min(carrinho[i].quantidade, 1);
+	  var quantidadeConsiderada = Math.min(carrinho[i].quantidade, 2);
           precoTotalCarrinho += carrinho[i].preco * quantidadeConsiderada;
         }
         var precoft = obterPrecoft();
