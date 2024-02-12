@@ -335,6 +335,7 @@ function setPrecoCookie() {
     var frete = parseFloat(document.getElementById('precofrete').textContent.replace('R$', '').trim()) || 0;
     var precoTotal = (precoUnidade * quantidade) + frete;
     document.cookie = 'preco_produto=' + precoTotal.toFixed(2) + '; expires=Thu, 01 Jan 2030 00:00:00 UTC; path=/';
-}	
+}
+</script>
 </body>
 </html>
