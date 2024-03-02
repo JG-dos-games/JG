@@ -90,7 +90,8 @@
 <div class="inforproduto">
 <h5 class="nomeprodutopino">Tênis Puma Plataforma Feminino</h5>
 <a class="avaliacoes" href="https://www.instagram.com/elo.modaeacessorios/">INSTAGRAM DA LOJA</a>
-<h1 class="precoprodutopino">R$95,00</h1>
+<h5 class="text-danger"><s>R$95</s></h5> 
+<h1 class="precoprodutopino text-success">R$85,00</h1>
 <p class="loja">Elô Modas E Acessórios</p>
 <hr>
 <form id="colorForm" onsubmit="enviar()" action="https://api.sheetmonkey.io/form/7eqrTSyTcDuJHDqiJagaZS" method="post">
@@ -364,7 +365,7 @@
 /////////////////////////////////////////////////// COOKIE PREÇO //////////////////////////////////////////////////////////////////////////
 
 function setPrecoCookie() {
-    var precoUnidade = 95.00;
+    var precoUnidade = 85.00;
     var quantidade = parseInt(document.getElementById('quantidade').value) || 1; 
     var frete = parseFloat(document.getElementById('precofrete').textContent.replace('R$', '').trim()) || 0;
     var precoTotal = (precoUnidade * quantidade) + frete;
