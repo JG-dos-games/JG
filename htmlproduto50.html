@@ -102,7 +102,8 @@
 <div class="inforproduto">
 <h5 class="nomeprodutopino">Sandália Papete Feminina Rasteira e Tratorada</h5>
 <a class="avaliacoes" href="https://www.instagram.com/loja_jessymodas/">INSTAGRAM DA LOJA</a>
-<h1 class="precoprodutopino">R$125,00</h1>
+<h5 class="text-danger"><s>R$125</s></h5> 
+<h1 class="precoprodutopino text-success">R$112,00</h1>
 <p class="loja">Jessy Modas</p>
 <hr>
 <form id="colorForm" onsubmit="enviar()" action="https://api.sheetmonkey.io/form/7eqrTSyTcDuJHDqiJagaZS" method="post">
@@ -382,7 +383,7 @@
 /////////////////////////////////////////////////// COOKIE PREÇO //////////////////////////////////////////////////////////////////////////
 
 function setPrecoCookie() {
-    var precoUnidade = 125.00;
+    var precoUnidade = 112.00;
     var quantidade = parseInt(document.getElementById('quantidade').value) || 1; 
     var frete = parseFloat(document.getElementById('precofrete').textContent.replace('R$', '').trim()) || 0;
     var precoTotal = (precoUnidade * quantidade) + frete;
