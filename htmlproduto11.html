@@ -85,8 +85,7 @@
 <div class="inforproduto">
 <h5 class="nomeprodutopino">Conjunto No Tecido Scuba</h5>
 <a class="avaliacoes" href="https://www.instagram.com/_alcloset_moda/">INSTAGRAM DA LOJA</a>
-<h5 class="text-danger"><s>R$140</s></h5> 
-<h1 class="precoprodutopino text-success">R$126,00</h1>
+<h1 class="precoprodutopino">R$125,00</h1>
 <p class="loja">ALCloset</p>
 <hr>
 <form id="colorForm" onsubmit="enviar()" action="https://api.sheetmonkey.io/form/7eqrTSyTcDuJHDqiJagaZS" method="post">
@@ -305,7 +304,7 @@
 /////////////////////////////////////////////////// COOKIE PREÇO //////////////////////////////////////////////////////////////////////////
 
 function setPrecoCookie() {
-    var precoUnidade = 126.00;
+    var precoUnidade = 125.00;
     var quantidade = parseInt(document.getElementById('quantidade').value) || 1; 
     var frete = parseFloat(document.getElementById('precofrete').textContent.replace('R$', '').trim()) || 0;
     var precoTotal = (precoUnidade * quantidade) + frete;
