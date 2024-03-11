@@ -54,7 +54,7 @@ option {font-size: 15px;}
 
 .nomeproduto {margin-bottom: 0px;}
 
-.loja {font-size: 13px; color: grey}  
+.loja {font-size: 12px; color: grey}  
 
 .precoproduto {margin-top: 10px; color: #b81414;}
 
@@ -199,25 +199,3 @@ select {display: none;}
 .carousel-item-next.carousel-item-right,
 .carousel-item-prev.carousel-item-left,
 .carousel-item.active.carousel-item-right {opacity: 0;}
-
-/*______________________________________________________ Promocao ______________________________________________________________________*/
-   
-.logopromocao{background-color: #F2A6C9}
-
-.lgp {width: 15%;}
-
-.slideshow-container {position: relative;overflow-x: hidden;margin-left: 10%;margin-right: 10%;margin-top: -2%;margin-bottom: 10%;background-color: #ffcbdb}
-
-.promocao {display: flex;}
-
-.produto a {text-decoration:none; color: black;}
-
-.prev,
-.next {position: absolute;top: 50%;transform: translateY(-50%);background-color: rgba(255, 255, 255, 0.5);padding: 10px;cursor: pointer;transition: background-color 0.3s;}
-
-.prev:hover,
-.next:hover {background-color: rgba(255, 255, 255, 0.8);}
-
-.prev {left: 0;}
-
-.next {right: 0;}
