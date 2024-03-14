@@ -173,6 +173,8 @@ if (fretegratis.includes(ncep)) {
 } else if (ncep === null || ncep === "" || ncep != fretegratis) {
     txfrete.textContent = "CEP inválido.";
     txfrete.style.color = "red";
+    document.querySelector('.enviar').textContent = "Verificar CEP inválido";
+    document.querySelector('.enviar').disabled = true;
 }
 }
 
