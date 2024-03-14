@@ -152,11 +152,15 @@ if (fretegratis.includes(ncep)) {
     txfrete.textContent = "Chegará em até 2 dias gratuitamente.";
     npreco.style.display = 'none';
     txfrete.style.color = "green";
+    document.querySelector('.enviar').textContent = "Finalizar compra";
+    document.querySelector('.enviar').disabled = false;
 } else if (fretedez.includes(ncep)) {
     txfrete.textContent = "Chegará em até 2 dias por:";
     txfrete.style.color = "green";
     npreco.style.color = "green";
     npreco.textContent = "R$10,00";
+    document.querySelector('.enviar').textContent = "Finalizar compra";
+    document.querySelector('.enviar').disabled = false;
 } else if (fretequinze.includes(ncep)) {
     txfrete.textContent = "Chegará em até 2 dias por:";
     txfrete.style.color = "green";
@@ -167,6 +171,8 @@ if (fretegratis.includes(ncep)) {
     txfrete.style.color = "green";
     npreco.style.color = "green";
     npreco.textContent = "R$20,00";
+    document.querySelector('.enviar').textContent = "Finalizar compra";
+    document.querySelector('.enviar').disabled = false;
 } else if (indisponivel.includes(ncep)) {
     txfrete.textContent = "Entrega indisponível.";
     npreco.style.color = "red";
