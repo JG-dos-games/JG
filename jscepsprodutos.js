@@ -177,6 +177,9 @@ if (fretegratis.includes(ncep)) {
     if (botaoEnviar) {
         botaoEnviar.disabled = true;
     }
+    botaoEnviar.addEventListener("click", function(event) {
+        event.preventDefault();
+    });
 }
 }
 
