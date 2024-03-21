@@ -77,6 +77,10 @@
 
 <img id="color" class="thumbnail" src="https://i.postimg.cc/jSCnBJXG/2.png" alt="Miniatura 2" onclick="mudarImagem('https://i.postimg.cc/jSCnBJXG/2.png')">
 
+<img id="color" class="thumbnail" src="https://i.postimg.cc/XYtTvBFh/chuteira-nike-society.png" alt="Miniatura 3" onclick="mudarImagem('https://i.postimg.cc/XYtTvBFh/chuteira-nike-society.png')">
+
+<img id="color" class="thumbnail" src="https://i.postimg.cc/sDgFHrsn/chuteira-nike-society-2.png" alt="Miniatura 4" onclick="mudarImagem('https://i.postimg.cc/sDgFHrsn/chuteira-nike-society-2.png')">
+
 </div>
 
 
@@ -86,7 +90,7 @@
 <div class="inforproduto">
 <h5 class="nomeprodutopino">Chuteiras Nike Society</h5>
 <a class="avaliacoes" href="https://www.instagram.com/loja_jessymodas/">INSTAGRAM DA LOJA</a>
-<h1 class="precoprodutopino">R$90,00</h1>
+<h1 class="precoprodutopino">R$100,00</h1>
 <p class="loja">Jessy Modas</p>
 <hr>
 <form id="colorForm" onsubmit="enviar()" action="https://api.sheetmonkey.io/form/7eqrTSyTcDuJHDqiJagaZS" method="post">
@@ -108,6 +112,10 @@
         <input class="cor" id="cor" type="radio" name="cor" value="Preto"  onclick="mudarImagemCor('https://i.postimg.cc/cLJfZzsk/1.png')" required>Preto
         
         <input class="cor" id="cor" type="radio" name="cor" value="Branco"  onclick="mudarImagemCor('https://i.postimg.cc/jSCnBJXG/2.png')" required>Branco
+        
+        <input class="cor" id="cor" type="radio" name="cor" value="Rosa"  onclick="mudarImagemCor('https://i.postimg.cc/XYtTvBFh/chuteira-nike-society.png')" required>Rosa
+        
+        <input class="cor" id="cor" type="radio" name="cor" value="Vermelho"  onclick="mudarImagemCor('https://i.postimg.cc/sDgFHrsn/chuteira-nike-society-2.png')" required>Vermelho
         
 <hr>
         
@@ -404,6 +412,19 @@ document.addEventListener('DOMContentLoaded', function() {
                     tamanhoOcultado = ocultarTamanho("40");
                     tamanhoOcultado = ocultarTamanho("41");
                     tamanhoOcultado = ocultarTamanho("42");
+                    break;
+                case "Rosa":
+                	tamanhoOcultado = ocultarTamanho("34");
+                    tamanhoOcultado = ocultarTamanho("40");
+                    tamanhoOcultado = ocultarTamanho("41");
+                    tamanhoOcultado = ocultarTamanho("42");
+                    tamanhoOcultado = ocultarTamanho("43");
+                    break;
+                case "Vermelho":
+                    tamanhoOcultado = ocultarTamanho("40");
+                    tamanhoOcultado = ocultarTamanho("41");
+                    tamanhoOcultado = ocultarTamanho("42");
+                    tamanhoOcultado = ocultarTamanho("43");
                     break;
                 default:
                     break;
