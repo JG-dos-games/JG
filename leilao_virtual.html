@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro e Lances de Imóveis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        input, select, button {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #visualizar-lista {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Cadastro e Lances de Imóveis</h1>
+        <div id="form-section">
+            <h2>Cadastro de Imóveis</h2>
+            <input type="text" id="nome-imovel" placeholder="Nome do imóvel">
+            <input type="text" id="localizacao-imovel" placeholder="Localização do imóvel">
+            <input type="number" id="preco-inicial-imovel" placeholder="Preço inicial" step="0.01">
+            <button onclick="cadastrarImovel()">Cadastrar Imóvel</button>
+        </div>
+        <div id="lance-section">
+            <h2>Dar Lance</h2>
+            <select id="imoveis-select">
+                <option value="">Selecione um imóvel</option>
+            </select>
+            <input type="text" id="nome-comprador" placeholder="Seu nome">
+            <input type="number" id="valor-lance" placeholder="Valor do lance" step="0.01">
+            <button onclick="darLance()">Dar Lance</button>
+        </div>
+        <div id="visualizar-section">
+            <h2>Visualizar Imóveis</h2>
+            <button onclick="visualizarImoveis()">Visualizar Imóveis</button>
+            <div id="visualizar-lista"></div>
+        </div>
+        <div id="filtro-section">
+            <h2>Filtrar Imóveis</h2>
+            <button onclick="filtrarPorLocalizacao()">Filtrar por Localização</button>
+            <button onclick="filtrarPorPreco()">Filtrar por Preço</button>
+        </div>
+    </div>
+    <script>
+        let imoveis = [];
+        let lances = [];
+
+        function cadastrarImovel() {
+            const nome = document.getElementById('nome-imovel').value;
+            const localizacao = document.getElementById('localizacao-imovel').value;
+            const precoInicial = parseFloat(document.getElementById('preco-inicial-imovel').value);
+
+            if (!nome || !localizacao || isNaN(precoInicial)) {
+                alert("Por favor, preencha todos os campos corretamente.");
+                return;
+            }
+
+            const imovel = { nome, localizacao, precoInicial };
+            imoveis.push(imovel);
+            lances.push([]);
+
+            atualizarSelectImoveis();
+            alert("Imóvel cadastrado com sucesso!");
+        }
+
+        function darLance() {
+            const idImovel = document.getElementById('imoveis-select').value;
+            const comprador = document.getElementById('nome-comprador').value;
+            const valorLance = parseFloat(document.getElementById('valor-lance').value);
+
+            if (idImovel === "" || !comprador || isNaN(valorLance)) {
+                alert("Por favor, preencha todos os campos corretamente.");
+                return;
+            }
+
+            const id = parseInt(idImovel);
+            if (valorLance >= imoveis[id].precoInicial) {
+                imoveis[id].precoInicial = valorLance;
+                lances[id].push({ comprador, valorLance });
+                alert(`Lance de ${valorLance} dado por ${comprador} no imóvel ${imoveis[id].nome}.`);
+            } else {
+                alert("Lance rejeitado, valor menor que o preço inicial.");
+            }
+        }
+
+        function visualizarImoveis() {
+            const lista = document.getElementById('visualizar-lista');
+            lista.innerHTML = "";
+
+            if (imoveis.length === 0) {
+                lista.innerHTML = "Não há nenhum imóvel cadastrado.";
+                return;
+            }
+
+            imoveis.forEach((imovel, id) => {
+                lista.innerHTML += `<p>${id + 1}. ${imovel.nome} localizado(a) em ${imovel.localizacao} com o preço inicial de ${imovel.precoInicial}</p>`;
+            });
+        }
+
+        function atualizarSelectImoveis() {
+            const select = document.getElementById('imoveis-select');
+            select.innerHTML = '<option value="">Selecione um imóvel</option>';
+
+            imoveis.forEach((imovel, id) => {
+                select.innerHTML += `<option value="${id}">${imovel.nome}</option>`;
+            });
+        }
+
+        function filtrarPorLocalizacao() {
+            const localizacao = prompt("Digite a localização:");
+            if (!localizacao) return;
+
+            const resultado = imoveis.filter(imovel => imovel.localizacao.toLowerCase() === localizacao.toLowerCase());
+
+            if (resultado.length === 0) {
+                alert("Nenhum imóvel encontrado nesta localização.");
+            } else {
+                visualizarResultado(resultado);
+            }
+        }
+
+        function filtrarPorPreco() {
+            const preco = parseFloat(prompt("Digite o preço:"));
+            if (isNaN(preco)) return;
+
+            const resultado = imoveis.filter(imovel => imovel.precoInicial === preco);
+
+            if (resultado.length === 0) {
+                alert("Nenhum imóvel encontrado neste preço.");
+            } else {
+                visualizarResultado(resultado);
+            }
+        }
+
+        function visualizarResultado(imoveisFiltrados) {
+            const lista = document.getElementById('visualizar-lista');
+            lista.innerHTML = "";
+
+            imoveisFiltrados.forEach((imovel, id) => {
+                lista.innerHTML += `<p>${id + 1}. ${imovel.nome} localizado(a) em ${imovel.localizacao} com o preço inicial de ${imovel.precoInicial}</p>`;
+            });
+        }
+    </script>
+</body>
+</html>
